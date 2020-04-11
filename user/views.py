@@ -34,6 +34,7 @@ class SignUpView(View):
         if profile:
             return HttpResponseRedirect(reverse('login'))
 
+
 class ForgotPasswordView(View):
     def get(self, request):
         return render(request, 'forgotpassword.html')
