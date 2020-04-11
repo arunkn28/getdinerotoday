@@ -32,3 +32,8 @@ class SignUpView(View):
                                               data['last_name'], data['phone_number'])
         if profile:
             return HttpResponseRedirect(reverse('login'))
+
+
+class MyProgressView(View):
+    def get(self, request):
+        return ""
