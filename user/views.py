@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-
+from django.contrib.auth import views as auth_views
 from django.views import View
 from django.urls import reverse
 
@@ -40,16 +40,33 @@ class SignUpView(View):
             return HttpResponseRedirect(reverse('user:login'))
 
 
-class ForgotPasswordView(View):
+class PasswordResetView(auth_views.PasswordResetView):
+    @property
+    def template_name(self):
+        return 'forgotpassword.html'
+
+    @property
+    def success_url(self):
+        return reverse('user:password_reset_done')  # Goto password email send success page - Need page
+
+
+class PasswordResetConfirmView(auth_views.PasswordResetConfirmView):
+    @property
+    def template_name(self):
+        return 'resetPassword.html'
+
+    @property
+    def success_url(self):
+        return reverse('user:password_change_done')
+
+
+class PasswordResetDoneView(auth_views.PasswordResetDoneView):
+    pass
+
+
+class PasswordChangeDoneView(View):
     def get(self, request):
-        return render(request, 'forgotPassword.html')
-
-
-class ResetPasswordView(View):
-    def get(self, request):
-        return render(request, 'resetPassword.html')
-
-
+        return HttpResponse("Succesfully Changes password") #Need page for this  or redirect to login with message
 
 
 class MyProgressView(View):

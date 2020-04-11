@@ -19,10 +19,11 @@ from .views import HomePage
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('/', include('business.urls')),
-    url('^$', HomePage.as_view(), name='homepage'),
+    url('^$', login_required(HomePage.as_view(), login_url='/user/login'), name='homepage'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

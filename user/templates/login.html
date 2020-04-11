@@ -35,9 +35,9 @@
     <a class="btn btn-block btn-success btn-rounded box-shadow" href="{% url 'user:signup'%}">Create A New Account</a>
 <br>
 <p class=" text-center">Forgot Password?</p>
-<a class="btn btn-block btn-success btn-rounded box-shadow" href=" {% url 'user:forgot-password' %}">Reset Password</a>
 
-</form>        
+</form>
+<a class="btn btn-block btn-success btn-rounded box-shadow" href=" {% url 'user:password_change' %}">Reset Password</a>
 <style>
     .clearfix{
         height: 56px;
