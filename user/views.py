@@ -39,3 +39,7 @@ class ForgotPasswordView(View):
         return render(request, 'forgotpassword.html')
 
     
+
+class MyProgressView(View):
+    def get(self, request):
+        return ""
