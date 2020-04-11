@@ -25,7 +25,7 @@ class LoginView(View):
 
 class SignUpView(View):
     def get(self, request):
-        return HttpResponse("Signup")
+        return render(request, 'registration.html')
 
     def post(self, request):
         data = request.POST
