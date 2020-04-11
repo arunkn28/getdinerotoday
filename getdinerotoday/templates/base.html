@@ -9,14 +9,20 @@
     <title>MbbSoftwareupdate</title>
 
       <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
     <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/metismenu@2.7.9/dist/metisMenu.min.css">
+    {% block extrastyle %}
+        
+    {% endblock extrastyle %}
   </head>
 
   <body class=''>
-<!--    <% if params["controller"] != "devise/sessions" && (params["controller"] != "devise/registrations" || params["action"] == "edit") %>-->
+      {% comment %}
+        <% if params["controller"] != "devise/sessions" && (params["controller"] != "devise/registrations" || params["action"] == "edit") %>
+      {% endcomment %}
 
       <!-- ============================================================== -->
       <!--            Topbar Start              -->
@@ -25,13 +31,13 @@
          <div class="container-fluid">
             <div class="row">
                <div class="col">
-<!--                  <%= link_to root_path,:class=>"admin-logo dark-logo" do%>-->
+                  <a href="/" class="admin-logo dark-logo">
                      <h1>
                          <img src="{% static 'images/logo-default.png' %}" alt="getdinero">
-<!--                        <%= image_tag "logo-dark.png",:class=>"logo-icon margin-r-10" %>-->
-<!--                        <%#= image_tag "logo-default.png",:class=>"toggle-none hidden-xs" %>-->
-                     </h1>
-                  <% end %>
+                         <img src="{% static 'images/logo-dark.png' %}"  class="logo-icon margin-r-10">
+                         <img src="{% static 'images/logo-default.png' %}" class="toggle-none hidden-xs">
+                     </h1>                    
+                  </a>
                   <div class="left-nav-toggle" >
                      <a  href="#" class="nav-collapse"><i class="fa fa-bars"></i></a>
                   </div>
@@ -44,7 +50,7 @@
                </div>
                <div class="col">
                   <ul class="list-inline top-right-nav">
-                     <!-- <li class="dropdown icons-dropdown d-none-m">
+                    <!-- <li class="dropdown icons-dropdown d-none-m">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                            <i class="fa fa-envelope"></i>
                            <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
@@ -58,7 +64,7 @@
                                  <div class="notification-list">
                                     <a class="clearfix" href="javascript:%20void(0);">
                                     <span class="notification-icon">
-                                      <%= image_tag "avtar-2.png",:class=>"rounded-circle",:width=>"50" %>
+                                      <img src='{% static "images/avtar-2.png" %}' class="rounded-circle" width=>"50">
                                     </span>
                                     <span class="notification-title">
                                     John Doe
@@ -69,7 +75,7 @@
                                     </a>
                                     <a class="clearfix" href="javascript:%20void(0);">
                                     <span class="notification-icon">
-                                      <%= image_tag "avtar-3.png",:class=>"rounded-circle",:width=>"50" %>
+                                      <img src='{% static "images/avtar-3.png" %}' class="rounded-circle" width="50">
                                     </span>
                                     <span class="notification-title">
                                     Govindo Doe
@@ -80,7 +86,7 @@
                                     </a>
                                     <a class="clearfix" href="javascript:%20void(0);">
                                     <span class="notification-icon">
-                                      <%= image_tag "avtar-4.png",:class=>"rounded-circle",:width=>"50" %>
+                                      <img src="{% static 'images/avtar-4.png' %}" class="rounded-circle" width="50">
                                     </span>
                                     <span class="notification-title">
                                     Megan Doe
@@ -91,7 +97,7 @@
                                     </a>
                                     <a class="clearfix" href="javascript:%20void(0);">
                                     <span class="notification-icon">
-                                      <%= image_tag "avtar-5.png",:class=>"rounded-circle",:width=>"50" %>
+                                      <img src="{% static 'images/avtar-5.png' %}" class="rounded-circle" width="50">
                                     </span>
                                     <span class="notification-title">
                                     Hritik Doe
@@ -159,36 +165,29 @@
                      </li> -->
                      <li class="dropdown avtar-dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                          <%= image_tag "avtar-2.png",:class=>"rounded-circle",:width=>"30" %>
+                          <img src='{% static "images/avtar-2.png" %}' class="rounded-circle" width="30">
                         </a>
                         <ul class="dropdown-menu top-dropdown">
-                          <% if user_signed_in? %>
+                          {% if request.user.is_authenticated %}
                             <li>
-                              <%= link_to my_progress_path do %>
-                                <i class="icon-bell"></i> My Progress
-                              <% end %>
+                              <a href="#"><i class="icon-bell"></i>My Progress</a>
                             </li>
-                            <!--<li>
-                              <%#= link_to edit_user_registration_path do %>
-                                <i class="icon-user"></i> Profile
-                              <%# end %>
-                            </li>-->
                             <li>
-                              <%= link_to settings_path do %>
-                                <i class="icon-settings"></i> Settings</a>
-                              <% end %>
+                              <a href="#"><i class="icon-user"></i> Profile</a>
+                            </li>
+                            <li>
+                              <a href="#"><i class="icon-settings"></i> Settings</a></a>
                             </li>
                             <li class="dropdown-divider"></li>
                             <li>
-                                <%= link_to destroy_user_session_path, method: :delete, :class => 'dropdown-item' do  %>
-                                  <i class="icon-logout"></i> Logout
-                                <% end %>
-                            </li>
-
-                          <% else %>
-                              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-                              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-                          <% end %>
+                                <a href="#" class="dropdown-item">
+                                    <i class="icon-logout"></i> Logout
+                                </a>
+                            </li>                              
+                          {% else %}
+                            <a class="navbar-link" href="#">Sign up</a>
+                            <a class="navbar-link" href="#">Login</a>
+                          {% endif %}
                         </ul>
                      </li>
                   </ul>
@@ -215,50 +214,58 @@
                      <div class="tab-pane active" id="friends" role="tabcard">
                         <ul class="list-unstyled sidebar-contact-list">
                            <li class="clearfix">
-                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
-                              <%= image_tag "avtar-2.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span>
+                                <span class="float-left">
+                                <img src='{% static "images/avtar-2.png" %}' class="media-box-object rounded-circle" width="50">
+                              </span>
                               <span class="media-box-body"><span class="media-box-heading"><strong>John Doe</strong><br>
                               <small class="text-muted">Designer</small></span></span></a>
                            </li>
                            <li class="clearfix">
                               <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
-                              <%= image_tag "avtar-1.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <img src='{% static "images/avtar-1.png" %}' class="media-box-object rounded-circle" width="50"></span>
                               <span class="media-box-body"><span class="media-box-heading"><strong>Govinda Doe</strong><br>
                               <small class="text-muted">Designer</small></span></span></a>
                            </li>
                            <li class="clearfix">
                               <a class="media-box" href="#"><span class="float-right"><span class="circle circle-danger circle-lg"></span></span> <span class="float-left">
-                              <%= image_tag "avtar-3.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                                <img src='{% static "images/avtar-3.png" %}' class="media-box-object rounded-circle" width="50">
+                              </span>
                               <span class="media-box-body"><span class="media-box-heading"><strong>Megan Doe</strong><br>
                               <small class="text-muted">Designer</small></span></span></a>
                            </li>
                            <li class="clearfix">
                               <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
-                             <%= image_tag "avtar-4.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                               <img src='{% static "images/avtar-4.png" %}' class="media-box-object rounded-circle" width="50">
+                             </span>
                               <span class="media-box-body"><span class="media-box-heading"><strong>Hritik Doe</strong><br>
                               <small class="text-muted">Designer</small></span></span></a>
                            </li>
                            <li class="clearfix">
                               <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
-                              <%= image_tag "avtar-5.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                                <img src='{% static "images/avtar-5.png" %}' class="media-box-object rounded-circle" width="50">
+                              </span>
                               <span class="media-box-body"><span class="media-box-heading"><strong>Bianca Doe</strong><br>
                               <small class="text-muted">Designer</small></span></span></a>
                            </li>
                            <li class="clearfix">
                               <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
-                              <%= image_tag "avtar-6.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                                <img src='{% static "images/avtar-6.png" %}' class="media-box-object rounded-circle" width="50">
+                              </span>
                               <span class="media-box-body"><span class="media-box-heading"><strong>John Doe</strong><br>
                               <small class="text-muted">Designer</small></span></span></a>
                            </li>
                            <li class="clearfix">
                               <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
-                              <%= image_tag "avtar-1.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                                <img src='{% static "images/avtar-1.png" %}' class="media-box-object rounded-circle" width="50">
+                              </span>
                               <span class="media-box-body"><span class="media-box-heading"><strong>Govinda Doe</strong><br>
                               <small class="text-muted">Designer</small></span></span></a>
                            </li>
                            <li class="clearfix">
                               <a class="media-box" href="#"><span class="float-right"><span class="circle circle-danger circle-lg"></span></span> <span class="float-left">
-                              <%= image_tag "avtar-2.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                                <img src='{% static "images/avtar-2.png" %}' class="media-box-object rounded-circle" width="50">
+                              </span>
                               <span class="media-box-body"><span class="media-box-heading"><strong>Megan Doe</strong><br>
                               <small class="text-muted">Designer</small></span></span></a>
                            </li>
@@ -284,77 +291,87 @@
          <div class="nano">
             <div class="nano-content sidebar-nav">
                <div class="card-body border-bottom text-center nav-profile">
-                 <%= image_tag "avtar-2.png",:width=>"90",:class=>"rounded-circle mar-btm margin-b-10 box-shadow" %><br>
-                  <p class="lead margin-b-0 toggle-none"><%= current_user.first_name.to_s + " " + current_user.last_name.to_s %></p>
+                <img src='{% static "images/avtar-2.png" %}' width="90" class="rounded-circle mar-btm margin-b-10 box-shadow">
+                 <br>
+                  <p class="lead margin-b-0 toggle-none">
+                    {{ request.user.get_full_name }}
+                  </p>
                   <p class="text-muted mv-0 toggle-none">Welcome</p>
                </div>
                <ul class="metisMenu nav flex-column" id="menu">
                   <li class="nav-heading"><span>MAIN</span></li>
-                  <li class="nav-item"><%= link_to root_path,:class=>"nav-link" do %><span class="toggle-none">Dashboard</span><% end %></li>
-                  <li class="nav-item"><%= link_to "Create My Financing Plan",financing_path,:class=>"nav-link" %></li>
+                  <li class="nav-item">
+                    <a href="/" class="nav-link"><span class="toggle-none">Dashboard</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">Create My Financing Plan</a>
+                  </li>
                   <li class="nav-item">
                      <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"><span class="toggle-none">Business Credit Building <span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column " aria-expanded="false">
-                       <li class="nav-item"><%= link_to "Business Entity",businessentity_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Website Creation",website_creation_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Fax Number",fax_number_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "411 Listings",listings_411_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Professional Email Address",email_address_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Domain",domain_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Toll Free Number",toll_free_number_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Virtual Address",virtual_address_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Business Bank Account",business_bank_account_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Duns Number",dns_number_path,:class=>"nav-link" %></li>
+                       <li class="nav-item"><a href="#" class="nav-link">Business Entity</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Website Creation</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Fax Number</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">411 Listings</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Professional Email Address</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Domain</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Toll Free Number</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Virtual Address</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Business Bank Account</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Duns Number</a></li>
                      </ul>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Corporate Credit List<span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
-                        <li class="nav-item"><%= link_to "Starter Vendor List",starter_vendor_list_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Store Credit Vendor List",store_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Revolving Business Credit Vendor List",revolving_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Credit Card No Personal Gaurantee Vendor List",nopg_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Starter Vendor List</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Store Credit Vendor List</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Revolving Business Credit Vendor List</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Credit Card No Personal Gaurantee Vendor List</li>
                      </ul>
                   </li>
-                  <!-- <li class="nav-item">
+                  <li class="nav-item">
                      <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Financing Products<span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
-                        <li class="nav-item"><%= link_to "Revenue Lending",new_revenue_lending_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Term Loans",termloans_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Lines Of Credit",lineofcredit_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Short Term Loans",shorttermloan_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Personal Loans",personalloans_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Personal Credit Cards",personalcreditcards_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "No Credit Check Loans",nocreditcheckloans_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Business Credit Cards",businesscreditcards_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "SBA Loans",sbaloans_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Invoice Factoring",invoice_factoring_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Invoice Financing",invoice_financing_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Equipment Financing",equipmentfinancing_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Revenue Lending</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Term Loans</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Lines Of Credit</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Short Term Loans</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Personal Loans</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Personal Credit Cards</li>
+                        <li class="nav-item"><a href="#" class="nav-link">No Credit Check Loans</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Business Credit Cards</li>
+                        <li class="nav-item"><a href="#" class="nav-link">SBA Loans</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Invoice Factoring</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Invoice Financing</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Equipment Financing</li>
                      </ul>
-                  </li> -->
+                  </li>
                   <li class="nav-item">
                      <a class="nav-link" href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Marketing Your Business<span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
-                        <li class="nav-item"><%= link_to "Search Engine Optimizaton",seo_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Search Engine Marketing",sem_path,:class=>"nav-link" %></li>
-                        <li class="nav-item"><%= link_to "Social Media Marketing",smm_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Search Engine Optimizaton</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Search Engine Marketing</li>
+                        <li class="nav-item"><a href="#" class="nav-link">Social Media Marketing</li>
                      </ul>
                   </li>
                   <li class="nav-item">
-                    <li class="nav-item"><%= link_to "Create My Credit Repair Plan",creditsituation_path,:class=>"nav-link" %></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Create My Credit Repair Plan</li>
                   </li>
                   <li class="nav-item">
-                    <li class="nav-item"><%= link_to "Sign Up For Credit Repair",creditrepair_path,:class=>"nav-link" %></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Sign Up For Credit Repair</li>
                   </li>
                   <li class="nav-item">
-                    <li class="nav-item"><%= link_to "Buy Authorized User Tradelines",'https://millennialsbuildingbusinesses.com/collections/authorized-user-tradelines', :target => "_blank", :class=>"nav-link" %></li>
+                    <li class="nav-item">
+                      <a href="https://millennialsbuildingbusinesses.com/collections/authorized-user-tradelines" target => "_blank">
+                        Buy Authorized User Tradelines
+                    </li>
                   </li>
                   <li class="nav-item">
-                    <li class="nav-item"><%= link_to "Customer Support",customersupport_path,:class=>"nav-link" %></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Customer Support</li>
                   </li>
                   <li class="nav-item">
-                    <li class="nav-item"><%= link_to "Make Extra Money Referring Friends!",makeextramoney_path,:class=>"nav-link" %></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Make Extra Money Referring Friends</li>
                   </li>
                </ul>
             </div>
@@ -366,16 +383,49 @@
       <!-- ============================================================== -->
       <!--            Content Start             -->
       <!-- ============================================================== -->
-    <% end %>
-    <%= yield %>
+    {% comment %}
+      <% end %>
+      <% yeild %>
+    {% endcomment %}
 
-    <%= render 'layouts/bot_script_headers'%>
+    {% comment %}
+      {% include "layouts/bot_script_headers.html" %}
+    {% endcomment %}
+
+    {% block content %}
+        
+    {% endblock content %}
 
   </body>
-    <script src="{% static 'javascripts/jquery.min.js' %}"></script>
-    <script src="{% static 'lib/nano-scroll/jquery.nanoscroller.min.js' %}">
-    <script src="{% static 'lib/metisMenu/metisMenu.min.js' %}"></script>
+    {% comment %}
+        
+    {% endcomment %}
+    <script src="{% static 'lib/jquery/dist/jquery.min.js' %}"></script>
+    <script src='{% static "javascripts/jquery.ui.custom.js" %}'></script>
+    <script src='{% static "lib/bootstrap/js/popper.min.js" %}'></script>
+    <script src='{% static "lib/bootstrap/js/bootstrap.min.js" %}'></script>
+    <script src="{% static 'lib/nano-scroll/jquery.nanoscroller.min.js' %}"></script>
+    <script src='{% static "lib/metisMenu/metisMenu.min.js" %}'></script>
+
   <script type="text/javascript" src="https://chatterpal.me/build/js/chatpal.js?7.23" crossorigin="anonymous" data-cfasync="false"></script>
+    <script src='{% static "lib/slimscroll/jquery.slimscroll.min.js" %}'></script>
+    <script src='{% static "javascripts/active_admin.js" %}'></script>
+    <script src='{% static "javascripts/alertify.custom.js" %}'></script>
+    <script src='{% static "javascripts/application.js" %}'></script>
+    <script src='{% static "javascripts/custom.js" %}'></script>
+    <script src='{% static "javascripts/dashboard.js" %}'></script>
+    <script src='{% static "javascripts/flot.custom.js" %}'></script>
+    <script src='{% static "javascripts/fullcalendar.js" %}'></script>
+    <script src='{% static "javascripts/jquery.gmpas.js" %}'></script>
+
+    <script src='{% static "javascripts/jvectormap.custom.js" %}'></script>
+
+    <script src='{% static "javascripts/main.js" %}'></script>
+    <script src='{% static "javascripts/morris.custom.js" %}'></script>
+    <script src='{% static "javascripts/radial.custom.js" %}'></script>
+    <script src='{% static "javascripts/rickshaw.custom.js" %}'></script>
+
+    <script src='{% static "javascripts/sparkline.custom.js" %}'></script>
     <script>
     var chatPal = new ChatPal({embedId: 'DfT7BnTm5dGn', remoteBaseUrl: 'https://chatterpal.me/', version: '7.23'});
     </script>
@@ -400,9 +450,9 @@
           $("#right-sidebar-toggle").toggleClass("right-sidebar-toggle");
       });
 
-<!--    //metis menu-->
-<!--     $('#menu').metisMenu();-->
-
+        //metis menu-->
+        $('#menu').metisMenu();
+          
       //slim scroll
       $('.scrollDiv').slimScroll({
           color: '#eee',
