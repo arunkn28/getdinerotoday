@@ -112,3 +112,4 @@ sent_emails/
 .idea/
 media/
 staticfiles/
+db.sqlite3
