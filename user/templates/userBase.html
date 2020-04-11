@@ -17,26 +17,8 @@
             <img class="toggle-none hidden-xs" src="/static/images/logo.png" />
           </div>
           <div class="misc-box">
-            <form class="new_user" id="new_user" action="/user/login" accept-charset="UTF-8">{% csrf_token %}
-                <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="hpv2224WW/OVAuoAeAmrE65J29xZhPcs14HIScCiiT2k8SKDLsUnhcqo1iK6ArjyazztH18GY97TMFohoL2h8Q==" />
-                <div class="form-group">
-                  <label for="user_email">Email</label>
-                  <div class="group-icon">
-                    <input autofocus="autofocus" autocomplete="email" placeholder="Email" class="form-control" required="required" type="email" value="" name="user[email]" id="user_email" />
-                    <span class="icon-lock text-muted icon-input"></span>
-                  </div>
+            {% block content %}{% endblock %}
                 </div>
-
-                <div class="clearfix">
-
-                  <div class="float-right">
-                    <input type="submit" name="commit" value="Send me reset password instructions" class="btn btn-block btn-primary btn-rounded box-shadow" data-disable-with="Send me reset password instructions" />
-                  </div>
-                </div>
-                <br>
-                <p class=" text-center">Do Not Have An Account?</p>
-                <a class="btn btn-block btn-success btn-rounded box-shadow" href="/user/login">Login</a>
-</form>          </div>
           <style media="screen">
                       img {
                       height: 150px;
@@ -106,7 +88,7 @@ label {
 .group-icon .form-control {
     padding-right: 40px;
 }
-input[type="text"], input[type="email"] {
+input {
     font-size: 13px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -124,6 +106,9 @@ input[type="text"], input[type="email"] {
     color: #555;
     background-color: #fff;
     background-image: none;
+}
+.float-left {
+    float: left !important;
 }
 .form-control {
     box-shadow: 0 0 0 #000 !important;
@@ -145,6 +130,24 @@ input[type="text"], input[type="email"] {
     border-radius: 100px;
     -webkit-border-radius: 100px;
     overflow: hidden;
+}
+.checkbox {
+    padding-left: 5px;
+}   
+.margin-r-5 {
+    margin-right: 5px !important;
+}
+.checkbox label {
+    font-weight: 300;
+    display: block;
+    padding-left: 30px;
+    position: relative;
+}
+.checkbox input[type="checkbox"] {
+    cursor: pointer;
+    opacity: 0;
+    z-index: 1;
+    outline: none !important;
 }
 .btn.box-shadow {
     -webkit-box-shadow: 0px 6px 15px 0px rgba(0,0,0,0.1);
@@ -194,9 +197,7 @@ p {
     margin-top: 0;
     margin-bottom: 1rem;
 }
-.clearfix{
-    height: 40px;
-}
+
 .btn-success {
     background-color: #7bcb4d !important;
     border-color: #7bcb4d !important;

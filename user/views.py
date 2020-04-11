@@ -10,7 +10,7 @@ from django.shortcuts import render
 
 class LoginView(View):
     def get(self, request):
-        return HttpResponse("Hello")
+        return render(request, 'login.html')
 
     def post(self, request):
         data = request.POST
@@ -36,7 +36,7 @@ class SignUpView(View):
 
 class ForgotPasswordView(View):
     def get(self, request):
-        return render(request, 'forgotpassword.html')
+        return render(request, 'forgotPassword.html')
 
     
 
