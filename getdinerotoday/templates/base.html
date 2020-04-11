@@ -1,0 +1,421 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MbbSoftwareupdate</title>
+
+      <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet">
+  </head>
+
+  <body class=''>
+<!--    <% if params["controller"] != "devise/sessions" && (params["controller"] != "devise/registrations" || params["action"] == "edit") %>-->
+
+      <!-- ============================================================== -->
+      <!--            Topbar Start              -->
+      <!-- ============================================================== -->
+      <div class="top-bar light-top-bar">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col">
+<!--                  <%= link_to root_path,:class=>"admin-logo dark-logo" do%>-->
+                     <h1>
+                         <img src="{% static 'images/logo-default.png' %}" alt="getdinero">
+<!--                        <%= image_tag "logo-dark.png",:class=>"logo-icon margin-r-10" %>-->
+<!--                        <%#= image_tag "logo-default.png",:class=>"toggle-none hidden-xs" %>-->
+                     </h1>
+                  <% end %>
+                  <div class="left-nav-toggle" >
+                     <a  href="#" class="nav-collapse"><i class="fa fa-bars"></i></a>
+                  </div>
+                  <div class="left-nav-collapsed" >
+                     <a  href="#" class="nav-collapsed"><i class="fa fa-bars"></i></a>
+                  </div>
+                  <div class="search-form hidden-xs">
+
+                  </div>
+               </div>
+               <div class="col">
+                  <ul class="list-inline top-right-nav">
+                     <!-- <li class="dropdown icons-dropdown d-none-m">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                           <i class="fa fa-envelope"></i>
+                           <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        </a>
+                        <ul class="dropdown-menu top-dropdown lg-dropdown notification-dropdown">
+                           <li>
+                              <div class="dropdown-header">
+                                 <a class="float-right" href="#"><small>View All</small></a> Messages
+                              </div>
+                              <div class="scrollDiv">
+                                 <div class="notification-list">
+                                    <a class="clearfix" href="javascript:%20void(0);">
+                                    <span class="notification-icon">
+                                      <%= image_tag "avtar-2.png",:class=>"rounded-circle",:width=>"50" %>
+                                    </span>
+                                    <span class="notification-title">
+                                    John Doe
+                                    <label class="label label-warning float-right">Support</label>
+                                    </span>
+                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
+                                    <span class="notification-time">15 minutes ago</span>
+                                    </a>
+                                    <a class="clearfix" href="javascript:%20void(0);">
+                                    <span class="notification-icon">
+                                      <%= image_tag "avtar-3.png",:class=>"rounded-circle",:width=>"50" %>
+                                    </span>
+                                    <span class="notification-title">
+                                    Govindo Doe
+                                    <label class="label label-warning float-right">Support</label>
+                                    </span>
+                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
+                                    <span class="notification-time">15 minutes ago</span>
+                                    </a>
+                                    <a class="clearfix" href="javascript:%20void(0);">
+                                    <span class="notification-icon">
+                                      <%= image_tag "avtar-4.png",:class=>"rounded-circle",:width=>"50" %>
+                                    </span>
+                                    <span class="notification-title">
+                                    Megan Doe
+                                    <label class="label label-warning float-right">Support</label>
+                                    </span>
+                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
+                                    <span class="notification-time">15 minutes ago</span>
+                                    </a>
+                                    <a class="clearfix" href="javascript:%20void(0);">
+                                    <span class="notification-icon">
+                                      <%= image_tag "avtar-5.png",:class=>"rounded-circle",:width=>"50" %>
+                                    </span>
+                                    <span class="notification-title">
+                                    Hritik Doe
+                                    <label class="label label-warning float-right">Support</label>
+                                    </span>
+                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
+                                    <span class="notification-time">15 minutes ago</span>
+                                    </a>
+                                 </div>
+                              </div>
+                           </li>
+                        </ul>
+                     </li>
+                     <li class="dropdown icons-dropdown d-none-m">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                           <i class="fa fa-bell"></i>
+                           <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        </a>
+                        <ul class="dropdown-menu top-dropdown lg-dropdown notification-dropdown">
+                           <li>
+                              <div class="dropdown-header">
+                                 <a class="float-right" href="#"><small>View All</small></a> Notifications
+                              </div>
+                              <div class="scrollDiv">
+                                 <div class="notification-list">
+                                    <a class="clearfix" href="javascript:%20void(0);">
+                                    <span class="notification-icon">
+                                    <i class="icon-cloud-upload text-primary"></i>
+                                    </span>
+                                    <span class="notification-title">Upload Complete</span>
+                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
+                                    <span class="notification-time">15 minutes ago</span>
+                                    </a>
+                                    <a class="clearfix" href="javascript:%20void(0);">
+                                    <span class="notification-icon">
+                                    <i class="icon-info text-warning"></i>
+                                    </span>
+                                    <span class="notification-title">Storage Space low</span>
+                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
+                                    <span class="notification-time">15 minutes ago</span>
+                                    </a>
+                                    <a class="clearfix" href="javascript:%20void(0);">
+                                    <span class="notification-icon">
+                                    <i class="icon-check text-success"></i>
+                                    </span>
+                                    <span class="notification-title">Project Task Complete</span>
+                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
+                                    <span class="notification-time">15 minutes ago</span>
+                                    </a>
+                                    <a class="clearfix" href="javascript:%20void(0);">
+                                    <span class="notification-icon">
+                                    <i class=" icon-graph text-danger"></i>
+                                    </span>
+                                    <span class="notification-title">CPU Usage</span>
+                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
+                                    <span class="notification-time">15 minutes ago</span>
+                                    </a>
+                                 </div>
+                              </div>
+                           </li>
+                        </ul>
+                     </li>
+                     <li class="dropdown d-none-m">
+                        <a class="right-sidebar-toggle" href="javascript:%20void(0);"><i class="fa fa-align-right"></i></a>
+                     </li> -->
+                     <li class="dropdown avtar-dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                          <%= image_tag "avtar-2.png",:class=>"rounded-circle",:width=>"30" %>
+                        </a>
+                        <ul class="dropdown-menu top-dropdown">
+                          <% if user_signed_in? %>
+                            <li>
+                              <%= link_to my_progress_path do %>
+                                <i class="icon-bell"></i> My Progress
+                              <% end %>
+                            </li>
+                            <!--<li>
+                              <%#= link_to edit_user_registration_path do %>
+                                <i class="icon-user"></i> Profile
+                              <%# end %>
+                            </li>-->
+                            <li>
+                              <%= link_to settings_path do %>
+                                <i class="icon-settings"></i> Settings</a>
+                              <% end %>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <%= link_to destroy_user_session_path, method: :delete, :class => 'dropdown-item' do  %>
+                                  <i class="icon-logout"></i> Logout
+                                <% end %>
+                            </li>
+
+                          <% else %>
+                              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+                              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+                          <% end %>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- ============================================================== -->
+      <!--                        Topbar End                              -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!--                        Right Side Start                        -->
+      <!-- ============================================================== -->
+      <nav class="toggle-sidebar" id="right-sidebar-toggle">
+         <div class="nano">
+            <div class="nano-content">
+               <div>
+                  <ul class="list-inline nav-tab-card clearfix" role="tablist">
+                     <li class="active" role="presentation">
+                        <a aria-controls="friends" data-toggle="tab" href="#friends" role="tab">Friends</a>
+                     </li>
+                  </ul>
+                  <div class="tab-content">
+                     <div class="tab-pane active" id="friends" role="tabcard">
+                        <ul class="list-unstyled sidebar-contact-list">
+                           <li class="clearfix">
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
+                              <%= image_tag "avtar-2.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <span class="media-box-body"><span class="media-box-heading"><strong>John Doe</strong><br>
+                              <small class="text-muted">Designer</small></span></span></a>
+                           </li>
+                           <li class="clearfix">
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
+                              <%= image_tag "avtar-1.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <span class="media-box-body"><span class="media-box-heading"><strong>Govinda Doe</strong><br>
+                              <small class="text-muted">Designer</small></span></span></a>
+                           </li>
+                           <li class="clearfix">
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-danger circle-lg"></span></span> <span class="float-left">
+                              <%= image_tag "avtar-3.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <span class="media-box-body"><span class="media-box-heading"><strong>Megan Doe</strong><br>
+                              <small class="text-muted">Designer</small></span></span></a>
+                           </li>
+                           <li class="clearfix">
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
+                             <%= image_tag "avtar-4.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <span class="media-box-body"><span class="media-box-heading"><strong>Hritik Doe</strong><br>
+                              <small class="text-muted">Designer</small></span></span></a>
+                           </li>
+                           <li class="clearfix">
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
+                              <%= image_tag "avtar-5.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <span class="media-box-body"><span class="media-box-heading"><strong>Bianca Doe</strong><br>
+                              <small class="text-muted">Designer</small></span></span></a>
+                           </li>
+                           <li class="clearfix">
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
+                              <%= image_tag "avtar-6.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <span class="media-box-body"><span class="media-box-heading"><strong>John Doe</strong><br>
+                              <small class="text-muted">Designer</small></span></span></a>
+                           </li>
+                           <li class="clearfix">
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-success circle-lg"></span></span> <span class="float-left">
+                              <%= image_tag "avtar-1.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <span class="media-box-body"><span class="media-box-heading"><strong>Govinda Doe</strong><br>
+                              <small class="text-muted">Designer</small></span></span></a>
+                           </li>
+                           <li class="clearfix">
+                              <a class="media-box" href="#"><span class="float-right"><span class="circle circle-danger circle-lg"></span></span> <span class="float-left">
+                              <%= image_tag "avtar-2.png",:class=>"media-box-object rounded-circle",:width=>"50" %></span>
+                              <span class="media-box-body"><span class="media-box-heading"><strong>Megan Doe</strong><br>
+                              <small class="text-muted">Designer</small></span></span></a>
+                           </li>
+                           <li>
+                              <div class=" text-center">
+                                 <a class="btn btn-teal" href="javascript:void(0);" title="See more contacts">Load more..</a>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <!-- ============================================================== -->
+      <!--                        Right Side End                          -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!--            Navigation Start            -->
+      <!-- ============================================================== -->
+      <div class="main-sidebar-nav dark-navigation">
+         <div class="nano">
+            <div class="nano-content sidebar-nav">
+               <div class="card-body border-bottom text-center nav-profile">
+                 <%= image_tag "avtar-2.png",:width=>"90",:class=>"rounded-circle mar-btm margin-b-10 box-shadow" %><br>
+                  <p class="lead margin-b-0 toggle-none"><%= current_user.first_name.to_s + " " + current_user.last_name.to_s %></p>
+                  <p class="text-muted mv-0 toggle-none">Welcome</p>
+               </div>
+               <ul class="metisMenu nav flex-column" id="menu">
+                  <li class="nav-heading"><span>MAIN</span></li>
+                  <li class="nav-item"><%= link_to root_path,:class=>"nav-link" do %><span class="toggle-none">Dashboard</span><% end %></li>
+                  <li class="nav-item"><%= link_to "Create My Financing Plan",financing_path,:class=>"nav-link" %></li>
+                  <li class="nav-item">
+                     <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"><span class="toggle-none">Business Credit Building <span class="fa arrow"></span></span></a>
+                     <ul class="nav-second-level nav flex-column " aria-expanded="false">
+                       <li class="nav-item"><%= link_to "Business Entity",businessentity_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Website Creation",website_creation_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Fax Number",fax_number_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "411 Listings",listings_411_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Professional Email Address",email_address_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Domain",domain_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Toll Free Number",toll_free_number_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Virtual Address",virtual_address_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Business Bank Account",business_bank_account_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Duns Number",dns_number_path,:class=>"nav-link" %></li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Corporate Credit List<span class="fa arrow"></span></span></a>
+                     <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
+                        <li class="nav-item"><%= link_to "Starter Vendor List",starter_vendor_list_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Store Credit Vendor List",store_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Revolving Business Credit Vendor List",revolving_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Credit Card No Personal Gaurantee Vendor List",nopg_path,:class=>"nav-link" %></li>
+                     </ul>
+                  </li>
+                  <!-- <li class="nav-item">
+                     <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Financing Products<span class="fa arrow"></span></span></a>
+                     <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
+                        <li class="nav-item"><%= link_to "Revenue Lending",new_revenue_lending_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Term Loans",termloans_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Lines Of Credit",lineofcredit_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Short Term Loans",shorttermloan_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Personal Loans",personalloans_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Personal Credit Cards",personalcreditcards_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "No Credit Check Loans",nocreditcheckloans_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Business Credit Cards",businesscreditcards_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "SBA Loans",sbaloans_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Invoice Factoring",invoice_factoring_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Invoice Financing",invoice_financing_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Equipment Financing",equipmentfinancing_path,:class=>"nav-link" %></li>
+                     </ul>
+                  </li> -->
+                  <li class="nav-item">
+                     <a class="nav-link" href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Marketing Your Business<span class="fa arrow"></span></span></a>
+                     <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
+                        <li class="nav-item"><%= link_to "Search Engine Optimizaton",seo_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Search Engine Marketing",sem_path,:class=>"nav-link" %></li>
+                        <li class="nav-item"><%= link_to "Social Media Marketing",smm_path,:class=>"nav-link" %></li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                    <li class="nav-item"><%= link_to "Create My Credit Repair Plan",creditsituation_path,:class=>"nav-link" %></li>
+                  </li>
+                  <li class="nav-item">
+                    <li class="nav-item"><%= link_to "Sign Up For Credit Repair",creditrepair_path,:class=>"nav-link" %></li>
+                  </li>
+                  <li class="nav-item">
+                    <li class="nav-item"><%= link_to "Buy Authorized User Tradelines",'https://millennialsbuildingbusinesses.com/collections/authorized-user-tradelines', :target => "_blank", :class=>"nav-link" %></li>
+                  </li>
+                  <li class="nav-item">
+                    <li class="nav-item"><%= link_to "Customer Support",customersupport_path,:class=>"nav-link" %></li>
+                  </li>
+                  <li class="nav-item">
+                    <li class="nav-item"><%= link_to "Make Extra Money Referring Friends!",makeextramoney_path,:class=>"nav-link" %></li>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- ============================================================== -->
+      <!--            Navigation End              -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!--            Content Start             -->
+      <!-- ============================================================== -->
+    <% end %>
+    <%= yield %>
+
+    <%= render 'layouts/bot_script_headers'%>
+
+  </body>
+    <script src="{% static 'javascripts/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/nano-scroll/jquery.nanoscroller.min.js' %}">
+    <script src="{% static 'lib/metisMenu/metisMenu.min.js' %}"></script>
+  <script type="text/javascript" src="https://chatterpal.me/build/js/chatpal.js?7.23" crossorigin="anonymous" data-cfasync="false"></script>
+    <script>
+    var chatPal = new ChatPal({embedId: 'DfT7BnTm5dGn', remoteBaseUrl: 'https://chatterpal.me/', version: '7.23'});
+    </script>
+  <script>
+    $(".nano").nanoScroller();
+
+    // Left menu collapse
+    $('.left-nav-toggle a').on('click', function (event) {
+        event.preventDefault();
+        $("body").toggleClass("nav-toggle");
+    });
+
+    // Left menu collapse
+      $('.left-nav-collapsed a').on('click', function (event) {
+          event.preventDefault();
+          $("body").toggleClass("nav-collapsed");
+      });
+
+    // Left menu collapse
+      $('.right-sidebar-toggle').on('click', function (event) {
+          event.preventDefault();
+          $("#right-sidebar-toggle").toggleClass("right-sidebar-toggle");
+      });
+
+<!--    //metis menu-->
+<!--     $('#menu').metisMenu();-->
+
+      //slim scroll
+      $('.scrollDiv').slimScroll({
+          color: '#eee',
+          size: '5px',
+          height: '293px',
+          alwaysVisible: false
+      });
+
+    //tooltip popover
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();
+  </script>
+
+{% block javascriptblock %}
+{% endblock javascriptblock %}
+</html>
