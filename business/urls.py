@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 
 from .views import *
 
+app_name = 'business'
 urlpatterns = [
     url('upgrade/', login_required(UpgradeView.as_view(), login_url='/user/login'), name='upgrade'),
     url('financing/', login_required(FinancingView.as_view(), login_url='/user/login'), name='financing'),
@@ -86,7 +87,7 @@ urlpatterns = [
         name='business-credit-course'),
     url('customer-financing/', login_required(OfferFinancingToCustomer.as_view(), login_url='/user/login'),
         name='customer-financing'),
-    url('apply-business-loans/', login_required(ApplyingForBusinessLoans.as_view(), login_url='/user/login'),
+    url('apply-business-loans', login_required(ApplyingForBusinessLoans.as_view(), login_url='/user/login'),
         name='apply-business-loans'),
     url('credit-repair/', login_required(CreditRepairSignUp.as_view(), login_url='/user/login'),
         name='credit-repair'),
