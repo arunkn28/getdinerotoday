@@ -1,6 +1,9 @@
 {% extends "userBase.html" %}
 
 {% block content %}
+{% if error %}
+<p class=" text-center"><font size="3" color="red">{{error}}</font></p>
+{% endif %}
 <form class="new_user" id="new_user" action="{% url 'user:login'%}" accept-charset="UTF-8" method="post">
     {% csrf_token %}
     <div class="form-group">
