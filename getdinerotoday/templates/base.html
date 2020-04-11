@@ -7,13 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>MbbSoftwareupdate</title>
-
-      <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
-    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/metismenu@2.7.9/dist/metisMenu.min.css">
+    <link rel="stylesheet" type="text/css" href='{% static "lib/metisMenu/metisMenu.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "lib/bootstrap/css/bootstrap.min.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "lib/vectormap/jquery-jvectormap-2.0.2.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "lib/chart-c3/c3.min.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "lib/chartjs/chartjs-sass-default.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "lib/datatables/jquery.dataTables.min.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "lib/datatables/responsive.bootstrap.min.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "lib/toast/jquery.toast.min.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>    
     {% block extrastyle %}
         
     {% endblock extrastyle %}
@@ -50,119 +52,6 @@
                </div>
                <div class="col">
                   <ul class="list-inline top-right-nav">
-                    <!-- <li class="dropdown icons-dropdown d-none-m">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                           <i class="fa fa-envelope"></i>
-                           <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
-                        </a>
-                        <ul class="dropdown-menu top-dropdown lg-dropdown notification-dropdown">
-                           <li>
-                              <div class="dropdown-header">
-                                 <a class="float-right" href="#"><small>View All</small></a> Messages
-                              </div>
-                              <div class="scrollDiv">
-                                 <div class="notification-list">
-                                    <a class="clearfix" href="javascript:%20void(0);">
-                                    <span class="notification-icon">
-                                      <img src='{% static "images/avtar-2.png" %}' class="rounded-circle" width=>"50">
-                                    </span>
-                                    <span class="notification-title">
-                                    John Doe
-                                    <label class="label label-warning float-right">Support</label>
-                                    </span>
-                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
-                                    <span class="notification-time">15 minutes ago</span>
-                                    </a>
-                                    <a class="clearfix" href="javascript:%20void(0);">
-                                    <span class="notification-icon">
-                                      <img src='{% static "images/avtar-3.png" %}' class="rounded-circle" width="50">
-                                    </span>
-                                    <span class="notification-title">
-                                    Govindo Doe
-                                    <label class="label label-warning float-right">Support</label>
-                                    </span>
-                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
-                                    <span class="notification-time">15 minutes ago</span>
-                                    </a>
-                                    <a class="clearfix" href="javascript:%20void(0);">
-                                    <span class="notification-icon">
-                                      <img src="{% static 'images/avtar-4.png' %}" class="rounded-circle" width="50">
-                                    </span>
-                                    <span class="notification-title">
-                                    Megan Doe
-                                    <label class="label label-warning float-right">Support</label>
-                                    </span>
-                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
-                                    <span class="notification-time">15 minutes ago</span>
-                                    </a>
-                                    <a class="clearfix" href="javascript:%20void(0);">
-                                    <span class="notification-icon">
-                                      <img src="{% static 'images/avtar-5.png' %}" class="rounded-circle" width="50">
-                                    </span>
-                                    <span class="notification-title">
-                                    Hritik Doe
-                                    <label class="label label-warning float-right">Support</label>
-                                    </span>
-                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
-                                    <span class="notification-time">15 minutes ago</span>
-                                    </a>
-                                 </div>
-                              </div>
-                           </li>
-                        </ul>
-                     </li>
-                     <li class="dropdown icons-dropdown d-none-m">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                           <i class="fa fa-bell"></i>
-                           <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
-                        </a>
-                        <ul class="dropdown-menu top-dropdown lg-dropdown notification-dropdown">
-                           <li>
-                              <div class="dropdown-header">
-                                 <a class="float-right" href="#"><small>View All</small></a> Notifications
-                              </div>
-                              <div class="scrollDiv">
-                                 <div class="notification-list">
-                                    <a class="clearfix" href="javascript:%20void(0);">
-                                    <span class="notification-icon">
-                                    <i class="icon-cloud-upload text-primary"></i>
-                                    </span>
-                                    <span class="notification-title">Upload Complete</span>
-                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
-                                    <span class="notification-time">15 minutes ago</span>
-                                    </a>
-                                    <a class="clearfix" href="javascript:%20void(0);">
-                                    <span class="notification-icon">
-                                    <i class="icon-info text-warning"></i>
-                                    </span>
-                                    <span class="notification-title">Storage Space low</span>
-                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
-                                    <span class="notification-time">15 minutes ago</span>
-                                    </a>
-                                    <a class="clearfix" href="javascript:%20void(0);">
-                                    <span class="notification-icon">
-                                    <i class="icon-check text-success"></i>
-                                    </span>
-                                    <span class="notification-title">Project Task Complete</span>
-                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
-                                    <span class="notification-time">15 minutes ago</span>
-                                    </a>
-                                    <a class="clearfix" href="javascript:%20void(0);">
-                                    <span class="notification-icon">
-                                    <i class=" icon-graph text-danger"></i>
-                                    </span>
-                                    <span class="notification-title">CPU Usage</span>
-                                    <span class="notification-description">Lorem Ipsum is simply dummy text of the printing.</span>
-                                    <span class="notification-time">15 minutes ago</span>
-                                    </a>
-                                 </div>
-                              </div>
-                           </li>
-                        </ul>
-                     </li>
-                     <li class="dropdown d-none-m">
-                        <a class="right-sidebar-toggle" href="javascript:%20void(0);"><i class="fa fa-align-right"></i></a>
-                     </li> -->
                      <li class="dropdown avtar-dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                           <img src='{% static "images/avtar-2.png" %}' class="rounded-circle" width="30">
@@ -395,37 +284,38 @@
     {% block content %}
         
     {% endblock content %}
-
+    <footer class="footer">
+       <span>Copyright © {% now "Y" %} Get Dinero Today / Need Help? Give Us A Call At 844-874-7572</span>
+    </footer>
   </body>
-    {% comment %}
-        
-    {% endcomment %}
-    <script src="{% static 'lib/jquery/dist/jquery.min.js' %}"></script>
-    <script src='{% static "javascripts/jquery.ui.custom.js" %}'></script>
+
+    <script src='{% static "lib/jquery/dist/jquery.min.js" %}'></script>
+    <script src='{% static "jquery_ujs.js" %}'></script>
     <script src='{% static "lib/bootstrap/js/popper.min.js" %}'></script>
     <script src='{% static "lib/bootstrap/js/bootstrap.min.js" %}'></script>
-    <script src="{% static 'lib/nano-scroll/jquery.nanoscroller.min.js' %}"></script>
-    <script src='{% static "lib/metisMenu/metisMenu.min.js" %}'></script>
 
-  <script type="text/javascript" src="https://chatterpal.me/build/js/chatpal.js?7.23" crossorigin="anonymous" data-cfasync="false"></script>
+    <script src='{% static "lib/jasny-bootstrap/js/jasny-bootstrap.min.js" %}'></script>
     <script src='{% static "lib/slimscroll/jquery.slimscroll.min.js" %}'></script>
-    <script src='{% static "javascripts/active_admin.js" %}'></script>
-    <script src='{% static "javascripts/alertify.custom.js" %}'></script>
-    <script src='{% static "javascripts/application.js" %}'></script>
-    <script src='{% static "javascripts/custom.js" %}'></script>
-    <script src='{% static "javascripts/dashboard.js" %}'></script>
-    <script src='{% static "javascripts/flot.custom.js" %}'></script>
-    <script src='{% static "javascripts/fullcalendar.js" %}'></script>
-    <script src='{% static "javascripts/jquery.gmpas.js" %}'></script>
+    <script src='{% static "lib/nano-scroll/jquery.nanoscroller.min.js" %}'></script>
+    <script src='{% static "lib/metisMenu/metisMenu.min.js" %}'></script>
+    <script src='{% static "custom.js" %}'></script>
 
-    <script src='{% static "javascripts/jvectormap.custom.js" %}'></script>
+    <script src='{% static "lib/chartjs/chart.min.js" %}'></script>
+    <script src='{% static "lib/chartjs/chartjs-sass.js" %}'></script>
 
-    <script src='{% static "javascripts/main.js" %}'></script>
-    <script src='{% static "javascripts/morris.custom.js" %}'></script>
-    <script src='{% static "javascripts/radial.custom.js" %}'></script>
-    <script src='{% static "javascripts/rickshaw.custom.js" %}'></script>
+    <script src='{% static "lib/vectormap/jquery-jvectormap-2.0.2.min.js" %}'></script>
+    <script src='{% static "lib/vectormap/jquery-jvectormap-us-aea-en.js" %}'></script>
 
-    <script src='{% static "javascripts/sparkline.custom.js" %}'></script>
+    <script src='{% static "lib/chart-c3/d3.min.js" %}'></script>
+    <script src='{% static "lib/chart-c3/c3.min.js" %}'></script>
+
+    <script src='{% static "lib/datatables/jquery.dataTables.min.js" %}'></script>
+    <script src='{% static "lib/datatables/dataTables.responsive.min.js" %}'></script>
+    <script src='{% static "lib/toast/jquery.toast.min.js" %}'></script>
+    <script src='{% static "dashboard.js" %}'></script>
+
+    <script src='{% static "activestorage.js" %}'></script>
+
     <script>
     var chatPal = new ChatPal({embedId: 'DfT7BnTm5dGn', remoteBaseUrl: 'https://chatterpal.me/', version: '7.23'});
     </script>
