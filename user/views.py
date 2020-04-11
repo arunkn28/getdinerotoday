@@ -16,11 +16,11 @@ class LoginView(View):
         data = request.POST
         username = data['username']
         password = data['password']
-        user = authenticate(request, username, password)
+        user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
         else:
-            return HttpResponse(status=404, data={'msg': 'Invalid User'})
+            return HttpResponseRedirect(reverse('login'))
 
 
 class SignUpView(View):
