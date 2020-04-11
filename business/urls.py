@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 
 from .views import *
 
+app_name = 'business'
 urlpatterns = [
     url('upgrade', login_required(UpgradeView.as_view(), login_url='/user/login'), name='upgrade'),
     url('financing', login_required(FinancingView.as_view(), login_url='/user/login'), name='financing'),
@@ -16,13 +17,21 @@ urlpatterns = [
         name='ein'),
     url('business-license', login_required(BusinessLicenseView.as_view(), login_url='/user/login'),
         name='business-license'),
-    url('website-creation', login_required(WebsiteCreationView.as_view(), login_url='/user/login'),
+    url('website-creation-options', WebsiteCreationOptionsView.as_view(),
+        name='website-creation-options'), 
+    url('website-creation-paid', WebsiteCreationPaidView.as_view(),
+        name='website-creation-paid'),    
+    url('website-creation',WebsiteCreationView.as_view(),
         name='website-creation'),
-    url('fax-number', login_required(FaxNumberView.as_view(), login_url='/user/login'),
+    url('fax-number-options', FaxNumberOptionsView.as_view(),
+        name='fax-number-options'),
+    url('fax-number-paid', FaxNumberPaidView.as_view(),
+        name='fax-number-paid'),
+    url('fax-number', FaxNumberView.as_view(),
         name='fax-number'),
-    url('four-eleven', login_required(FourElevenListing.as_view(), login_url='/user/login'),
+    url('four-eleven', FourElevenListingView.as_view(),
         name='four-eleven'),
-    url('professional-email', login_required(ProfessionalEmailAddress.as_view(), login_url='/user/login'),
+    url('professional-email', ProfessionalEmailAddress.as_view(),
         name='professional-email'),
     url('domain', login_required(DomainView.as_view(), login_url='/user/login'),
         name='domain'),

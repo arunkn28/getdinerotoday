@@ -9,7 +9,7 @@ class UpgradeView(View):
 
 class FinancingView(View):
     def get(self, request):
-        return ""
+        return render(request, 'financing.html')
 
 
 class BusinessCreditBuildingPlanView(View):
@@ -36,25 +36,43 @@ class BusinessLicenseView(View):
     def get(self, request):
         return ""
 
+class WebsiteCreationOptionsView(View):
+    def get(self, request):
+        return render(request, 'websiteCreationOptions.html')
+
+class WebsiteCreationPaidView(View):
+    def get(self, request):
+        return render(request, 'websiteCreationPaid.html')
+
 
 class WebsiteCreationView(View):
     def get(self, request):
-        return ""
+        return render(request, 'websiteCreation.html')
+
+
+class FaxNumberOptionsView(View):
+    def get(self, request):
+        return render(request, 'faxNumberOptions.html')
+
+class FaxNumberPaidView(View):
+    def get(self, request):
+        return render(request, 'faxNumberPaid.html')
 
 
 class FaxNumberView(View):
     def get(self, request):
-        return ""
+        return render(request, 'faxNumber.html')
 
 
-class FourElevenListing(View):
+class FourElevenListingView(View):
     def get(self, request):
-        return ""
+        return render(request, 'FourElevenListing.html')
 
 
 class ProfessionalEmailAddress(View):
     def get(self, request):
-        return ""
+        return render(request, 'professionalEmailAddress.html')
+
 
 
 class DomainView(View):
