@@ -5,6 +5,7 @@ from django.views import View
 from django.urls import reverse
 
 from .models import Profile
+from django.shortcuts import render
 
 
 class LoginView(View):
@@ -32,3 +33,9 @@ class SignUpView(View):
                                               data['last_name'], data['phone_number'])
         if profile:
             return HttpResponseRedirect(reverse('login'))
+
+class ForgotPasswordView(View):
+    def get(self, request):
+        return render(request, 'forgotpassword.html')
+
+    
