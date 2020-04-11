@@ -10,17 +10,17 @@ from django.shortcuts import render
 
 class LoginView(View):
     def get(self, request):
-        return HttpResponse("Hello")
+        return render(request, 'login.html')
 
     def post(self, request):
         data = request.POST
         username = data['username']
         password = data['password']
-        user = authenticate(request, username, password)
+        user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
         else:
-            return HttpResponse(status=404, data={'msg': 'Invalid User'})
+            return HttpResponseRedirect(reverse('login'))
 
 
 class SignUpView(View):
@@ -37,7 +37,7 @@ class SignUpView(View):
 
 class ForgotPasswordView(View):
     def get(self, request):
-        return render(request, 'forgotpassword.html')
+        return render(request, 'forgotPassword.html')
 
     
 
