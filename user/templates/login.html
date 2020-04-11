@@ -1,38 +1,38 @@
 {% extends "userBase.html" %}
 
 {% block content %}
-<form class="new_user" id="new_user" action="" accept-charset="UTF-8" method="post">{% csrf_token %}
-  <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="hZIVC2Br064paTN7P5pZyCJA3o97mbbGZEPTD6XqedYKTO7pnu3pjTLiOKQ+yyDF7Pe2YzTscJys2JDKB8j/Sg==" />
+<form class="new_user" id="new_user" action="{% url 'user:login'%}" accept-charset="UTF-8" method="post">
+    {% csrf_token %}
     <div class="form-group">
         <label for="user_email">Email</label>
         <div class="group-icon">
-          <input autofocus="autofocus" autocomplete="email" placeholder="Email" class="form-control" required="required" type="email" value="" name="user[email]" id="user_email" />
+          <input autofocus="autofocus" autocomplete="email" placeholder="Email" class="form-control" required="required" type="email" value="" name="username" id="user_email" />
           <span class="icon-user text-muted icon-input"></span>
         </div>
     </div>
     <div class="form-group">
         <label for="user_password">Password</label><br />
         <div class="group-icon">
-          <input autocomplete="current-password" placeholder="Password" class="form-control" required="required" type="password" name="user[password]" id="user_password" />
+          <input autocomplete="current-password" placeholder="Password" class="form-control" required="required" type="password" name="password" id="user_password" />
           <span class="icon-lock text-muted icon-input"></span>
         </div>
     </div>
     <div class="clearfix" >
-        <div class="float-left">
-          <div class="checkbox checkbox-primary margin-r-5">
-            <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
-            <label for="user_remember_me">Remember me</label>
-          </div>
-        </div>
+<!--        <div class="float-left">-->
+<!--          <div class="checkbox checkbox-primary margin-r-5">-->
+<!--            <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />-->
+<!--            <label for="user_remember_me">Remember me</label>-->
+<!--          </div>-->
+<!--        </div>-->
         <div class="float-right">
           <input type="submit" name="commit" style="height: 40px;" value="Log in" class="btn btn-block btn-primary btn-rounded box-shadow" data-disable-with="Log in" />
         </div>
     </div><br>
     <p class=" text-center">Do Not Have An Account Register Below?</p>
-    <a class="btn btn-block btn-success btn-rounded box-shadow" href="{% url 'signup' %}">Create A New Account</a>
+    <a class="btn btn-block btn-success btn-rounded box-shadow" href="{% url 'user:signup'%}">Create A New Account</a>
 <br>
 <p class=" text-center">Forgot Password?</p>
-<a class="btn btn-block btn-success btn-rounded box-shadow" href=" {% url 'forgot-password' %}">Reset Password</a>
+<a class="btn btn-block btn-success btn-rounded box-shadow" href=" {% url 'user:forgot-password' %}">Reset Password</a>
 
 </form>        
 <style>

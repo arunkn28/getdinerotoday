@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 
 from .views import LoginView, SignUpView, MyProgressView,ForgotPasswordView
 
+app_name = 'user'
 urlpatterns = [
     url('login', LoginView.as_view(), name='login'),
     url('signup', SignUpView.as_view(), name='signup'),
