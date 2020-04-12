@@ -19,4 +19,18 @@ class DomainResource(resources.ModelResource):
 class DomainAdmin(ImportExportModelAdmin):
     resource_class = DomainResource
 
+
 admin.site.register(Domain, DomainAdmin)
+
+
+class LenderResource(resources.ModelResource):
+    class Meta:
+        model = Lender
+
+
+class LenderAdmin(ImportExportModelAdmin):
+    resource_class = LenderResource
+
+
+admin.site.register(Lender, LenderAdmin)
+

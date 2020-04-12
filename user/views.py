@@ -47,7 +47,7 @@ class PasswordResetView(auth_views.PasswordResetView):
 
     @property
     def success_url(self):
-        return reverse('user:password_reset_done')  # Goto password email send success page - Need page
+        return reverse('user:password_reset_done')
 
 
 class PasswordResetConfirmView(auth_views.PasswordResetConfirmView):
@@ -61,12 +61,14 @@ class PasswordResetConfirmView(auth_views.PasswordResetConfirmView):
 
 
 class PasswordResetDoneView(auth_views.PasswordResetDoneView):
-    pass
+    @property
+    def template_name(self):
+        return 'password-reset-email-sent.html'
 
 
 class PasswordChangeDoneView(View):
     def get(self, request):
-        return HttpResponse("Succesfully Changes password") #Need page for this  or redirect to login with message
+        return render(request, 'login.html', {"password_change_msg": "Successfully changed password"})
 
 
 class MyProgressView(View):
