@@ -24,6 +24,6 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
-    path('/', include('business.urls')),
+    path('', include('business.urls')),
     url('^$', login_required(HomePage.as_view(), login_url='/user/login'), name='homepage'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

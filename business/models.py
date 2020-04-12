@@ -78,7 +78,7 @@ class Lender(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     report_to = models.CharField(max_length=50)
     monthly_payment = models.CharField(max_length=15)
-    estimated_term = models.DateField()
+    estimated_term = models.CharField(max_length=50)
     payment_terms = models.CharField(max_length=50)
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField()
