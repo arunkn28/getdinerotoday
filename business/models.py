@@ -75,13 +75,19 @@ class Lender(models.Model):
     class Meta:
         db_table = 'lender'
     name = models.CharField(max_length=50)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    description = models.CharField(max_length=500)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     report_to = models.CharField(max_length=50)
     monthly_payment = models.CharField(max_length=15)
     estimated_term = models.CharField(max_length=50)
+    estimated_amount = models.CharField(max_length=50)
     payment_terms = models.CharField(max_length=50)
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    terms = models.CharField(max_length=50)
+    created_at = models.DateTimeField(null=True)
+    updated_at = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return self.name
 
 
 class LinesOfCredit(models.Model):
