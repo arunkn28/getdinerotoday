@@ -199,19 +199,36 @@
                   <li class="nav-item">
                      <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"><span class="toggle-none">Business Credit Building <span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column " aria-expanded="false">
-                       <li class="nav-item"><a href="#" class="nav-link">Business Entity</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Business Entity</a></li>
+                        <li class="nav-item"><a href="{% url 'business:ein' %}" class="nav-link">EIN Number</a></li>
+                        <li class="nav-item"><a href="{% url 'business:business-license'%}" class="nav-link">Business License</a></li>
                         <li class="nav-item"><a href="{% url 'business:website-creation' %}" class="nav-link">Website Creation</a></li>
                         <li class="nav-item"><a href="{% url 'business:fax-number' %}" class="nav-link">Fax Number</a></li>
                         <li class="nav-item"><a href="{% url 'business:four-eleven' %}" class="nav-link">411 Listings</a></li>
                         <li class="nav-item"><a href="{% url 'business:professional-email'%}" class="nav-link">Professional Email Address</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Domain</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Toll Free Number</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Virtual Address</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Business Bank Account</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Duns Number</a></li>
+                        <li class="nav-item"><a href="{% url 'business:domain'%}" class="nav-link">Domain</a></li>
+                        <li class="nav-item"><a href="{% url 'business:toll-free-options'%}" class="nav-link">Toll Free Number</a></li>
+                        <li class="nav-item"><a href="{% url 'business:virtual-address'%}" class="nav-link">Virtual Address</a></li>
+                        <li class="nav-item"><a href="{% url 'business:business-bank-account'%}" class="nav-link">Business Bank Account</a></li>
+                        <li class="nav-item"><a href="{% url 'business:merchant-account'%}" class="nav-link">Merchant Account</a></li>
+                        <li class="nav-item"><a href="{% url 'business:duns'%}" class="nav-link">Duns Number</a></li>
+                        <li class="nav-item"><a href="{% url 'business:sic'%}" class="nav-link">SIC & NAISC Codes</a></li>
+                        <li class="nav-item"><a href="{% url 'business:business-good-standing'%}" class="nav-link">Checking If Your Business Is In Good Standing  </a></li>
+                        <li class="nav-item"><a href="{% url 'business:business-in-good-standing'%}" class="nav-link">How To Get Your Business Back In Good Standing</a></li>
                      </ul>
                   </li>
                   <li class="nav-item">
+                     <a href="{% url 'business:business-credit-step'%}" class="nav-link"> Choose Business Credit Building Steps You Need Done For You </a>
+                   </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none"> Business Credit Bureaus To Become Established With  <span class="fa arrow"></span></span></a>
+                     <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
+                        <li class="nav-item"><a href="{% url 'business:experian'%}" class="nav-link"> Experian Business </li>
+                        <li class="nav-item"><a href="{% url 'business:dunn-brad'%}" class="nav-link"> Dunn & Bradsheet </li>
+                        <li class="nav-item"><a href="{% url 'business:equifax'%}" class="nav-link"> Equifax Business </li>
+                     </ul>
+                  </li>
+                   <li class="nav-item">
                      <a class="nav-link" href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Corporate Credit List<span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
                         <li class="nav-item"><a href="#" class="nav-link">Starter Vendor List</li>
@@ -220,6 +237,7 @@
                         <li class="nav-item"><a href="#" class="nav-link">Credit Card No Personal Gaurantee Vendor List</li>
                      </ul>
                   </li>
+                  
                   <li class="nav-item">
                      <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Financing Products<span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
