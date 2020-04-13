@@ -60,7 +60,7 @@
                         <ul class="dropdown-menu top-dropdown">
                           {% if request.user.is_authenticated %}
                             <li>
-                              <a href="#"><i class="icon-bell"></i>My Progress</a>
+                              <a href="{% url 'user:myprogress' %}"><i class="icon-bell"></i>My Progress</a>
                             </li>
                             <li>
                               <a href="#"><i class="icon-user"></i> Profile</a>
