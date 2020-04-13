@@ -1,6 +1,14 @@
-<!-- ============================================================== -->
-<!-- 						Content Start	 						-->
-<!-- ============================================================== -->
+{% extends "base.html" %}
+
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 <div class="row page-header">
   <div class="col-lg-6 align-self-center ">
   </div>
@@ -10,17 +18,21 @@
     <div class="col-md-4">
       <div class="widget white-bg">
         <div class="padding-20 text-center">
-          <%= image_tag "avtar-2.png",:width=>"140",:class=>"rounded-circle mar-btm margin-b-10 box-shadow" %>
-          <p class="lead font-500 margin-b-0"><%= current_user.first_name.to_s + " " + current_user.last_name.to_s %></p>
+          <img src="{% static 'images/avtar-2.png' %}" class="rounded-circle mar-btm margin-b-10 box-shadow" width="140">
+          <p class="lead font-500 margin-b-0">
+            {{ request.user.get_full_name|title }}
+          </p>
           <p class="text-sm margin-b-0">Check All Of Your Portal Information</p>
         </div>
       </div>
       <div class='widget white-bg friends-group clearfix' id="user_edit">
         <small class="text-muted">Email address </small>
-        <p><%= current_user.email %></p>
+        <p>{{ request.user.email }}</p>
         <small class="text-muted">Phone</small>
-        <p><%= current_user.phone %></p>
-        <p><%= link_to 'Edit', edit_user_path(current_user), remote: true %></p>
+        <p>{{ request.user.phone }}</p>
+        <p>
+          <a href="#">Edit</a>
+        </p>
       </div>
     </div>
     <div class="col-md-8 col-xs-12">
@@ -46,7 +58,10 @@
       </div>
     </div>
   </div>
-</section>
-<!-- ============================================================== -->
-<!-- 						Content End 							-->
-<!-- ============================================================== -->
+</section>  
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}

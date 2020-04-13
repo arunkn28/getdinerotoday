@@ -214,17 +214,17 @@ class NoCreditCheckFinancing(View):
 
 class InvoiceFactoring(View):
     def get(self, request):
-        return "home/invoice_factoring.html"
+        return render(request, "home/invoice_factoring.html")
 
 
 class InvoiceFinancing(View):
     def get(self, request):
-        return "home/invoice_financing.html"
+        return render(request, "home/invoice_financing.html")
 
 
 class EquipmentFinancing(View):
     def get(self, request):
-        return "home/equipmentfincing.html"
+        return render(request, "home/equipmentfincing.html")
 
 
 class MarketingYourBusiness(View):
@@ -244,7 +244,7 @@ class OfferFinancingToCustomer(View):
 
 class ApplyingForBusinessLoans(View):
     def get(self, request):
-        return "home/applyforloan.html"
+        return render(request, "home/applyforloan.html")
 
 
 class CreditRepairSignUp(View):
@@ -259,24 +259,24 @@ class CreditPrimaryTradeLines(View):
 
 class BusinessCreditRepair(View):
     def get(self, request):
-        return "home/businesscreditrepair.html"
+        return render(request, "home/businesscreditrepair.html")
 
 
 class BusinessCreditMonitoringSingUp(View):
     def get(self, request):
-        return "home/businesscreditmonitoring.html"
+        return render(request, "home/businesscreditmonitoring.html")
 
 
 class BusinessCreditCardStrategy(View):
     def get(self, request):
-        return "home/businesscreditcardstrategy.html"
+        return render(request, "home/businesscreditcardstrategy.html")
 
 
 class MoneyReferringFriends(View):
     def get(self, request):
-        return "home/makeextramoney.html"
+        return render(request, "home/makeextramoney.html")
 
 
 class InsuranceProduct(View):
     def get(self, request):
-        return "home/insurance.html"
+        return render(request, "home/insurance.html")
