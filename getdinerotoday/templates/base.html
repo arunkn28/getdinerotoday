@@ -36,9 +36,9 @@
                <div class="col">
                   <a href="/" class="admin-logo dark-logo">
                      <h1>
-                         <img src="{% static 'images/logo-default.png' %}" alt="getdinero">
-                         <img src="{% static 'images/logo-dark.png' %}"  class="logo-icon margin-r-10">
-                         <img src="{% static 'images/logo-default.png' %}" class="toggle-none hidden-xs">
+                        <img src="{% static 'images/logo-default.png' %}" alt="getdinero">
+                         <!--<img src="{% static 'images/logo-dark.png' %}"  class="logo-icon margin-r-10"> -->
+                         <!-- <img src="{% static 'images/logo-default.png' %}" class="toggle-none hidden-xs"> -->
                      </h1>                    
                   </a>
                   <div class="left-nav-toggle" >
@@ -60,7 +60,7 @@
                         <ul class="dropdown-menu top-dropdown">
                           {% if request.user.is_authenticated %}
                             <li>
-                              <a href="#"><i class="icon-bell"></i>My Progress</a>
+                              <a href="{% url 'user:myprogress' %}"><i class="icon-bell"></i>My Progress</a>
                             </li>
                             <li>
                               <a href="#"><i class="icon-user"></i> Profile</a>
@@ -324,7 +324,6 @@
     <footer class="footer">
        <span>Copyright © {% now "Y" %} Get Dinero Today / Need Help? Give Us A Call At 844-874-7572</span>
     </footer>
-  </body>
 
     <script src='{% static "lib/jquery/dist/jquery.min.js" %}'></script>
     <script src='{% static "lib/jquery-ui/jquery-ui.min.js" %}'></script>
@@ -354,7 +353,7 @@
     <script src='{% static "activestorage.js" %}'></script>
 
     <script>
-    var chatPal = new ChatPal({embedId: 'DfT7BnTm5dGn', remoteBaseUrl: 'https://chatterpal.me/', version: '7.23'});
+    // var chatPal = new ChatPal({embedId: 'DfT7BnTm5dGn', remoteBaseUrl: 'https://chatterpal.me/', version: '7.23'});
     </script>
   <script>
     $(".nano").nanoScroller();
@@ -395,4 +394,5 @@
 
 {% block javascriptblock %}
 {% endblock javascriptblock %}
+  </body>
 </html>

@@ -1,6 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 
             <div class="row page-header"><div class="col-lg-6 align-self-center ">
-			  <h2>Store Credit Vendors</h2></div></div>
+        <h2>Store Credit Vendors</h2></div></div>
 
         <section class="main-content">
 
@@ -31,14 +42,16 @@
                                 </thead>
 
                                 <tbody>
-                                  <% @store_credits.each do |store_credit| %>
-                                    <tr>
-                                        <td><%= store_credit.name %></td>
-                                        <td><%= store_credit.category.try(:title) %></td>
-                                        <td><%= store_credit.reports_to %></td>
-                                        <td><%= link_to "Click Here For More Details",starter_vendor_detail_path(store_credit.id),:class=>"btn btn-primary" %></td>
-                                    </tr>
-                                  <% end %>
+                                 {% for store_credit in store_credits %}
+                                   <tr>
+                                       <td>{{ store_credit.name }}</td>
+                                       <td>{{ store_credit.category }}</td>
+                                       <td>{{ store_credit.reports_to }}</td>
+                                       <td>
+                                         <a class="btn btn-primary" href="{{ store_credit.get_absolute_url }}">Click Here For More Details</a>
+                                       </td>
+                                   </tr>                             
+                                 {% endfor %}
                                 </tbody>
                               </table>
                           </div>
@@ -59,3 +72,10 @@
             </div>
 
         </section>
+  
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}
