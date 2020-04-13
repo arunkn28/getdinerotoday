@@ -194,12 +194,24 @@
                     <a href="/" class="nav-link"><span class="toggle-none">Dashboard</span></a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">Create My Financing Plan</a>
+                    <a href="{% url 'business:upgrade' %}" class="nav-link">Upgrade to Full Business Builder Program with No Money Down</a>
                   </li>
+                  <li class="nav-item">
+                     <a href="" class="nav-link"> Watch Webinar On Building Business Credit </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:financing' %}" class="nav-link"> Create My Financing Plan </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:business-credit-plan' %}" class="nav-link"> Create My Business Credit Building Plan </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{ }" class="nav-link"> Create My Credit Repair Plan </a>
+                   </li>
                   <li class="nav-item">
                      <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"><span class="toggle-none">Business Credit Building <span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column " aria-expanded="false">
-                        <li class="nav-item"><a href="#" class="nav-link">Business Entity</a></li>
+                        <li class="nav-item"><a href="{% url 'business:business-entity' %}" class="nav-link">Business Entity</a></li>
                         <li class="nav-item"><a href="{% url 'business:ein' %}" class="nav-link">EIN Number</a></li>
                         <li class="nav-item"><a href="{% url 'business:business-license'%}" class="nav-link">Business License</a></li>
                         <li class="nav-item"><a href="{% url 'business:website-creation' %}" class="nav-link">Website Creation</a></li>
@@ -231,56 +243,62 @@
                    <li class="nav-item">
                      <a class="nav-link" href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Corporate Credit List<span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
-                        <li class="nav-item"><a href="#" class="nav-link">Starter Vendor List</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Store Credit Vendor List</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Revolving Business Credit Vendor List</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Credit Card No Personal Gaurantee Vendor List</li>
+                        <li class="nav-item"><a href="{% url 'business:vendor-list'%}" class="nav-link">Starter Vendor List</li>
+                        <li class="nav-item"><a href="{% url 'business:store-credit-vendor-list'%}" class="nav-link">Store Credit Vendor List</li>
+                        <li class="nav-item"><a href="{% url 'business:business-credit-vendor'%}" class="nav-link">Revolving Business Credit Vendor List</li>
+                        <li class="nav-item"><a href="{% url 'business:cc-credit-vendor'%}" class="nav-link">Credit Card No Personal Gaurantee Vendor List</li>
                      </ul>
                   </li>
                   
                   <li class="nav-item">
-                     <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Financing Products<span class="fa arrow"></span></span></a>
+                     <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Full List Of Financing Products<span class="fa arrow"></span></span></a>
                      <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
-                        <li class="nav-item"><a href="#" class="nav-link">Revenue Lending</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Term Loans</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Lines Of Credit</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Short Term Loans</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Personal Loans</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Personal Credit Cards</li>
-                        <li class="nav-item"><a href="#" class="nav-link">No Credit Check Loans</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Business Credit Cards</li>
-                        <li class="nav-item"><a href="#" class="nav-link">SBA Loans</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Invoice Factoring</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Invoice Financing</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Equipment Financing</li>
+                        <li class="nav-item"><a href="{% url 'business:personal-credit-card' %}" class="nav-link">Personal Credit Cards</li>
+                        <li class="nav-item"><a href="{% url 'business:business-credit-card' %}" class="nav-link">Business Credit Cards</li>
+                        <li class="nav-item"><a href="{% url 'business:short-term-loan' %}" class="nav-link">Short Term Loans</li>
+                        <li class="nav-item"><a href="{% url 'business:business-term-loan' %}" class="nav-link">Business Term Loans</li>
+                        <li class="nav-item"><a href="{% url 'business:small-business-loan' %}" class="nav-link">Small Business Adminstration Loans</li>
+                        <li class="nav-item"><a href="{% url 'business:personal-loan' %}" class="nav-link">Personal Loans</li>   
+                        <li class="nav-item"><a href="{% url 'business:business-line-credit' %}" class="nav-link">Business Lines Of Credit</li>
+                        <li class="nav-item"><a href="{% url 'business:nocredit-financing' %}" class="nav-link">No Credit Check Loans</li>
+                        <li class="nav-item"><a href="{% url 'business:invoice-factoring' %}" class="nav-link">Invoice Factoring</li>
+                        <li class="nav-item"><a href="{% url 'business:invoice-financing' %}" class="nav-link">Invoice Financing</li>
+                        <li class="nav-item"><a href="{% url 'business:equipment-financing' %}" class="nav-link">Equipment Financing</li>
                      </ul>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="javascript: void(0);" aria-expanded="false"> <span class="toggle-none">Marketing Your Business<span class="fa arrow"></span></span></a>
-                     <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="false">
-                        <li class="nav-item"><a href="#" class="nav-link">Search Engine Optimizaton</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Search Engine Marketing</li>
-                        <li class="nav-item"><a href="#" class="nav-link">Social Media Marketing</li>
-                     </ul>
-                  </li>
-                  <li class="nav-item">
-                    <li class="nav-item"><a href="#" class="nav-link">Create My Credit Repair Plan</li>
-                  </li>
-                  <li class="nav-item">
-                    <li class="nav-item"><a href="#" class="nav-link">Sign Up For Credit Repair</li>
-                  </li>
-                  <li class="nav-item">
-                    <li class="nav-item">
-                      <a href="https://millennialsbuildingbusinesses.com/collections/authorized-user-tradelines" target => "_blank">
-                        Buy Authorized User Tradelines
-                    </li>
-                  </li>
-                  <li class="nav-item">
-                    <li class="nav-item"><a href="#" class="nav-link">Customer Support</li>
-                  </li>
-                  <li class="nav-item">
-                    <li class="nav-item"><a href="#" class="nav-link">Make Extra Money Referring Friends</li>
-                  </li>
+                     <a href="{% url 'business:marketing-business' %}" class="nav-link"> Marketing Your Business </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:business-credit-course' %}" class="nav-link"> Business Credit Building Course </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:customer-financing' %}" class="nav-link"> Offering Financing To Your Customers </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:apply-business-loans' %}" class="nav-link"> Apply For Business Loans </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:credit-repair' %}" class="nav-link"> Sign Up For Credit Repair </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:credit-trade-lines' %}" class="nav-link"> Personal Credit Primary Tradelines </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:business-credit-repair' %}" class="nav-link"> Business Credit Repair </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:business-credit-monitoring' %}" class="nav-link"> Sign Up For Business Credit Monitoring </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:business-credit-strategy' %}" class="nav-link"> 0% Business Credit Card Strategy </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:refer' %}" class="nav-link"> Make Extra Money Referring Friends! </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{% url 'business:insurance-products' %}" class="nav-link"> Insurance Products </a>
+                   </li>
                </ul>
             </div>
          </div>

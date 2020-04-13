@@ -152,22 +152,83 @@ class EquifaxView(View):
 
 class StarterVendorListView(View):
     def get(self, request):
-        return ""
+        data=[
+            {"Name":"Enco Manufacturing Company","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"1"},
+            {"Name":"REW Materials","category":'',"reportTo":'Equifax Small Business',"link":"2"},
+            {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
+            {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
+        ]
+        return render(request, 'starter_vendor_list.html',{"list_data":data})
 
 
 class StoreCreditVendorListView(View):
     def get(self, request):
-        return ""
+        data=[
+            {"Name":"Enco Manufacturing Company","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"1"},
+            {"Name":"REW Materials","category":'',"reportTo":'Equifax Small Business',"link":"2"},
+            {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
+            {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
+        ]
+        return render(request, 'store_credit_vendor_list.html',{"list_data":data})
+
+class leaderDetailsView(View):
+    def get(self, request,state):
+        data={
+            "name":"Fleet-One Local Fleet Card",
+            "category":'',
+            "reportTo":'Dun &amp; Bradstreet, Experian Business and Equifax Small Business',
+            "terms":'',
+            "description":' If your business uses cars, vans or trucks, Fleet-One Local Fuel Cards can make your job easier with security, control, convenience and savings. Use the Fleet-One Local card to pay for fuel and maintenance. With reduced fraud and more control, the savings for your business add up. Approval Requirements: Do not apply for this no personal guarantor account until you have at least 10 reporting trade lines and one trade line with a $10k credit limit reporting. They will check 411 listing, secretary of state for status of your corporation or LLC to make sure it&#39;s in good standing. You&#39;ll need to supply your EIN, copy of a voided business check, copy of a utility bill showing the business address and phone number, and a copy of your business license. (if a business license is required in your state) Leave the personal guarantor section blank.'
+            }
+        return render(request, 'lender_detail.html',data)
 
 
-class ResolvingBusinessCreditVendorList(View):
+
+
+class RevolvingBusinessCreditVendorList(View):
     def get(self, request):
-        return ""
+        data=[
+            {"Name":"Enco Manufacturing Company","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"1"},
+            {"Name":"REW Materials","category":'',"reportTo":'Equifax Small Business',"link":"2"},
+            {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
+            {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
+        ]
+        return render(request, 'revolving.html',{"list_data":data})
+
+class revolvingDetailsView(View):
+    def get(self, request,state):
+        data={
+            "name":"Fleet-One Local Fleet Card",
+            "category":'',
+            "reportTo":'Dun &amp; Bradstreet, Experian Business and Equifax Small Business',
+            "terms":'',
+            "description":' If your business uses cars, vans or trucks, Fleet-One Local Fuel Cards can make your job easier with security, control, convenience and savings. Use the Fleet-One Local card to pay for fuel and maintenance. With reduced fraud and more control, the savings for your business add up. Approval Requirements: Do not apply for this no personal guarantor account until you have at least 10 reporting trade lines and one trade line with a $10k credit limit reporting. They will check 411 listing, secretary of state for status of your corporation or LLC to make sure it&#39;s in good standing. You&#39;ll need to supply your EIN, copy of a voided business check, copy of a utility bill showing the business address and phone number, and a copy of your business license. (if a business license is required in your state) Leave the personal guarantor section blank.'
+            }
+        return render(request, 'revolving_credit_detail.html',data)
 
 
 class CCNoGaurenteeVendorList(View):
     def get(self, request):
-        return ""
+        data=[
+            {"Name":"Enco Manufacturing Company","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"1"},
+            {"Name":"REW Materials","category":'',"reportTo":'Equifax Small Business',"link":"2"},
+            {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
+            {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
+        ]
+        return render(request, 'nopg.html',{"list_data":data})
+
+
+class noPgDetailsView(View):
+    def get(self, request,state):
+        data={
+            "name":"Fleet-One Local Fleet Card",
+            "category":'',
+            "reportTo":'Dun &amp; Bradstreet, Experian Business and Equifax Small Business',
+            "terms":'',
+            "description":' If your business uses cars, vans or trucks, Fleet-One Local Fuel Cards can make your job easier with security, control, convenience and savings. Use the Fleet-One Local card to pay for fuel and maintenance. With reduced fraud and more control, the savings for your business add up. Approval Requirements: Do not apply for this no personal guarantor account until you have at least 10 reporting trade lines and one trade line with a $10k credit limit reporting. They will check 411 listing, secretary of state for status of your corporation or LLC to make sure it&#39;s in good standing. You&#39;ll need to supply your EIN, copy of a voided business check, copy of a utility bill showing the business address and phone number, and a copy of your business license. (if a business license is required in your state) Leave the personal guarantor section blank.'
+            }
+        return render(request, 'nopg_detail.html',data)
+
 
 
 class PersonalCreditCardsView(View):
