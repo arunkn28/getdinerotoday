@@ -1,6 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 
             <div class="row page-header"><div class="col-lg-6 align-self-center ">
-			  <h2>Starter Vendors</h2></div></div>
+        <h2>Starter Vendors</h2></div></div>
 
         <section class="main-content">
 
@@ -31,14 +42,16 @@
                                 </thead>
 
                                 <tbody>
-                                  <% @lenders.each do |lender| %>
+                                  {% for lender in lenders %}
                                     <tr>
-                                        <td><%= lender.name %></td>
-                                        <td><%= lender.category.try(:title) %></td>
-                                        <td><%= lender.report_to %></td>
-                                        <td><%= link_to "Click Here For More Details",lender_detail_path(lender.id),:class=>"btn btn-primary" %></td>
-                                    </tr>
-                                  <% end %>
+                                        <td>{{ lender.name }}</td>
+                                        <td>{{ lender.category }}</td>
+                                        <td>{{ lender.report_to }}</td>
+                                        <td>
+                                          <a href="{{ lender.get_absolute_url }}" class="btn btn-primary">Click Here For More Details</a>
+                                        </td>
+                                    </tr>                                    
+                                  {% endfor %}
                                 </tbody>
                               </table>
                           </div>
@@ -58,3 +71,10 @@
 
 
         </section>
+  
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}

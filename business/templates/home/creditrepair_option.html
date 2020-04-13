@@ -1,3 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 
 <div class="row page-header">
    <div class="col-lg-6 align-self-center ">
@@ -15,12 +26,12 @@
        <br><br>
    <div class="row">
   <div class="col-md-12">
-    <%= link_to "Click Here If You Haven't Upgraded To The Credit Repair Plan",creditrepair_path ,:class=>"btn btn-primary" %>
+    <a class="btn btn-primary" href="#">Click Here If You Haven't Upgraded To The Credit Repair Plan</a>
   </div>
 <br><br>
 <br><br>
   <div class="col-md-12">
-<%= link_to "Click Here If You Have Upgraded To The Credit Repair Plan", creditrepair_paid_path ,:class=>"btn btn-primary" %>
+    <a href="#" class="btn btn-primary">Click Here If You Have Upgraded To The Credit Repair Plan</a>
   </div>
      </div>
    </center>
@@ -31,3 +42,10 @@
     font-size: 18px;
   }
 </style>
+  
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}

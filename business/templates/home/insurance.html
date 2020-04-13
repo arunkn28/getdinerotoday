@@ -1,3 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 <div class="row page-header"><div class="col-lg-6 align-self-center ">
 <h2>Get Business Insurance</h2></div></div>
 
@@ -23,7 +34,7 @@ text-align: center;
               <p class="card-text">Click The Button Below To Get Business Insurance For Your Company</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                 <%= link_to "Get Business Insurance For Your Company","https://www.hiscox.com/", :target => "_blank" ,:class=>"btn btn-primary" %>
+                  <a href="https://www.hiscox.com/" target ="_blank" class=>"btn btn-primary">Get Business Insurance For Your Company</a>
                 </div>
               </div>
             </div>
@@ -33,3 +44,10 @@ text-align: center;
 
 
 </section>
+  
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}

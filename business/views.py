@@ -4,7 +4,7 @@ from django.views import View
 
 class UpgradeView(View):
     def get(self, request):
-        return ""
+        return render(request, "home/upgrade.html")
 
 
 class FinancingView(View):
@@ -19,7 +19,7 @@ class BusinessCreditBuildingPlanView(View):
 
 class CreditSituationView(View):
     def get(self, request):
-        return ""
+        return render(request, "home/creditsituation.html")
 
 
 class BusinessEntity(View):
@@ -36,9 +36,11 @@ class BusinessLicenseView(View):
     def get(self, request):
         return render(request, 'businessLicense.html')
 
+
 class WebsiteCreationOptionsView(View):
     def get(self, request):
         return render(request, 'websiteCreationOptions.html')
+
 
 class WebsiteCreationPaidView(View):
     def get(self, request):
@@ -53,6 +55,7 @@ class WebsiteCreationView(View):
 class FaxNumberOptionsView(View):
     def get(self, request):
         return render(request, 'faxNumberOptions.html')
+
 
 class FaxNumberPaidView(View):
     def get(self, request):
@@ -74,7 +77,6 @@ class ProfessionalEmailAddress(View):
         return render(request, 'professionalEmailAddress.html')
 
 
-
 class DomainView(View):
     def get(self, request):
         return render(request, 'domain.html')
@@ -89,20 +91,20 @@ class TollFreeNumberPaidView(View):
     def get(self, request):
         return render(request, 'tollFreeNumberPaid.html')
 
+
 class TollFreeNumberView(View):
     def get(self, request):
-        return render(request, 'tollFreeNumber.html')        
+        return render(request, 'tollFreeNumber.html')
 
 
 class VirtualAddressView(View):
     def get(self, request):
-        return render(request, 'virtualAddress.html')        
-
+        return render(request, 'virtualAddress.html')
 
 
 class BusinessBankAccountView(View):
     def get(self, request):
-        return render(request, 'businessBankAccount.html')  
+        return render(request, 'businessBankAccount.html')
 
 
 class MerchantAccountView(View):
@@ -112,7 +114,7 @@ class MerchantAccountView(View):
 
 class DunsView(View):
     def get(self, request):
-        return render(request, 'duns.html') 
+        return render(request, 'duns.html')
 
 
 class SICView(View):
@@ -152,12 +154,12 @@ class EquifaxView(View):
 
 class StarterVendorListView(View):
     def get(self, request):
-        return ""
+        return render(request, "home/starter_vendor_list.html")
 
 
 class StoreCreditVendorListView(View):
     def get(self, request):
-        return ""
+        return render(request, "home/store_credit_vendor_list.html")
 
 
 class ResolvingBusinessCreditVendorList(View):
@@ -172,17 +174,17 @@ class CCNoGaurenteeVendorList(View):
 
 class PersonalCreditCardsView(View):
     def get(self, request):
-        return ""
+        return render(request, "home/personalcreditcards.html")
 
 
 class BusinessCreditCardsView(View):
     def get(self, request):
-        return ""
+        return render(request, "home/businesscreditcards.html")
 
 
 class ShortTermLoans(View):
     def get(self, request):
-        return ""
+        return render(request, "home/shorttermloan.html")
 
 
 class BusinessTermLoanView(View):
@@ -197,7 +199,7 @@ class SmallBusinessAdminLoanView(View):
 
 class PersonalLoanView(View):
     def get(self, request):
-        return ""
+        return render(request, "home/personalloans.html")
 
 
 class BusinessLineOfCredit(View):
@@ -212,17 +214,17 @@ class NoCreditCheckFinancing(View):
 
 class InvoiceFactoring(View):
     def get(self, request):
-        return ""
+        return "home/invoice_factoring.html"
 
 
 class InvoiceFinancing(View):
     def get(self, request):
-        return ""
+        return "home/invoice_financing.html"
 
 
 class EquipmentFinancing(View):
     def get(self, request):
-        return ""
+        return "home/equipmentfincing.html"
 
 
 class MarketingYourBusiness(View):
@@ -242,7 +244,7 @@ class OfferFinancingToCustomer(View):
 
 class ApplyingForBusinessLoans(View):
     def get(self, request):
-        return ""
+        return "home/applyforloan.html"
 
 
 class CreditRepairSignUp(View):
@@ -257,27 +259,24 @@ class CreditPrimaryTradeLines(View):
 
 class BusinessCreditRepair(View):
     def get(self, request):
-        return ""
+        return "home/businesscreditrepair.html"
 
 
 class BusinessCreditMonitoringSingUp(View):
     def get(self, request):
-        return ""
+        return "home/businesscreditmonitoring.html"
 
 
 class BusinessCreditCardStrategy(View):
     def get(self, request):
-        return ""
+        return "home/businesscreditcardstrategy.html"
 
 
 class MoneyReferringFriends(View):
     def get(self, request):
-        return ""
+        return "home/makeextramoney.html"
 
 
 class InsuranceProduct(View):
     def get(self, request):
-        return ""
-
-
-
+        return "home/insurance.html"
