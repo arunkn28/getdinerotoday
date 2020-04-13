@@ -33,6 +33,10 @@ urlpatterns = [
         name='professional-email'),
     url('domain/', login_required(DomainView.as_view(), login_url='/user/login'),
         name='domain'),
+    url('toll-free-options/', login_required(TollFreeNumberOptionsView.as_view(), login_url='/user/login'),
+        name='toll-free-options'),
+    url('toll-free-paid/', login_required(TollFreeNumberPaidView.as_view(), login_url='/user/login'),
+        name='toll-free-paid'),    
     url('toll-free/', login_required(TollFreeNumberView.as_view(), login_url='/user/login'),
         name='toll-free'),
     url('virtual-address/', login_required(VirtualAddressView.as_view(), login_url='/user/login'),
@@ -55,6 +59,9 @@ urlpatterns = [
         name='dunn-brad'),
     url('equifax/', login_required(EquifaxView.as_view(), login_url='/user/login'),
         name='equifax'),
+
+
+
     url('vendor-list/', login_required(StarterVendorListView.as_view(), login_url='/user/login'),
         name='vendor-list'),
     url('store-credit-vendor-list/', login_required(StoreCreditVendorListView.as_view(), login_url='/user/login'),
