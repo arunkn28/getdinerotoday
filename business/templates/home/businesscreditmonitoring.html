@@ -1,3 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+	
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
+	
+{% endblock content %}
+
+
+{% block javascriptblock %}
+
 <div class="row page-header"><div class="col-lg-6 align-self-center ">
 			  <h2>View My Business Credit Reports</h2></div></div>
 
@@ -16,7 +34,7 @@
 						                <p class="card-text">Click The Button Below To Fix My Business Credit Reports</p>
 						                <div class="d-flex justify-content-between align-items-center">
 						                  <div class="btn-group">
-						                   <%= link_to "View My Business Credit Reports","http://nav.nkwcmr.net/c/2006174/675356/2410", :target => "_blank" ,:class=>"btn btn-primary" %>
+						                  	<a href="http://nav.nkwcmr.net/c/2006174/675356/2410" target="_blank" ,class="btn btn-primary">View My Business Credit Reports</a>
 						                  </div>
 						                </div>
 						              </div>
@@ -26,3 +44,5 @@
 
 
         </section>
+	
+{% endblock javascriptblock %}

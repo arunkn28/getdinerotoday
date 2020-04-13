@@ -1,3 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 
 <div class="row page-header">
    <div class="col-lg-6 align-self-center ">
@@ -32,14 +43,21 @@ ON YOUR BUSINESS ENTITY DOCUMENTS, ARE THE BUSINESS ADDRESS & OWNERSHIP CORRECT?
           <h2>FILE A BUSINESS ENTITY</h2>
           <h4>It’s important that you have a strong business foundation and it all starts with filing your business entity with your Secretary of State.  Each stage has a different filing and fee structure.  Like a birth certificate is to an individual a business entity is the birth of a business.</h4>
           <div class="btn-group">
-           <%= link_to "Click Here To File As A Corporation",'https://www.mycorporation.com/?kbid=11145', :target => "_blank", :class=>"btn btn-primary" %>
+           <a target="_blank" class="btn btn-primary" href="https://www.mycorporation.com/?kbid=11145">Click Here To File As A Corporation</a>
           </div>
           <br> <br>
           <div class="btn-group">
-           <%= link_to "View Restricted Industries", restricted_path, :target => "_blank", :class=>"btn btn-primary" %>
+           <a target="_blank" class="btn btn-primary" href="#">View Restricted Industries</a>
           </div>
          </div>
       </div>
    </div>
 
 </section>
+  
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}

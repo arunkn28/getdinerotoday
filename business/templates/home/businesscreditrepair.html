@@ -1,3 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+	
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 <div class="row page-header"><div class="col-lg-6 align-self-center ">
 			  <h2> Fix My Business Credit</h2></div></div>
 
@@ -16,7 +27,7 @@
 						                <p class="card-text">Click The Button Below To Fix Your Business Experian Report</p>
 						                <div class="d-flex justify-content-between align-items-center">
 						                  <div class="btn-group">
-						                   <%= link_to "Fix My Business Report","https://www.experian.com/small-business/business-credit-information.jsp", :target => "_blank" ,:class=>"btn btn-primary" %>
+						                  	<a href="https://www.experian.com/small-business/business-credit-information.jsp" target="_blank" class="btn btn-primary">Fix My Business Report</a>
 						                  </div>
 						                </div>
 						              </div>
@@ -29,7 +40,7 @@
 						                <p class="card-text">Click The Button Below To Fix Your Business Equifax Report</p>
 						                <div class="d-flex justify-content-between align-items-center">
 						                  <div class="btn-group">
-																<%= link_to "Fix My Business Report","https://www.equifax.com/business/", :target => "_blank" ,:class=>"btn btn-primary" %>
+												<a href="https://www.equifax.com/business/" target="_blank" class="btn btn-primary">Fix My Business Report</a>
  						                	</div>
 						                </div>
 						              </div>
@@ -42,7 +53,7 @@
 						                <p class="card-text">Click The Button Below To Fix Your Dunn & Bradstreet Report</p>
 						                <div class="d-flex justify-content-between align-items-center">
 						                  <div class="btn-group">
-						                   <%= link_to "Fix My Business Report","https://www.dnb.com/perspectives/small-business/3-ways-start-rebuilding-companys-db-business-credit-scores-ratings.html", :target => "_blank" ,:class=>"btn btn-primary" %>
+						                  	<a href="https://www.dnb.com/perspectives/small-business/3-ways-start-rebuilding-companys-db-business-credit-scores-ratings.html" target="_blank" class="btn btn-primary">Fix My Business Report</a>
 						                  </div>
 
 						                </div>
@@ -53,3 +64,10 @@
 
 
         </section>
+	
+{% endblock content %}
+
+
+{% block javascriptblock %}
+	
+{% endblock javascriptblock %}
