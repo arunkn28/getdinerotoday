@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Profile
 from django.views import View
 
 
@@ -39,7 +40,11 @@ class BusinessLicenseView(View):
 
 class WebsiteCreationOptionsView(View):
     def get(self, request):
-        return render(request, 'websiteCreationOptions.html')
+        profile = Profile.objects.filter(user=request.user)
+        website_creation_paid = False
+        if profile:
+            fax_number_paid = profile[0].website_creation_paid
+        return render(request, 'websiteCreationOptions.html', {'website_creation_paid': website_creation_paid})
 
 
 class WebsiteCreationPaidView(View):
@@ -54,7 +59,11 @@ class WebsiteCreationView(View):
 
 class FaxNumberOptionsView(View):
     def get(self, request):
-        return render(request, 'faxNumberOptions.html')
+        profile = Profile.objects.filter(user=request.user)
+        fax_number_paid = False
+        if profile:
+            fax_number_paid = profile[0].fax_number_paid
+        return render(request, 'faxNumberOptions.html', {'fax_number_paid': fax_number_paid})
 
 
 class FaxNumberPaidView(View):
@@ -84,7 +93,11 @@ class DomainView(View):
 
 class TollFreeNumberOptionsView(View):
     def get(self, request):
-        return render(request, 'tollFreeNumberOptions.html')
+        profile = Profile.objects.filter(user=request.user)
+        toll_free_number_paid = False
+        if profile:
+            toll_free_number_paid = profile[0].toll_free_number_paid
+        return render(request, 'tollFreeNumberOptions.html', {'toll_free_number_paid': toll_free_number_paid})
 
 
 class TollFreeNumberPaidView(View):

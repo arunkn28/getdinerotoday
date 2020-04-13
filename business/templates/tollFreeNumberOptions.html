@@ -33,15 +33,18 @@
         <center>   <h3>Choose The Option Below So We Can Direct You To The Right Page</h3> </center>
         <br><br>
     <div class="row">
-   <div class="col-md-12">
+        {% if not toll_free_number_paid%}
+   <div class="col-md-12 lastButton">
      <a class="btn btn-primary" href="{%url 'business:toll-free'%}">Click Here If You Haven&#39;t Upgraded To The Paid Toll Free Number Plan</a>
    </div>
+        {% else %}
  <br><br>
  <br><br>
    <div class="col-md-12 lastButton">
  <a class="btn btn-primary" href="{%url 'business:toll-free-paid'%}">Click Here If You Have Upgraded To The Paid Toll Free Number Plan</a>
    </div>
-      </div>
+    {% endif %}
+    </div>
     </center>
  </section>
  
