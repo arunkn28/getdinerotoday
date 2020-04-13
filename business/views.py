@@ -43,7 +43,7 @@ class WebsiteCreationOptionsView(View):
         profile = Profile.objects.filter(user=request.user)
         website_creation_paid = False
         if profile:
-            fax_number_paid = profile[0].website_creation_paid
+            website_creation_paid = profile[0].website_creation_paid
         return render(request, 'businessCreditBuilding/websiteCreationOptions.html', {'website_creation_paid': website_creation_paid})
 
 
