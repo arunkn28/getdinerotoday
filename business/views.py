@@ -24,17 +24,17 @@ class CreditSituationView(View):
 
 class BusinessEntity(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessEntity.html')
 
 
 class EinView(View):
     def get(self, request):
-        return ""
+        return render(request, 'ein.html')
 
 
 class BusinessLicenseView(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessLicense.html')
 
 class WebsiteCreationOptionsView(View):
     def get(self, request):
@@ -77,67 +77,77 @@ class ProfessionalEmailAddress(View):
 
 class DomainView(View):
     def get(self, request):
-        return ""
+        return render(request, 'domain.html')
 
+
+class TollFreeNumberOptionsView(View):
+    def get(self, request):
+        return render(request, 'tollFreeNumberOptions.html')
+
+
+class TollFreeNumberPaidView(View):
+    def get(self, request):
+        return render(request, 'tollFreeNumberPaid.html')
 
 class TollFreeNumberView(View):
     def get(self, request):
-        return ""
+        return render(request, 'tollFreeNumber.html')        
 
 
 class VirtualAddressView(View):
     def get(self, request):
-        return ""
+        return render(request, 'virtualAddress.html')        
+
 
 
 class BusinessBankAccountView(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessBankAccount.html')  
 
 
 class MerchantAccountView(View):
     def get(self, request):
-        return ""
+        return render(request, 'merchantAccount.html')
 
 
 class DunsView(View):
     def get(self, request):
-        return ""
+        return render(request, 'duns.html') 
 
 
 class SICView(View):
     def get(self, request):
-        return ""
+        return render(request, 'sic.html')
 
 
 class BusinessGoodStandingView(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessGoodStanding.html')
 
 
 class BusinessBackInGoodStandingView(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessBackInGoodStanding.html')
 
 
 class BusinessCreditStep(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessCreditStep.html')
 
 
 class ExperianView(View):
     def get(self, request):
-        return ""
+        return render(request, 'experian.html')
 
 
 class DunnAndBradView(View):
     def get(self, request):
-        return ""
+        return render(request, 'dunnbradstreet.html')
 
 
 class EquifaxView(View):
     def get(self, request):
-        return ""
+        return render(request, 'equifax.html')
 
 
 class StarterVendorListView(View):
