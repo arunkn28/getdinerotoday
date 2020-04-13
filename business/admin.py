@@ -72,3 +72,44 @@ class InvoiceFinancingAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(InvoiceFinancing, InvoiceFinancingAdmin)
+
+
+class EquipmentFinancingResource(resources.ModelResource):
+    class Meta:
+        model = EquipmentFinancing
+        exclude = ('id', 'created_at', 'updated_at')
+
+
+class EquipmentFinancingAdmin(ImportExportModelAdmin):
+    resource_class = EquipmentFinancingResource
+
+
+admin.site.register(EquipmentFinancing, EquipmentFinancingAdmin)
+
+
+class LinesOfCreditResource(resources.ModelResource):
+    class Meta:
+        model = LinesOfCredit
+        exclude = ('id', 'created_at', 'updated_at')
+
+
+class LinesOfCreditAdmin(ImportExportModelAdmin):
+    resource_class = LinesOfCreditResource
+
+
+admin.site.register(LinesOfCredit, LinesOfCreditAdmin)
+
+
+class SbaLoanResource(resources.ModelResource):
+    class Meta:
+        model = SbaLoan
+        exclude = ('id', 'created_at', 'updated_at')
+
+
+class SbaLoanAdmin(ImportExportModelAdmin):
+    resource_class = SbaLoanResource
+
+
+admin.site.register(SbaLoan, SbaLoanAdmin)
+
+
