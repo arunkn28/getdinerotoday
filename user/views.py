@@ -2,13 +2,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth import views as auth_views
+from django.utils.decorators import method_decorator
 from django.views import View
 from django.urls import reverse
 
 from .models import Profile
 from django.shortcuts import render
+from .decorators import unauthenticated_user
 
 
+@method_decorator(unauthenticated_user, name='dispatch')
 class LoginView(View):
     def get(self, request):
         return render(request, 'login.html')
@@ -25,6 +28,7 @@ class LoginView(View):
             return render(request, 'login.html', {'error': "Either username or password is incorrect"})
 
 
+@method_decorator(unauthenticated_user, name='dispatch')
 class SignUpView(View):
     def get(self, request):
         return render(request, 'registration.html')
