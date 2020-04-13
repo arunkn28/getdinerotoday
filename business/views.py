@@ -24,112 +24,112 @@ class CreditSituationView(View):
 
 class BusinessEntity(View):
     def get(self, request):
-        return render(request, 'businessEntity.html')
+        return render(request, 'businessCreditBuilding/businessEntity.html')
 
 
 class EinView(View):
     def get(self, request):
-        return render(request, 'ein.html')
+        return render(request, 'businessCreditBuilding/ein.html')
 
 
 class BusinessLicenseView(View):
     def get(self, request):
-        return render(request, 'businessLicense.html')
+        return render(request, 'businessCreditBuilding/businessLicense.html')
 
 
 class WebsiteCreationOptionsView(View):
     def get(self, request):
-        return render(request, 'websiteCreationOptions.html')
+        return render(request, 'businessCreditBuilding/websiteCreationOptions.html')
 
 
 class WebsiteCreationPaidView(View):
     def get(self, request):
-        return render(request, 'websiteCreationPaid.html')
+        return render(request, 'businessCreditBuilding/websiteCreationPaid.html')
 
 
 class WebsiteCreationView(View):
     def get(self, request):
-        return render(request, 'websiteCreation.html')
+        return render(request, 'businessCreditBuilding/websiteCreation.html')
 
 
 class FaxNumberOptionsView(View):
     def get(self, request):
-        return render(request, 'faxNumberOptions.html')
+        return render(request, 'businessCreditBuilding/faxNumberOptions.html')
 
 
 class FaxNumberPaidView(View):
     def get(self, request):
-        return render(request, 'faxNumberPaid.html')
+        return render(request, 'businessCreditBuilding/faxNumberPaid.html')
 
 
 class FaxNumberView(View):
     def get(self, request):
-        return render(request, 'faxNumber.html')
+        return render(request, 'businessCreditBuilding/faxNumber.html')
 
 
 class FourElevenListingView(View):
     def get(self, request):
-        return render(request, 'FourElevenListing.html')
+        return render(request, 'businessCreditBuilding/FourElevenListing.html')
 
 
 class ProfessionalEmailAddress(View):
     def get(self, request):
-        return render(request, 'professionalEmailAddress.html')
+        return render(request, 'businessCreditBuilding/professionalEmailAddress.html')
 
 
 class DomainView(View):
     def get(self, request):
-        return render(request, 'domain.html')
+        return render(request, 'businessCreditBuilding/domain.html')
 
 
 class TollFreeNumberOptionsView(View):
     def get(self, request):
-        return render(request, 'tollFreeNumberOptions.html')
+        return render(request, 'businessCreditBuilding/tollFreeNumberOptions.html')
 
 
 class TollFreeNumberPaidView(View):
     def get(self, request):
-        return render(request, 'tollFreeNumberPaid.html')
+        return render(request, 'businessCreditBuilding/tollFreeNumberPaid.html')
 
 
 class TollFreeNumberView(View):
     def get(self, request):
-        return render(request, 'tollFreeNumber.html')
+        return render(request, 'businessCreditBuilding/tollFreeNumber.html')
 
 
 class VirtualAddressView(View):
     def get(self, request):
-        return render(request, 'virtualAddress.html')
+        return render(request, 'businessCreditBuilding/virtualAddress.html')
 
 
 class BusinessBankAccountView(View):
     def get(self, request):
-        return render(request, 'businessBankAccount.html')
+        return render(request, 'businessCreditBuilding/businessBankAccount.html')
 
 
 class MerchantAccountView(View):
     def get(self, request):
-        return render(request, 'merchantAccount.html')
+        return render(request, 'businessCreditBuilding/merchantAccount.html')
 
 
 class DunsView(View):
     def get(self, request):
-        return render(request, 'duns.html')
+        return render(request, 'businessCreditBuilding/duns.html')
 
 
 class SICView(View):
     def get(self, request):
-        return render(request, 'sic.html')
+        return render(request, 'businessCreditBuilding/sic.html')
 
 
 class BusinessGoodStandingView(View):
     def get(self, request):
-        return render(request, 'businessGoodStanding.html')
+        return render(request, 'businessCreditBuilding/businessGoodStanding.html')
 
 
 class BusinessBackInGoodStandingView(View):
     def get(self, request):
-        return render(request, 'businessBackInGoodStanding.html')
+        return render(request, 'businessCreditBuilding/businessBackInGoodStanding.html')
 
 
 class BusinessCreditStep(View):
@@ -139,17 +139,17 @@ class BusinessCreditStep(View):
 
 class ExperianView(View):
     def get(self, request):
-        return render(request, 'experian.html')
+        return render(request, 'creditBureaus/experian.html')
 
 
 class DunnAndBradView(View):
     def get(self, request):
-        return render(request, 'dunnbradstreet.html')
+        return render(request, 'creditBureaus/dunnbradstreet.html')
 
 
 class EquifaxView(View):
     def get(self, request):
-        return render(request, 'equifax.html')
+        return render(request, 'creditBureaus/equifax.html')
 
 
 class StarterVendorListView(View):
@@ -160,12 +160,18 @@ class StarterVendorListView(View):
             {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
             {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
         ]
-        return render(request, 'starter_vendor_list.html',{"list_data":data})
+        return render(request, 'cooperateCredit/starter_vendor_list.html',{"list_data":data})
 
 
 class StoreCreditVendorListView(View):
     def get(self, request):
-        return render(request, "home/store_credit_vendor_list.html")
+        data=[
+            {"Name":"Enco Manufacturing Company","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"1"},
+            {"Name":"REW Materials","category":'',"reportTo":'Equifax Small Business',"link":"2"},
+            {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
+            {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
+        ]
+        return render(request, "cooperateCredit/store_credit_vendor_list.html",{"list_data":data})
 
 
 class ResolvingBusinessCreditVendorList(View):
@@ -176,7 +182,7 @@ class ResolvingBusinessCreditVendorList(View):
             {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
             {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
         ]
-        return render(request, 'store_credit_vendor_list.html',{"list_data":data})
+        return render(request, 'cooperateCredit/store_credit_vendor_list.html',{"list_data":data})
 
 class leaderDetailsView(View):
     def get(self, request,state):
@@ -187,7 +193,7 @@ class leaderDetailsView(View):
             "terms":'',
             "description":' If your business uses cars, vans or trucks, Fleet-One Local Fuel Cards can make your job easier with security, control, convenience and savings. Use the Fleet-One Local card to pay for fuel and maintenance. With reduced fraud and more control, the savings for your business add up. Approval Requirements: Do not apply for this no personal guarantor account until you have at least 10 reporting trade lines and one trade line with a $10k credit limit reporting. They will check 411 listing, secretary of state for status of your corporation or LLC to make sure it&#39;s in good standing. You&#39;ll need to supply your EIN, copy of a voided business check, copy of a utility bill showing the business address and phone number, and a copy of your business license. (if a business license is required in your state) Leave the personal guarantor section blank.'
             }
-        return render(request, 'lender_detail.html',data)
+        return render(request, 'cooperateCredit/lender_detail.html',data)
 
 
 
@@ -200,7 +206,7 @@ class RevolvingBusinessCreditVendorList(View):
             {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
             {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
         ]
-        return render(request, 'revolving.html',{"list_data":data})
+        return render(request, 'cooperateCredit/revolving.html',{"list_data":data})
 
 class revolvingDetailsView(View):
     def get(self, request,state):
@@ -211,7 +217,7 @@ class revolvingDetailsView(View):
             "terms":'',
             "description":' If your business uses cars, vans or trucks, Fleet-One Local Fuel Cards can make your job easier with security, control, convenience and savings. Use the Fleet-One Local card to pay for fuel and maintenance. With reduced fraud and more control, the savings for your business add up. Approval Requirements: Do not apply for this no personal guarantor account until you have at least 10 reporting trade lines and one trade line with a $10k credit limit reporting. They will check 411 listing, secretary of state for status of your corporation or LLC to make sure it&#39;s in good standing. You&#39;ll need to supply your EIN, copy of a voided business check, copy of a utility bill showing the business address and phone number, and a copy of your business license. (if a business license is required in your state) Leave the personal guarantor section blank.'
             }
-        return render(request, 'revolving_credit_detail.html',data)
+        return render(request, 'cooperateCredit/revolving_credit_detail.html',data)
 
 class CCNoGaurenteeVendorList(View):
     def get(self, request):
@@ -221,7 +227,7 @@ class CCNoGaurenteeVendorList(View):
             {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
             {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
         ]
-        return render(request, 'nopg.html',{"list_data":data})
+        return render(request, 'cooperateCredit/nopg.html',{"list_data":data})
 
 
 class noPgDetailsView(View):
@@ -233,64 +239,61 @@ class noPgDetailsView(View):
             "terms":'',
             "description":' If your business uses cars, vans or trucks, Fleet-One Local Fuel Cards can make your job easier with security, control, convenience and savings. Use the Fleet-One Local card to pay for fuel and maintenance. With reduced fraud and more control, the savings for your business add up. Approval Requirements: Do not apply for this no personal guarantor account until you have at least 10 reporting trade lines and one trade line with a $10k credit limit reporting. They will check 411 listing, secretary of state for status of your corporation or LLC to make sure it&#39;s in good standing. You&#39;ll need to supply your EIN, copy of a voided business check, copy of a utility bill showing the business address and phone number, and a copy of your business license. (if a business license is required in your state) Leave the personal guarantor section blank.'
             }
-        return render(request, 'nopg_detail.html',data)
+        return render(request, 'cooperateCredit/nopg_detail.html',data)
 
 
 
 class PersonalCreditCardsView(View):
     def get(self, request):
-        return render(request, "home/personalcreditcards.html")
+        return render(request, "financingProducts/personalCreditCard.html")
 
 
 class BusinessCreditCardsView(View):
     def get(self, request):
-        return render(request, "home/businesscreditcards.html")
+        return render(request, "financingProducts/businessCreditCard.html")
 
 
 class ShortTermLoans(View):
     def get(self, request):
-        return render(request, "home/shorttermloan.html")
+        return render(request, "financingProducts/shortTerm.html")
 
 
 class BusinessTermLoanView(View):
     def get(self, request):
-        return ""
+        return render(request,"financingProducts/businessTermLoan.html")
 
 
 class SmallBusinessAdminLoanView(View):
     def get(self, request):
-        return ""
+        return render(request,"financingProducts/smallBusinessAdminLoan.html")
 
 
 class PersonalLoanView(View):
     def get(self, request):
-        return render(request, "home/personalloans.html")
+        return render(request, "financingProducts/personalLoan.html")
 
 
 class BusinessLineOfCredit(View):
     def get(self, request):
-        return ""
+        return render(request, "financingProducts/businessLineOfCredit.html")
 
 
 class NoCreditCheckFinancing(View):
     def get(self, request):
-        return ""
-
+        return render(request, "financingProducts/noCreditCheckFinancing.html")
 
 class InvoiceFactoring(View):
     def get(self, request):
-        return render(request, "home/invoice_factoring.html")
+        return render(request, "financingProducts/invoiceFactoring.html")
 
 
 class InvoiceFinancing(View):
     def get(self, request):
-        return render(request, "home/invoice_financing.html")
-
+        return render(request, "financingProducts/invoiceFinancing.html")
 
 class EquipmentFinancing(View):
     def get(self, request):
-        return render(request, "home/equipmentfincing.html")
-
+        return render(request, "financingProducts/equipmentFinancing.html")
 
 
 
