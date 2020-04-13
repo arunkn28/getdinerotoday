@@ -34,3 +34,15 @@ class LenderAdmin(ImportExportModelAdmin):
 
 admin.site.register(Lender, LenderAdmin)
 
+
+class ShortTermLoanResource(resources.ModelResource):
+    class Meta:
+        model = ShortTermLoan
+        exclude = ('id', 'created_at', 'updated_at')
+
+
+class ShortTermLoanAdmin(ImportExportModelAdmin):
+    resource_class = ShortTermLoanResource
+
+
+admin.site.register(ShortTermLoan, ShortTermLoanAdmin)

@@ -60,16 +60,25 @@ urlpatterns = [
     url('equifax/', login_required(EquifaxView.as_view(), login_url='/user/login'),
         name='equifax'),
 
-
-
     url('vendor-list/', login_required(StarterVendorListView.as_view(), login_url='/user/login'),
         name='vendor-list'),
     url('store-credit-vendor-list/', login_required(StoreCreditVendorListView.as_view(), login_url='/user/login'),
         name='store-credit-vendor-list'),
-    url('business-credit-vendor/', login_required(ResolvingBusinessCreditVendorList.as_view(), login_url='/user/login'),
+    url('lender-detail/(\d+)/', login_required(leaderDetailsView.as_view(), login_url='/user/login'),
+        name='lender_detail'),
+        
+    url('business-credit-vendor/', login_required(RevolvingBusinessCreditVendorList.as_view(), login_url='/user/login'),
         name='business-credit-vendor'),
+
+    url('revolving-credit-details/(\d+)/', login_required(revolvingDetailsView.as_view(), login_url='/user/login'),
+        name='revolving-credit-details'),
+
     url('cc-credit-vendor/', login_required(CCNoGaurenteeVendorList.as_view(), login_url='/user/login'),
         name='cc-credit-vendor'),
+    
+    url('nopg-detail/(\d+)/', login_required(noPgDetailsView.as_view(), login_url='/user/login'),
+        name='nopg-detail'),
+        
     url('personal-credit-card/', login_required(PersonalCreditCardsView.as_view(), login_url='/user/login'),
         name='personal-credit-card'),
     url('business-credit-card/', login_required(BusinessCreditCardsView.as_view(), login_url='/user/login'),
@@ -90,10 +99,9 @@ urlpatterns = [
         name='invoice-factoring'),
     url('invoice-financing/', login_required(InvoiceFinancing.as_view(), login_url='/user/login'),
         name='invoice-financing'),
-    url('invoice-financing/', login_required(InvoiceFinancing.as_view(), login_url='/user/login'),
-        name='invoice-financing'),
     url('equipment-financing/', login_required(EquipmentFinancing.as_view(), login_url='/user/login'),
         name='equipment-financing'),
+
     url('marketing-business/', login_required(MarketingYourBusiness.as_view(), login_url='/user/login'),
         name='marketing-business'),
     url('business-credit-course/', login_required(BusinessCreditBuildingCourse.as_view(), login_url='/user/login'),
