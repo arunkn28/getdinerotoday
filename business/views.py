@@ -286,59 +286,68 @@ class EquipmentFinancing(View):
         return ""
 
 
+
+
+
+
+
+
+
+
 class MarketingYourBusiness(View):
     def get(self, request):
-        return ""
-
-
-class BusinessCreditBuildingCourse(View):
-    def get(self, request):
-        return ""
-
+        return render(request, 'marketingYourBusiness.html')
 
 class OfferFinancingToCustomer(View):
     def get(self, request):
-        return ""
-
+        return render(request, 'customerFinancing.html')
 
 class ApplyingForBusinessLoans(View):
     def get(self, request):
-        return ""
+        return render(request, 'applyforLoan.html')
 
 
-class CreditRepairSignUp(View):
+class CreditRepairOptionsView(View):
     def get(self, request):
-        return ""
+        return render(request, 'creditRepairOptions.html')
 
+class CreditRepairPaidView(View):
+    def get(self, request):
+        return render(request, 'creditRepairPaid.html')
+
+class CreditRepairView(View):
+    def get(self, request):
+        return render(request, 'creditRepair.html')
 
 class CreditPrimaryTradeLines(View):
     def get(self, request):
-        return ""
+        return render(request, 'creditPrimaryTradeline.html')
 
 
 class BusinessCreditRepair(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessCreditRepair.html')
+        # return ""
 
 
 class BusinessCreditMonitoringSingUp(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessCreditMonitoringSingup.html')
 
 
 class BusinessCreditCardStrategy(View):
     def get(self, request):
-        return ""
+        return render(request, 'businessCreditCardStrategy.html')
 
 
 class MoneyReferringFriends(View):
     def get(self, request):
-        return ""
+        return render(request, 'MoneyReferringFriends.html')
 
 
 class InsuranceProduct(View):
     def get(self, request):
-        return ""
+        return render(request, 'insuranceProduct.html')
 
 
 
