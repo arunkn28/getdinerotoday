@@ -14,6 +14,7 @@ app = apps.get_app_config('business')
 class DomainResource(resources.ModelResource):
     class Meta:
         model = Domain
+        exclude = ('created_at', 'updated_at')
 
 
 class DomainAdmin(ImportExportModelAdmin):
@@ -26,6 +27,7 @@ admin.site.register(Domain, DomainAdmin)
 class LenderResource(resources.ModelResource):
     class Meta:
         model = Lender
+        exclude = ('created_at', 'updated_at')
 
 
 class LenderAdmin(ImportExportModelAdmin):
@@ -38,7 +40,7 @@ admin.site.register(Lender, LenderAdmin)
 class ShortTermLoanResource(resources.ModelResource):
     class Meta:
         model = ShortTermLoan
-        exclude = ('id', 'created_at', 'updated_at')
+        exclude = ('created_at', 'updated_at')
 
 
 class ShortTermLoanAdmin(ImportExportModelAdmin):
@@ -51,7 +53,7 @@ admin.site.register(ShortTermLoan, ShortTermLoanAdmin)
 class InvoiceFactoringResource(resources.ModelResource):
     class Meta:
         model = InvoiceFactoring
-        exclude = ('id', 'created_at', 'updated_at')
+        exclude = ('created_at', 'updated_at')
 
 
 class InvoiceFactoringAdmin(ImportExportModelAdmin):
@@ -64,7 +66,7 @@ admin.site.register(InvoiceFactoring, InvoiceFactoringAdmin)
 class InvoiceFinancingResource(resources.ModelResource):
     class Meta:
         model = InvoiceFinancing
-        exclude = ('id', 'created_at', 'updated_at')
+        exclude = ('created_at', 'updated_at')
 
 
 class InvoiceFinancingAdmin(ImportExportModelAdmin):
@@ -77,7 +79,7 @@ admin.site.register(InvoiceFinancing, InvoiceFinancingAdmin)
 class EquipmentFinancingResource(resources.ModelResource):
     class Meta:
         model = EquipmentFinancing
-        exclude = ('id', 'created_at', 'updated_at')
+        exclude = ('created_at', 'updated_at')
 
 
 class EquipmentFinancingAdmin(ImportExportModelAdmin):
@@ -90,7 +92,7 @@ admin.site.register(EquipmentFinancing, EquipmentFinancingAdmin)
 class LinesOfCreditResource(resources.ModelResource):
     class Meta:
         model = LinesOfCredit
-        exclude = ('id', 'created_at', 'updated_at')
+        exclude = ('created_at', 'updated_at')
 
 
 class LinesOfCreditAdmin(ImportExportModelAdmin):
@@ -103,7 +105,7 @@ admin.site.register(LinesOfCredit, LinesOfCreditAdmin)
 class SbaLoanResource(resources.ModelResource):
     class Meta:
         model = SbaLoan
-        exclude = ('id', 'created_at', 'updated_at')
+        exclude = ('created_at', 'updated_at')
 
 
 class SbaLoanAdmin(ImportExportModelAdmin):
