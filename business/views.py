@@ -292,56 +292,66 @@ class EquipmentFinancing(View):
         return render(request, "home/equipmentfincing.html")
 
 
+
+
+
+
+
+
+
+
 class MarketingYourBusiness(View):
     def get(self, request):
-        return ""
-
-
-class BusinessCreditBuildingCourse(View):
-    def get(self, request):
-        return ""
-
+        return render(request, 'marketingYourBusiness.html')
 
 class OfferFinancingToCustomer(View):
     def get(self, request):
-        return ""
-
+        return render(request, 'customerFinancing.html')
 
 class ApplyingForBusinessLoans(View):
     def get(self, request):
-        return render(request, "home/applyforloan.html")
+        return render(request, 'applyforLoan.html')
 
 
-class CreditRepairSignUp(View):
+class CreditRepairOptionsView(View):
     def get(self, request):
-        return ""
+        return render(request, 'creditRepairOptions.html')
 
+class CreditRepairPaidView(View):
+    def get(self, request):
+        return render(request, 'creditRepairPaid.html')
+
+class CreditRepairView(View):
+    def get(self, request):
+        return render(request, 'creditRepair.html')
 
 class CreditPrimaryTradeLines(View):
     def get(self, request):
-        return ""
+        return render(request, 'creditPrimaryTradeline.html')
 
 
 class BusinessCreditRepair(View):
     def get(self, request):
-        return render(request, "home/businesscreditrepair.html")
-
+        return render(request, 'businessCreditRepair.html')
 
 class BusinessCreditMonitoringSingUp(View):
     def get(self, request):
-        return render(request, "home/businesscreditmonitoring.html")
+        return render(request, 'businessCreditMonitoringSingup.html')
 
 
 class BusinessCreditCardStrategy(View):
     def get(self, request):
-        return render(request, "home/businesscreditcardstrategy.html")
+        return render(request, 'businessCreditCardStrategy.html')
 
 
 class MoneyReferringFriends(View):
     def get(self, request):
-        return render(request, "home/makeextramoney.html")
+        return render(request, 'MoneyReferringFriends.html')
 
 
 class InsuranceProduct(View):
     def get(self, request):
-        return render(request, "home/insurance.html")
+        return render(request, 'insuranceProduct.html')
+
+
+
