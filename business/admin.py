@@ -46,3 +46,29 @@ class ShortTermLoanAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(ShortTermLoan, ShortTermLoanAdmin)
+
+
+class InvoiceFactoringResource(resources.ModelResource):
+    class Meta:
+        model = InvoiceFactoring
+        exclude = ('id', 'created_at', 'updated_at')
+
+
+class InvoiceFactoringAdmin(ImportExportModelAdmin):
+    resource_class = InvoiceFactoringResource
+
+
+admin.site.register(InvoiceFactoring, InvoiceFactoringAdmin)
+
+
+class InvoiceFinancingResource(resources.ModelResource):
+    class Meta:
+        model = InvoiceFinancing
+        exclude = ('id', 'created_at', 'updated_at')
+
+
+class InvoiceFinancingAdmin(ImportExportModelAdmin):
+    resource_class = InvoiceFinancingResource
+
+
+admin.site.register(InvoiceFinancing, InvoiceFinancingAdmin)
