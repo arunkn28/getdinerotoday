@@ -33,7 +33,7 @@ class SignUpView(View):
         data = request.POST
         try:
             profile = Profile.objects.create_user(data['email'], data['password'], data['first_name'],
-                                              data['last_name'], data['phone_number'])
+                                                  data['last_name'], data['phone_number'])
         except Exception as e:
             return render(request, 'registeration.html', {"error": "Registeration Failed"})
         if profile:
@@ -73,7 +73,7 @@ class PasswordChangeDoneView(View):
 
 class MyProgressView(View):
     def get(self, request):
-        return ""
+        return render(request, "home/my_progress.html")
 
 
 class LogoutView(View):
