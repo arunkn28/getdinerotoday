@@ -97,6 +97,7 @@ class Lender(ModelMixin, models.Model):
     def __str__(self):
         return self.name
 
+
 class LinesOfCredit(ModelMixin, models.Model):
     class Meta:
         db_table = 'lines_of_credit'
@@ -111,6 +112,8 @@ class LinesOfCredit(ModelMixin, models.Model):
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
 
+    def __str__(self):
+        return self.lender_name
 
 class Nopg(ModelMixin, models.Model):
     class Meta:

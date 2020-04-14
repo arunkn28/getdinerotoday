@@ -126,5 +126,3 @@ class BusinessTermLoanAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(BusinessTermLoan, BusinessTermLoanAdmin)
-
-

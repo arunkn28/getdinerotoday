@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from .models import Profile, ShortTermLoan, BusinessTermLoan, SbaLoan
+from django.shortcuts import render, redirect
+from django.urls import reverse
+
+from .models import Profile, ShortTermLoan, BusinessTermLoan, SbaLoan, LinesOfCredit
 from django.views import View
 
 
@@ -44,7 +46,11 @@ class WebsiteCreationOptionsView(View):
         website_creation_paid = False
         if profile:
             website_creation_paid = profile[0].website_creation_paid
-        return render(request, 'businessCreditBuilding/websiteCreationOptions.html', {'website_creation_paid': website_creation_paid})
+        if website_creation_paid:
+            return redirect(reverse('business:website-creation-paid'))
+        return redirect(reverse('business:website-creation'))
+        # return render(request, 'businessCreditBuilding/websiteCreationOptions.html', {'website_creation_paid': website
+        # _creation_paid})
 
 
 class WebsiteCreationPaidView(View):
@@ -63,7 +69,10 @@ class FaxNumberOptionsView(View):
         fax_number_paid = False
         if profile:
             fax_number_paid = profile[0].fax_number_paid
-        return render(request, 'businessCreditBuilding/faxNumberOptions.html', {'fax_number_paid': fax_number_paid})
+        if fax_number_paid:
+            return redirect(reverse('business:fax-number-paid'))
+        return redirect(reverse('business:fax-number'))
+        # return render(request, 'businessCreditBuilding/faxNumberOptions.html', {'fax_number_paid': fax_number_paid})
 
 
 class FaxNumberPaidView(View):
@@ -97,7 +106,11 @@ class TollFreeNumberOptionsView(View):
         toll_free_number_paid = False
         if profile:
             toll_free_number_paid = profile[0].toll_free_number_paid
-        return render(request, 'businessCreditBuilding/tollFreeNumberOptions.html', {'toll_free_number_paid': toll_free_number_paid})
+        if toll_free_number_paid:
+            return redirect(reverse('business:toll-free-paid'))
+        return redirect(reverse('business:toll-free'))
+        # return render(request, 'businessCreditBuilding/tollFreeNumberOptions.html', {'toll_free_number_paid':
+        # toll_free_number_paid})
 
 
 class TollFreeNumberPaidView(View):
@@ -281,7 +294,7 @@ class BusinessTermLoanView(View):
 class SmallBusinessAdminLoanView(View):
     def get(self, request):
         small_business_loans = SbaLoan.objects.all()
-        return render(request,"financingProducts/smallBusinessAdminLoan.html",
+        return render(request, "financingProducts/smallBusinessAdminLoan.html",
                       {'small_business_loans': small_business_loans})
 
 
@@ -292,7 +305,9 @@ class PersonalLoanView(View):
 
 class BusinessLineOfCredit(View):
     def get(self, request):
-        return render(request, "financingProducts/businessLineOfCredit.html")
+        business_line_credit = LinesOfCredit.objects.all()
+        return render(request, "financingProducts/businessLineOfCredit.html",
+                      {'business_line_credit': business_line_credit})
 
 
 class NoCreditCheckFinancing(View):
