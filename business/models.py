@@ -264,6 +264,18 @@ class StoreCreditVendorList(ModelMixin, models.Model):
     updated_at = models.DateTimeField(null=True, blank=True)
 
 
+class StarterVendorList(ModelMixin, models.Model):
+    class Meta:
+        db_table = 'starter_vendor_list'
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+    terms = models.CharField(max_length=50)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    report_to = models.CharField(max_length=50)
+    created_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(null=True, blank=True)
+
+
 class TollFreeNumber(ModelMixin, models.Model):
     class Meta:
         db_table = 'toll_free_number'

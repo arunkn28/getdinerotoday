@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from .models import Profile, ShortTermLoan, BusinessTermLoan, SbaLoan, LinesOfCredit
+from .models import Profile, ShortTermLoan, BusinessTermLoan, SbaLoan, LinesOfCredit, StoreCreditVendorList, \
+    StarterVendorList
 from django.views import View
 
 
@@ -180,24 +181,15 @@ class EquifaxView(View):
 
 class StarterVendorListView(View):
     def get(self, request):
-        data=[
-            {"Name":"Enco Manufacturing Company","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"1"},
-            {"Name":"REW Materials","category":'',"reportTo":'Equifax Small Business',"link":"2"},
-            {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
-            {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
-        ]
-        return render(request, 'cooperateCredit/starter_vendor_list.html',{"list_data":data})
+        starter_vendors = StarterVendorList.objects.all()
+        return render(request, 'cooperateCredit/starter_vendor_list.html', {"starter_vendors": starter_vendors})
 
 
 class StoreCreditVendorListView(View):
     def get(self, request):
-        data=[
-            {"Name":"Enco Manufacturing Company","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"1"},
-            {"Name":"REW Materials","category":'',"reportTo":'Equifax Small Business',"link":"2"},
-            {"Name":"United Rentals","category":'',"reportTo":'Dun &amp; Bradstreet',"link":"3"},
-            {"Name":"Copperfield","category":'',"reportTo":'Equifax Small Business',"link":"4"},
-        ]
-        return render(request, "cooperateCredit/store_credit_vendor_list.html",{"list_data":data})
+        store_credit_vendors = StoreCreditVendorList.objects.all()
+        return render(request, "cooperateCredit/store_credit_vendor_list.html",
+                      {"store_credit_vendors": store_credit_vendors})
 
 
 class ResolvingBusinessCreditVendorList(View):

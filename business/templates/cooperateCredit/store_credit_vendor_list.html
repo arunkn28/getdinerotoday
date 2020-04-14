@@ -1,4 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
 
+{% block extrastyle %}
+<script type="text/javascript" src="https://chatterpal.me/build/js/chatpal.js?7.23" crossorigin="anonymous" data-cfasync="false">
+</script>
+<script>
+    var chatPal = new ChatPal({
+        embedId: 'DfT7BnTm5dGn',
+        remoteBaseUrl: 'https://chatterpal.me/',
+        version: '7.23'
+    });
+</script>
+{% endblock extrastyle %}
+<!-- ============================================================== -->
+<!--            Content Start             -->
+<!-- ============================================================== -->
+{% block content %}
             <div class="row page-header"><div class="col-lg-6 align-self-center ">
 			  <h2>Store Credit Vendors</h2></div></div>
 
@@ -31,12 +48,12 @@
                                 </thead>
 
                                 <tbody>
-                                  {% for data in list_data %}
+                                  {% for vendor in store_credit_vendors %}
                                   <tr>
-                                      <td>{{data.Name}}</td>
-                                      <td>{{data.category}}</td>
-                                      <td>{{data.reportTo}}</td>
-                                      <td><a class="btn btn-primary" href="/lender_detail/{{data.link}}">Click Here For More Details</a></td>
+                                      <td>{{vendor.name}}</td>
+                                      <td>{{vendor.category}}</td>
+                                      <td>{{vendor.report_to}}</td>
+                                      <td><a class="btn btn-primary" href="/lender-detail/{{data.link}}">Click Here For More Details</a></td>
                                   </tr>
                                   {% endfor %}
                                 </tbody>
@@ -59,3 +76,4 @@
             </div>
 
         </section>
+    {% endblock %}

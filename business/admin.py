@@ -126,3 +126,29 @@ class BusinessTermLoanAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(BusinessTermLoan, BusinessTermLoanAdmin)
+
+
+class StoreCreditVendorListResource(resources.ModelResource):
+    class Meta:
+        model = StoreCreditVendorList
+        exclude = ('created_at', 'updated_at')
+
+
+class StoreCreditVendorListAdmin(ImportExportModelAdmin):
+    resource_class = StoreCreditVendorListResource
+
+
+admin.site.register(StoreCreditVendorList, StoreCreditVendorListAdmin)
+
+
+class StarterVendorListResource(resources.ModelResource):
+    class Meta:
+        model = StarterVendorList
+        exclude = ('created_at', 'updated_at')
+
+
+class StarterVendorListAdmin(ImportExportModelAdmin):
+    resource_class = StarterVendorListResource
+
+
+admin.site.register(StarterVendorList, StarterVendorListAdmin)
