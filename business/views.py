@@ -263,7 +263,7 @@ class ResolvingBusinessCreditVendorList(View):
         return render(request, 'cooperateCredit/store_credit_vendor_list.html', {"list_data": data})
 
 
-class leaderDetailsView(View):
+class LeaderDetailsView(View):
     def get(self, request, state):
         data = {
             "name": "Fleet-One Local Fleet Card",
@@ -286,19 +286,27 @@ class RevolvingBusinessCreditVendorList(View):
         return render(request, 'cooperateCredit/revolving.html', {"list_data": data})
 
 
-class revolvingDetailsView(View):
+class RevolvingDetailsView(View):
     def get(self, request, state):
         data = {
             "name": "Fleet-One Local Fleet Card",
             "category": '',
             "reportTo": 'Dun &amp; Bradstreet, Experian Business and Equifax Small Business',
             "terms": '',
-            "description": ' If your business uses cars, vans or trucks, Fleet-One Local Fuel Cards can make your job easier with security, control, convenience and savings. Use the Fleet-One Local card to pay for fuel and maintenance. With reduced fraud and more control, the savings for your business add up. Approval Requirements: Do not apply for this no personal guarantor account until you have at least 10 reporting trade lines and one trade line with a $10k credit limit reporting. They will check 411 listing, secretary of state for status of your corporation or LLC to make sure it&#39;s in good standing. You&#39;ll need to supply your EIN, copy of a voided business check, copy of a utility bill showing the business address and phone number, and a copy of your business license. (if a business license is required in your state) Leave the personal guarantor section blank.'
+            "description": ' If your business uses cars, vans or trucks, Fleet-One Local Fuel Cards can make your job \
+            easier with security, control, convenience and savings. Use the Fleet-One Local card to pay for fuel and \
+            maintenance. With reduced fraud and more control, the savings for your business add up. Approval \
+            Requirements: Do not apply for this no personal guarantor account until you have at least 10 reporting \
+            trade lines and one trade line with a $10k credit limit reporting. They will check 411 listing, \
+            secretary of state for status of your corporation or LLC to make sure it&#39;s in good standing. \
+            You&#39;ll need to supply your EIN, copy of a voided business check, copy of a utility bill showing \
+            the business address and phone number, and a copy of your business license. (if a business license is \
+            required in your state) Leave the personal guarantor section blank.'
         }
         return render(request, 'cooperateCredit/revolving_credit_detail.html', data)
 
 
-class CCNoGaurenteeVendorList(View):
+class CCNoGuaranteeVendorList(View):
     def get(self, request):
         data = [
             {"Name": "Enco Manufacturing Company", "category": '', "reportTo": 'Dun &amp; Bradstreet', "link": "1"},

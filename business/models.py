@@ -115,6 +115,7 @@ class LinesOfCredit(ModelMixin, models.Model):
     def __str__(self):
         return self.lender_name
 
+
 class Nopg(ModelMixin, models.Model):
     class Meta:
         db_table = 'nopg'
@@ -144,7 +145,6 @@ class Progress(ModelMixin, models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     website_creation = models.CharField(max_length=50)
     dns_number = models.CharField(max_length=50)
-    website_creation = models.CharField(max_length=50)
     virtual_number = models.CharField(max_length=50)
     fax_number = models.CharField(max_length=50)
     toll_free_number = models.CharField(max_length=50)
@@ -177,7 +177,7 @@ class RevenueLending(ModelMixin, models.Model):
     liens = models.CharField(max_length=50)
     business_bank_account = models.CharField(max_length=50)
     age = models.IntegerField()
-    registerd_at = models.DateTimeField(null=True, blank=True)
+    registered_at = models.DateTimeField(null=True, blank=True)
     lender_name = models.CharField(max_length=50)
     personal_credit_score = models.CharField(max_length=50)
     time_in_business = models.CharField(max_length=50)
@@ -258,7 +258,7 @@ class StoreCreditVendorList(ModelMixin, models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
     terms = models.CharField(max_length=50)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     report_to = models.CharField(max_length=50)
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
@@ -270,7 +270,7 @@ class StarterVendorList(ModelMixin, models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
     terms = models.CharField(max_length=50)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     report_to = models.CharField(max_length=50)
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
