@@ -211,6 +211,9 @@ class SbaLoan(ModelMixin, models.Model):
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
 
+    def __str__(self):
+        return self.lender_name
+
 
 class ShortTermLoan(ModelMixin, models.Model):
     class Meta:
