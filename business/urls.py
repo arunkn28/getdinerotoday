@@ -76,7 +76,7 @@ urlpatterns = [
         name='revolving-credit-details'),
     url('cc-credit-vendor/', login_required(CCNoGuaranteeVendorList.as_view(), login_url='/user/login'),
         name='cc-credit-vendor'),
-    url('nopg-detail/(\d+)/', login_required(noPgDetailsView.as_view(), login_url='/user/login'),
+    url('nopg-detail/(\d+)/', login_required(NoPgDetailsView.as_view(), login_url='/user/login'),
         name='nopg-detail'),
 
 

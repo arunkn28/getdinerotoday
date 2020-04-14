@@ -317,7 +317,7 @@ class CCNoGuaranteeVendorList(View):
         return render(request, 'cooperateCredit/nopg.html', {"list_data": data})
 
 
-class noPgDetailsView(View):
+class NoPgDetailsView(View):
     def get(self, request, state):
         data = {
             "name": "Fleet-One Local Fleet Card",
