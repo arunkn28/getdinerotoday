@@ -14,7 +14,7 @@ class ModelMixin:
 class Domain(ModelMixin, models.Model):
     class Meta:
         db_table = 'domain'
-    user = models.ForeignKey(Profile,  on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     domain_name = models.CharField(max_length=50)
     domain_needed = models.CharField(max_length=50)
     created_at = models.DateTimeField(null=True, blank=True)
@@ -82,20 +82,21 @@ class Category(models.Model):
 class Lender(ModelMixin, models.Model):
     class Meta:
         db_table = 'lender'
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=500)
+    name = models.CharField(max_length=50, null=True)
+    description = models.CharField(max_length=500, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
-    report_to = models.CharField(max_length=50)
-    monthly_payment = models.CharField(max_length=15)
-    estimated_term = models.CharField(max_length=50)
-    estimated_amount = models.CharField(max_length=50)
-    payment_terms = models.CharField(max_length=50)
-    terms = models.CharField(max_length=50)
+    report_to = models.CharField(max_length=50, null=True)
+    monthly_payment = models.CharField(max_length=15, null=True)
+    estimated_term = models.CharField(max_length=50, null=True)
+    estimated_amount = models.CharField(max_length=5, null=True)
+    payment_terms = models.CharField(max_length=50, null=True)
+    terms = models.CharField(max_length=50, null=True)
     created_at = models.DateTimeField(null=True)
     updated_at = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.name
+
 
 class LinesOfCredit(ModelMixin, models.Model):
     class Meta:

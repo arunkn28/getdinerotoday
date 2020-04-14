@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class ProfileUserManager(models.Manager):
     def create_user(self, email, password, first_name, last_name, phone_number):
         user = User.objects.create_user(email=email, username=email, password=password, first_name=first_name,
-                                   last_name=last_name)
+                                        last_name=last_name)
         profile = Profile(user=user, phone_number=phone_number)
         profile.save()
         return profile

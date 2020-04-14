@@ -159,14 +159,16 @@
                        </thead>
 
                        <tbody>
-                         <% @lenders.each do |lender| %>
+                          {% for lender in lenders %}
                            <tr>
-                               <td><%= lender.name %></td>
-                               <td><%= lender.category.try(:title) %></td>
-                               <td><%= lender.report_to %></td>
-                               <td><%= link_to "Click Here For More Details",lender_detail_path(lender.id),:class=>"btn btn-primary" %></td>
-                           </tr>
-                         <% end %>
+                               <td>{{ lender.name }}</td>
+                               <td>{{ lender.category|title }}</td>
+                               <td>{{ lender.report_to }}</td>
+                               <td>
+                                 <a href="{{ lender.get_absolute_url }}" class="btn btn-primary">Click Here For More Details</a>
+                               </td>
+                           </tr>                           
+                         {% endfor %}
                        </tbody>
                      </table>
                  </div>
@@ -193,14 +195,16 @@
                          </thead>
 
                          <tbody>
-                           <% @store_credits.each do |store_credit| %>
+                           {% for store_credit in store_credits %}
                              <tr>
-                                 <td><%= store_credit.name %></td>
-                                 <td><%= store_credit.category.try(:title) %></td>
-                                 <td><%= store_credit.reports_to %></td>
-                                 <td><%= link_to "Click Here For More Details",starter_vendor_detail_path(store_credit.id),:class=>"btn btn-primary" %></td>
-                             </tr>
-                           <% end %>
+                                 <td>{{ store_credit.name }}</td>
+                                 <td>{{ store_credit.category }}</td>
+                                 <td>{{ store_credit.reports_to }}</td>
+                                 <td>
+                                   <a class="btn btn-primary" href="{{ store_credit.get_absolute_url }}">Click Here For More Details</a>
+                                 </td>
+                             </tr>                             
+                           {% endfor %}
                          </tbody>
                        </table>
                    </div>
@@ -227,16 +231,18 @@
                                        </thead>
 
                                        <tbody>
-                                         <% @revolvings.each do |revolving| %>
+                                         {% for revolving in revolvings %}
                                            <tr>
-                                               <td><%= revolving.name %></td>
-                                               <td><%= revolving.category.try(:title) %></td>
-                                               <td><%= revolving.report_to %></td>
-                                               <td><%= link_to "Click Here For More Details",revolving_credit_detail_path(revolving.id),:class=>"btn btn-primary" %></td>
-
-
-                                           </tr>
-                                         <% end %>
+                                               <td>{{ revolving.name }}</td>
+                                               <td>{{ revolving.category|title }}</td>
+                                               <td>{{ revolving.report_to }}</td>
+                                               <td>
+                                                 <a href="{{ revolving.get_absolute_url }}" class="btn btn-primary">
+                                                   Click Here For More Details
+                                                 </a>
+                                               </td>
+                                           </tr>                                           
+                                         {% endfor %}
                                        </tbody>
                                    </table>
 
@@ -266,15 +272,17 @@
                            </thead>
 
                            <tbody>
-                             <% @nopgs.each do |no_pg| %>
+                             {% for no_pg in nopgs %}
                                <tr>
-                                   <td><%= no_pg.name %></td>
-                                   <td><%= no_pg.category.try(:title) %></td>
+                                   <td>{{ no_pg.name }}</td>
+                                   <td>{{ no_pg.category }}</td>
 
-                                   <td><%= no_pg.reports_to %></td>
-                                   <td><%= link_to "Click Here For More Details",nopg_detail_path(no_pg.id),:class=>"btn btn-primary" %></td>
-                               </tr>
-                             <% end %>
+                                   <td>{{  no_pg.reports_to  }}</td>
+                                   <td>
+                                     <a href="{{ no_pg.get_absolute_url }}" class="btn btn-primary">Click Here For More Details</a>
+                                   </td>
+                               </tr>                               
+                             {% endfor %}
                            </tbody>
                          </table>
                      </div>
