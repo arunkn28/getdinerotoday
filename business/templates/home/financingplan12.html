@@ -1,6 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 
             <div class="row page-header"><div class="col-lg-6 align-self-center ">
-			  <h2>Financing You Qualify For</h2></div></div>
+        <h2>Financing You Qualify For</h2></div></div>
 
         <section class="main-content">
           <div class="row">
@@ -230,7 +242,7 @@
             <td>Past delinquencies have little impact, recent negative marks create a chance of being denied but can still be approved. Prefer none within last 12 months. </td>
             <td>11.15% - 18.0% variable. </td>
             <td>You must be a Navy Federal member prior to applying for the credit card. </td>
-            <td><a href="www.navyfederal.org” target="_blank"><button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></a></td>
+            <td><a href="www.navyfederal.org" target="_blank"><button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></a></td>
         </tr>
       </tbody>
 <tbody>
@@ -740,17 +752,19 @@
 
                             </tbody>
                             <tbody>
-                              <% @shortterm.each do |s| %>
+                              {% for s in shortterm %}
                               <tr>
-                                <td><%= s.lender_name %></td>
-                                <td><%= s.personal_credit_score %></td>
-                                <td><%= s.time_in_business %></td>
-                                <td><%= s.term_length %></td>
-                                <td><%= s.apr %></td>
-                                <td><%= s.strategy %></td>
-                                <td><%= link_to "Apply Now", applyforloan_path, class: 'btn btn-sm btn-primary' %></td>
-                              </tr>
-                              <% end %>
+                                <td>{{ s.lender_name }}</td>
+                                <td>{{ s.personal_credit_score }}</td>
+                                <td>{{ s.time_in_business }}</td>
+                                <td>{{ s.term_length }}</td>
+                                <td>{{ s.apr }}</td>
+                                <td>{{ s.strategy }}</td>
+                                <td>
+                                  <a href="{% url 'business:applyforloan' %}" class="btn btn-primary">Apply Now</a>
+                                </td>
+                              </tr>                                
+                              {% endfor %}
                             </tbody>
                          </table>
 
@@ -781,17 +795,19 @@
 
                                  </tbody>
                                  <tbody>
-                                   <% @trls.each do |t| %>
-                                   <tr>
-                                     <td><%= t.lender_name %></td>
-                                     <td><%= t.personal_credit_score %></td>
-                                     <td><%= t.time_in_business %></td>
-                                     <td><%= t.term_length %></td>
-                                     <td><%= t.apr %></td>
-                                      <td>Term loans are great because you will have longer terms. You want to position yourself for this type of loan because they will place a UCC filing on your business which is a blanket lien on all of your assets if you default. Once you have a UCC filing it severely hampers your ability to get more business term or revenue lending financing.</td>
-                                     <td><%= link_to "Apply Now", applyforloan_path, class: 'btn btn-primary' %></td>
-                                   </tr>
-                                   <% end %>
+                                  {% for t in trls %}
+                                  <tr>
+                                    <td>{{ t.lender_name }}</td>
+                                    <td>{{ t.personal_credit_score }}</td>
+                                    <td>{{ t.time_in_business }}</td>
+                                    <td>{{ t.term_length }}</td>
+                                    <td>{{ t.apr }}</td>
+                                    <td>Term loans are great because you will have longer terms. You want to position yourself for this type of loan because they will place a UCC filing on your business which is a blanket lien on all of your assets if you default. Once you have a UCC filing it severely hampers your ability to get more business term or revenue lending financing.</td>
+                                    <td>
+                                      <a href="{% url 'business:applyforloan' %}" class="btn btn-primary">Apply Now</a>
+                                    </td>
+                                  </tr>                
+                                  {% endfor %}
                                  </tbody>
                               </table>
 
@@ -833,7 +849,7 @@
                                 <td>700 </td>
                                 <td>No minimum employment length </td>
                                 <td>Minimum Credit history of 2 years required. </td>
-                              <td><a href=www.discover.com" target="_blank"><button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></a></td></td>
+                              <td><a href="www.discover.com" target="_blank"><button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></a></td></td>
                             </tr>
                           </tbody>
 <tbody>
@@ -955,15 +971,17 @@
                                 </thead>
 
                                 <tbody>
-                                  <% @lenders.each do |lender| %>
-                                    <tr>
-                                        <td><%= lender.name %></td>
-                                        <td><%= lender.category.try(:title) %></td>
-                                        <td><%= lender.report_to %></td>
-                                        <td>Corporate Business Credit is great because it is financing you can get without a personal guarantee and not have a UCC filing which will help you get more financing. For example, getting an Amazon Line Of Credit or Business Credit Card from Walmart that doesn’t need a personal guarantee and UCC filing. </td>
-                                        <td><%= link_to "Click Here For More Details",lender_detail_path(lender.id),:class=>"btn btn-primary" %></td>
-                                    </tr>
-                                  <% end %>
+                        {% for lender in lenders %}
+                          <tr>
+                              <td>{{ lender.name }}</td>
+                              <td>{{ lender.category }}</td>
+                              <td>{{ lender.report_to }}</td>
+                              <td>Corporate Business Credit is great because it is financing you can get without a personal guarantee and not have a UCC filing which will help you get more financing. For example, getting an Amazon Line Of Credit or Business Credit Card from Walmart that doesn’t need a personal guarantee and UCC filing. </td>
+                              <td>
+                                <a href="{{ lender.get_absolute_url }}" class="btn btn-primary">Click Here For More Details</a>
+                              </td>
+                          </tr>                
+                        {% endfor %}
                                 </tbody>
                               </table>
                           </div>
@@ -1078,17 +1096,19 @@
 
                                                                </tbody>
                                                                <tbody>
-                                                                 <% @invoice.each do |i| %>
-                                                                 <tr>
-                                                                   <td><%= i.lender_name %></td>
-                                                                   <td><%= i.personal_credit_score %></td>
-                                                                   <td><%= i.time_in_business %></td>
-                                                                   <td><%= i.term_length %></td>
-                                                                   <td><%= i.apr %></td>
-                                                                   <td><%= i.strategy %></td>
-                                                                   <td><%= link_to "Apply Now", applyforloan_path, class: 'btn btn-sm btn-primary' %></td>
-                                                                 </tr>
-                                                                 <% end %>
+                                                                  {% for invoice in invoices %}
+                                                                  <tr>
+                                                                    <td>{{ invoice.lender_name }}</td>
+                                                                    <td>{{ invoice.personal_credit_score }}</td>
+                                                                    <td>{{ invoice.time_in_business }}</td>
+                                                                    <td>{{ invoice.term_length }}</td>
+                                                                    <td>{{ invoice.apr }}</td>
+                                                                    <td>{{ invoice.strategy }}</td>
+                                                                    <td>
+                                                                      <a href="{% url 'business:applyforloan' %}" class="btn btn-sm btn-primary">Apply Now</a>
+                                                                    </td>
+                                                                  </tr>                
+                                                                  {% endfor %}
                                                                </tbody>
                                                             </table>
 
@@ -1119,17 +1139,19 @@
 
                                                                     </tbody>
                                                                     <tbody>
-                                                                      <% @invoicefinance.each do |i| %>
+                                                                      {% for invoice in finance_invoices %}
                                                                       <tr>
-                                                                        <td><%= i.lender_name %></td>
-                                                                        <td><%= i.personal_credit_score %></td>
-                                                                        <td><%= i.time_in_business %></td>
-                                                                        <td><%= i.term_length %></td>
-                                                                        <td><%= i.apr %></td>
-                                                                        <td>You want to leverage invoice financing when you have accounts receivables or money that is owed to you by other businesses but do not want to have them be notified like invoice factoring.</td>
-                                                                        <td><%= link_to "Apply Now", applyforloan_path, class: 'btn btn-sm btn-primary' %></td>
-                                                                      </tr>
-                                                                      <% end %>
+                                                                        <td>{{ invoice.lender_name }}</td>
+                                                                        <td>{{ invoice.personal_credit_score }}</td>
+                                                                        <td>{{ invoice.time_in_business }}</td>
+                                                                        <td>{{ invoice.term_length }}</td>
+                                                                        <td>{{ invoice.apr }}</td>
+                                                                      <td>You want to leverage invoice financing when you have accounts receivables or money that is owed to you by other businesses but do not want to have them be notified like invoice factoring.</td>
+                                                                        <td>
+                                                                          <a href="{% url 'business:applyforloan' %}" class="btn btn-sm btn-primary">Apply Now</a>
+                                                                        </td>
+                                                                      </tr>                
+                                                                      {% endfor %}
                                                                     </tbody>
                                                                  </table>
 
@@ -1160,17 +1182,19 @@
 
                                                                          </tbody>
                                                                          <tbody>
-                                                                           <% @equipment.each do |e| %>
-                                                                           <tr>
-                                                                             <td><%= e.lender_name %></td>
-                                                                             <td><%= e.personal_credit_score %></td>
-                                                                             <td><%= e.time_in_business %></td>
-                                                                             <td><%= e.term_length %></td>
-                                                                             <td><%= e.apr %></td>
-                                                                             <td><%= e.strategy %></td>
-                                                                             <td><%= link_to "Apply Now", applyforloan_path, class: 'btn btn-sm btn-primary' %></td>
-                                                                           </tr>
-                                                                           <% end %>
+                                                                            {% for e in equipments %}
+                                                                            <tr>
+                                                                              <td>{{ e.lender_name }}</td>
+                                                                              <td>{{ e.personal_credit_score }}</td>
+                                                                              <td>{{ e.time_in_business }}</td>
+                                                                              <td>{{ e.term_length }}</td>
+                                                                              <td>{{ e.apr }}</td>
+                                                                              <td>{{ e.strategy }}</td>
+                                                                              <td>
+                                                                                <a href="{% url 'business:applyforloan' %}" class="btn btn-sm btn-primary">Apply Now</a>
+                                                                              </td>
+                                                                            </tr>                
+                                                                            {% endfor %}
                                                                          </tbody>
                                                                       </table>
 
@@ -1241,3 +1265,10 @@
             </div>
 
         </section>
+
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}

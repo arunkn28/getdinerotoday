@@ -1,13 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import (
     Profile, Lender, StoreCreditVendorList, RevolvingCredit, Nopg, ShortTermLoan, BusinessTermLoan, SbaLoan,
     LinesOfCredit, StarterVendorList, PersonalCreditCard, PersonalLoan
 )
-from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.views.generic.base import ContextMixin
 
 
 def get_business_plan_context():
@@ -79,6 +78,181 @@ class UpgradeView(View):
 class FinancingView(View):
     def get(self, request):
         return render(request, 'financing.html')
+
+    def post(self, request):
+        data = request.POST
+        experian = int(data['experian'])
+        equifax = int(data['equifax'])
+        transunion = int(data['transunion'])
+        monthly_revenue_3 = int(data['monthly_revenue_3'])
+        daily_balance_3 = int(data['daily_balance_3'])
+        monthlty_ending_balance_3 = int(data['monthlty_ending_balance_3'])
+        monthly_revenue_6 = int(data['monthly_revenue_6'])
+        daily_balance_6 = int(data['daily_balance_6'])
+        monthlty_ending_balance_6 = int(data['monthlty_ending_balance_6'])
+        business_revenue = int(data['business_revenue'])
+        nonsufficient_6 = int(data['nonsufficient_6'])
+        nonsufficient_12 = int(data['nonsufficient_12'])
+        current_liens = int(data['current_liens'])
+        business_account = int(data['business_account'])
+        business_loan = int(data['business_loan'])
+        business_age = int(data['business_age'])
+
+        if experian == 1:
+            if monthly_revenue_3 == 1:
+                return HttpResponseRedirect(reverse("business:financing_plan_8"))
+            else:
+                if business_age == 5:
+                    return HttpResponseRedirect(reverse("business:financing_plan_12"))
+                else:
+                    return HttpResponseRedirect(reverse("business:financing_plan_1"))
+        if experian == 2:
+            if monthly_revenue_3 == 1:
+                return HttpResponseRedirect(reverse("business:financing_plan_7"))
+            elif monthly_revenue_3 == 2:
+                if business_age == 5:
+                    return HttpResponseRedirect(reverse("business:financing_plan_15"))
+            else:
+                return HttpResponseRedirect(reverse("business:financing_plan_2"))
+
+        if experian == 3:
+            if monthly_revenue_3 == 1:
+                return HttpResponseRedirect(reverse("business:financing_plan_6"))
+            else:
+                if business_age <= 4:
+                    return HttpResponseRedirect(reverse("business:financing_plan_3"))
+                else:
+                    return HttpResponseRedirect(reverse("business:financing_plan_10"))
+
+
+class FinancingPlan1View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan1.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['trls'] = []
+        context['locs'] = []
+        context['lenders'] = Lender.objects.all()
+        context['invoices'] = []
+        context['finance_invoices'] = []
+        context['equipments'] = []
+        return context
+
+
+class FinancingPlan2View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan2.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        context['trls'] = []
+        context['locs'] = []
+        context['lenders'] = []
+        context['invoices'] = []
+        context['finance_invoices'] = []
+        context['equipments'] = []
+        return context
+
+
+class FinancingPlan3View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan3.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        context['locs'] = []
+        context['sba_loans'] = []
+        context['invoices'] = []
+        context['finance_invoices'] = []
+        context['equipments'] = []
+        return context
+
+
+class FinancingPlan6View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan6.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lenders'] = []
+        context['equipments'] = []
+        return context
+
+
+class FinancingPlan7View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan7.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lenders'] = []
+        context['invoices'] = []
+        context['equipments'] = []
+        return context
+
+
+class FinancingPlan8View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan8.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lenders'] = []
+        context['equipments'] = []
+        return context
+
+
+class FinancingPlan10View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan10.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        context['trls'] = []
+        context['locs'] = []
+        context['lenders'] = []
+        context['sba_loans'] = []
+        context['invoices'] = []
+        context['finance_invoices'] = []
+        context['equipments'] = []
+        return context
+
+
+class FinancingPlan12View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan12.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        context['trls'] = []
+        context['locs'] = []
+        context['lenders'] = []
+        context['invoices'] = []
+        context['finance_invoices'] = []
+        context['equipments'] = []
+        return context
+
+
+class FinancingPlan15View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "home/financingplan15.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        context['trls'] = []
+        context['locs'] = []
+        context['lenders'] = []
+        context['sba_loans'] = []
+        context['invoices'] = []
+        context['finance_invoices'] = []
+        context['equipments'] = []
+        return context
 
 
 class CreditSituationView(View):
@@ -338,7 +512,7 @@ class PersonalCreditCardsView(View):
 
 class BusinessCreditCardsView(View):
     def get(self, request):
-        return render(request, "financingProducts/businessCreditCard.html")
+        return render(request, "home/businesscreditcards.html")
 
 
 class ShortTermLoans(View):
