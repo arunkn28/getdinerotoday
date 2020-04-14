@@ -340,13 +340,15 @@ class ShortTermLoans(View):
 class BusinessTermLoanView(View):
     def get(self, request):
         business_term_loans = BusinessTermLoan.objects.all()
-        return render(request,"financingProducts/businessTermLoan.html", {'business_term_loans': business_term_loans})
+        return render(request, "financingProducts/businessTermLoan.html", {'business_term_loans': business_term_loans})
+
 
 class SmallBusinessAdminLoanView(View):
     def get(self, request):
         small_business_loans = SbaLoan.objects.all()
         return render(request, "financingProducts/smallBusinessAdminLoan.html",
                       {'small_business_loans': small_business_loans})
+
 
 class PersonalLoanView(View):
     def get(self, request):
