@@ -14,6 +14,9 @@ class ProfileUserManager(models.Manager):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=15)
+    fax_number_paid = models.BooleanField(default=False)
+    toll_free_number_paid = models.BooleanField(default=False)
+    website_creation_paid = models.BooleanField(default=False)
     objects = ProfileUserManager()
 
     def __str__(self):

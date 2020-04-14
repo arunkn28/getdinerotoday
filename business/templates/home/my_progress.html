@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
+<div class="row page-header">
+  <div class="col-lg-6 align-self-center ">
+  </div>
+</div>
+<section class="main-content">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="widget white-bg">
+        <div class="padding-20 text-center">
+          <img src="{% static 'images/avtar-2.png' %}" class="rounded-circle mar-btm margin-b-10 box-shadow" width="140">
+          <p class="lead font-500 margin-b-0">
+            {{ request.user.get_full_name|title }}
+          </p>
+          <p class="text-sm margin-b-0">Check All Of Your Portal Information</p>
+        </div>
+      </div>
+      <div class='widget white-bg friends-group clearfix' id="user_edit">
+        <small class="text-muted">Email address </small>
+        <p>{{ request.user.email }}</p>
+        <small class="text-muted">Phone</small>
+        <p>{{ request.user.phone }}</p>
+        <p>
+          <a href="#">Edit</a>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-8 col-xs-12">
+      <div class="card">
+        <div class="card-header card-default">
+          Your Portal Information
+        </div>
+      </div>
+      <div class="col-md-8 col-xs-12">
+        <div class="card">
+          <div class="card-body">
+            <p>Apply For Loans</p>
+            <a class="btn btn-primary" href="https://loanportal.herokuapp.com/" target="_blank">Click Here To Login To Your <br>Portal To Apply For Loans</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <p>Login For Credit Repair Portal Access</p>
+            <a class="btn btn-primary" href="https://www.secureclientaccess.com/" target="_blank">Click Here To Login To Your <br>Portal To See Your Credit Repair Progress.</a><br> <br>
+            <p>(Only For Clients Who Have Paid For Credit Repair Program) Use Your Email You Made With Signing Up For Credit Repair Account & Temporary Password: Northface14</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}
