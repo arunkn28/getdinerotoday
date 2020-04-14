@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Profile
+from .models import Profile, ShortTermLoan, BusinessTermLoan
 from django.views import View
 
 
@@ -268,12 +268,14 @@ class BusinessCreditCardsView(View):
 
 class ShortTermLoans(View):
     def get(self, request):
-        return render(request, "financingProducts/shortTerm.html")
+        short_term_loans = ShortTermLoan.objects.all()
+        return render(request, "financingProducts/shortTerm.html", {'short_term_loans': short_term_loans})
 
 
 class BusinessTermLoanView(View):
     def get(self, request):
-        return render(request,"financingProducts/businessTermLoan.html")
+        business_term_loans = BusinessTermLoan.objects.all()
+        return render(request,"financingProducts/businessTermLoan.html", {'business_term_loans': business_term_loans})
 
 
 class SmallBusinessAdminLoanView(View):
@@ -324,7 +326,7 @@ class OfferFinancingToCustomer(View):
     def get(self, request):
         return render(request, 'customerFinancing.html')
 
-class ApplyingForBusinessLoans(View):
+class ApplyingForLoans(View):
     def get(self, request):
         return render(request, 'applyforLoan.html')
 

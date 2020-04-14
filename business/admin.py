@@ -115,6 +115,16 @@ class SbaLoanAdmin(ImportExportModelAdmin):
 admin.site.register(SbaLoan, SbaLoanAdmin)
 
 
+class BusinessTermLoanResource(resources.ModelResource):
+    class Meta:
+        model = BusinessTermLoan
+        exclude = ('created_at', 'updated_at')
 
+
+class BusinessTermLoanAdmin(ImportExportModelAdmin):
+    resource_class = BusinessTermLoanResource
+
+
+admin.site.register(BusinessTermLoan, BusinessTermLoanAdmin)
 
 
