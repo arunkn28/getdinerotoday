@@ -510,7 +510,7 @@ class PersonalCreditCardsView(View):
 
 class BusinessCreditCardsView(View):
     def get(self, request):
-        return render(request, "financingProducts/businessCreditCard.html")
+        return render(request, "home/businesscreditcards.html")
 
 
 class ShortTermLoans(View):
