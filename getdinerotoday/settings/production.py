@@ -14,10 +14,10 @@ DATABASES['default']['CONN_MAX_AGE'] = 500
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_PORT = 587
+EMAIL_PORT = 25
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
+# EMAIL_USE_TLS = True
 
 # SECURITY WARNING: update this when you have the production host
 ALLOWED_HOSTS = ['*']
