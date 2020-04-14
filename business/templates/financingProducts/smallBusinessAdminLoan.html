@@ -43,9 +43,18 @@
                          <th>Strategy</th>
                          <th>Apply Now</th>
                        </thead>
-
-                                    </tbody>
                                     <tbody>
+                                    {% for loan  in small_business_loans %}
+                                      <tr>
+                                        <td>{{loan.lender_name}} </td>
+                                        <td>{{loan.personal_credit_score}}</td>
+                                        <td>{{loan.time_in_business}}</td>
+                                        <td>{{loan.term_length}}</td>
+                                        <td>{{loan.apr}}</td>
+                                        <td>{{loan.strategy}}</td>
+                                        <td><a class="btn btn-sm btn-primary" href="{% url 'business:apply-loans' %}">Apply Now</a></td>
+                                      </tr>
+                                    {% endfor %}
                                     </tbody>
                                  </table>
 

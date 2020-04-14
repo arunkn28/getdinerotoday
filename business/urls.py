@@ -102,14 +102,14 @@ urlpatterns = [
         name='invoice-financings'),
     url('equipment-financings/', login_required(EquipmentFinancing.as_view(), login_url='/user/login'),
         name='equipment-financings'),
-    
-    
+    url('apply-loan/', login_required(EquipmentFinancing.as_view(), login_url='/user/login'),
+        name='applyforloan'),
     url('marketing-business/', login_required(MarketingYourBusiness.as_view(), login_url='/user/login'),
         name='marketing-business'),
     url('customer-financing-offer/', login_required(OfferFinancingToCustomer.as_view(), login_url='/user/login'),
         name='customer-financing-offer'),
-    url('apply-business-loans', login_required(ApplyingForBusinessLoans.as_view(), login_url='/user/login'),
-        name='apply-business-loans'),
+    url('apply-loans', login_required(ApplyingForLoans.as_view(), login_url='/user/login'),
+        name='apply-loans'),
     url('credit-repair-options/', login_required(CreditRepairOptionsView.as_view(), login_url='/user/login'),
         name='credit-repair-options'),
     url('credit-repair-paid/', login_required(CreditRepairPaidView.as_view(), login_url='/user/login'),

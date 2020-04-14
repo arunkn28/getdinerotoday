@@ -112,6 +112,8 @@ class LinesOfCredit(ModelMixin, models.Model):
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
 
+    def __str__(self):
+        return self.lender_name
 
 class Nopg(ModelMixin, models.Model):
     class Meta:
@@ -212,6 +214,9 @@ class SbaLoan(ModelMixin, models.Model):
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
 
+    def __str__(self):
+        return self.lender_name
+
 
 class ShortTermLoan(ModelMixin, models.Model):
     class Meta:
@@ -226,8 +231,11 @@ class ShortTermLoan(ModelMixin, models.Model):
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
 
+    def __str__(self):
+        return self.lender_name
 
-class TermLoan(ModelMixin, models.Model):
+
+class BusinessTermLoan(ModelMixin, models.Model):
     class Meta:
         db_table = 'term_loan'
     lender_name = models.CharField(max_length=50)
@@ -239,6 +247,9 @@ class TermLoan(ModelMixin, models.Model):
     strategy = models.CharField(max_length=50)
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return self.lender_name
 
 
 class StoreCreditVendorList(ModelMixin, models.Model):

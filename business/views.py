@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import (
-    Profile, Lender, StoreCreditVendorList, RevolvingCredit, Nopg
+    Profile, Lender, StoreCreditVendorList, RevolvingCredit, Nopg, ShortTermLoan, BusinessTermLoan, SbaLoan, LinesOfCredit
 )
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -104,7 +106,11 @@ class WebsiteCreationOptionsView(View):
         website_creation_paid = False
         if profile:
             website_creation_paid = profile[0].website_creation_paid
-        return render(request, 'businessCreditBuilding/websiteCreationOptions.html', {'website_creation_paid': website_creation_paid})
+        if website_creation_paid:
+            return redirect(reverse('business:website-creation-paid'))
+        return redirect(reverse('business:website-creation'))
+        # return render(request, 'businessCreditBuilding/websiteCreationOptions.html', {'website_creation_paid': website
+        # _creation_paid})
 
 
 class WebsiteCreationPaidView(View):
@@ -123,7 +129,10 @@ class FaxNumberOptionsView(View):
         fax_number_paid = False
         if profile:
             fax_number_paid = profile[0].fax_number_paid
-        return render(request, 'businessCreditBuilding/faxNumberOptions.html', {'fax_number_paid': fax_number_paid})
+        if fax_number_paid:
+            return redirect(reverse('business:fax-number-paid'))
+        return redirect(reverse('business:fax-number'))
+        # return render(request, 'businessCreditBuilding/faxNumberOptions.html', {'fax_number_paid': fax_number_paid})
 
 
 class FaxNumberPaidView(View):
@@ -157,7 +166,11 @@ class TollFreeNumberOptionsView(View):
         toll_free_number_paid = False
         if profile:
             toll_free_number_paid = profile[0].toll_free_number_paid
-        return render(request, 'businessCreditBuilding/tollFreeNumberOptions.html', {'toll_free_number_paid': toll_free_number_paid})
+        if toll_free_number_paid:
+            return redirect(reverse('business:toll-free-paid'))
+        return redirect(reverse('business:toll-free'))
+        # return render(request, 'businessCreditBuilding/tollFreeNumberOptions.html', {'toll_free_number_paid':
+        # toll_free_number_paid})
 
 
 class TollFreeNumberPaidView(View):
@@ -328,18 +341,20 @@ class BusinessCreditCardsView(View):
 
 class ShortTermLoans(View):
     def get(self, request):
-        return render(request, "financingProducts/shortTerm.html")
+        short_term_loans = ShortTermLoan.objects.all()
+        return render(request, "financingProducts/shortTerm.html", {'short_term_loans': short_term_loans})
 
 
 class BusinessTermLoanView(View):
     def get(self, request):
-        return render(request, "financingProducts/businessTermLoan.html")
-
+        business_term_loans = BusinessTermLoan.objects.all()
+        return render(request,"financingProducts/businessTermLoan.html", {'business_term_loans': business_term_loans})
 
 class SmallBusinessAdminLoanView(View):
     def get(self, request):
-        return render(request, "financingProducts/smallBusinessAdminLoan.html")
-
+        small_business_loans = SbaLoan.objects.all()
+        return render(request, "financingProducts/smallBusinessAdminLoan.html",
+                      {'small_business_loans': small_business_loans})
 
 class PersonalLoanView(View):
     def get(self, request):
@@ -348,7 +363,9 @@ class PersonalLoanView(View):
 
 class BusinessLineOfCredit(View):
     def get(self, request):
-        return render(request, "financingProducts/businessLineOfCredit.html")
+        business_line_credit = LinesOfCredit.objects.all()
+        return render(request, "financingProducts/businessLineOfCredit.html",
+                      {'business_line_credit': business_line_credit})
 
 
 class NoCreditCheckFinancing(View):
@@ -381,7 +398,7 @@ class OfferFinancingToCustomer(View):
         return render(request, 'customerFinancing.html')
 
 
-class ApplyingForBusinessLoans(View):
+class ApplyingForLoans(View):
     def get(self, request):
         return render(request, 'applyforLoan.html')
 
