@@ -38,10 +38,10 @@ class SignUpView(View):
         try:
             profile = Profile.objects.create_user(data['email'], data['password'], data['first_name'],
                                                   data['last_name'], data['phone_number'])
+            login(request, profile.user)
+            return HttpResponseRedirect(reverse('homepage'))
         except Exception as e:
             return render(request, 'registeration.html', {"error": "Registeration Failed"})
-        if profile:
-            return HttpResponseRedirect(reverse('user:login'))
 
 
 class PasswordResetView(auth_views.PasswordResetView):

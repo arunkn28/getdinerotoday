@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import (
     Profile, Lender, StoreCreditVendorList, RevolvingCredit, Nopg, ShortTermLoan, BusinessTermLoan, SbaLoan,
-    LinesOfCredit, StarterVendorList
+    LinesOfCredit, StarterVendorList, PersonalCreditCard, PersonalLoan
 )
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -331,7 +331,9 @@ class NoPgDetailsView(View):
 
 class PersonalCreditCardsView(View):
     def get(self, request):
-        return render(request, "financingProducts/personalCreditCard.html")
+        personal_credit_cards = PersonalCreditCard.objects.all()
+        return render(request, "financingProducts/personalCreditCard.html", {'personal_credit_cards'
+                                                                             : personal_credit_cards})
 
 
 class BusinessCreditCardsView(View):
@@ -360,7 +362,8 @@ class SmallBusinessAdminLoanView(View):
 
 class PersonalLoanView(View):
     def get(self, request):
-        return render(request, "financingProducts/personalLoan.html")
+        personal_loans = PersonalLoan.objects.all()
+        return render(request, "financingProducts/personalLoan.html", {'personal_loans': personal_loans})
 
 
 class BusinessLineOfCredit(View):

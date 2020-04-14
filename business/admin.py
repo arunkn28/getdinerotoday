@@ -152,3 +152,43 @@ class StarterVendorListAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(StarterVendorList, StarterVendorListAdmin)
+
+
+class PersonalCreditCardResource(resources.ModelResource):
+    class Meta:
+        model = PersonalCreditCard
+        exclude = ('created_at', 'updated_at')
+
+
+class PersonalCreditCardAdmin(ImportExportModelAdmin):
+    resource_class = PersonalCreditCardResource
+
+
+admin.site.register(PersonalCreditCard, PersonalCreditCardAdmin)
+
+
+class BusinessCreditCardResource(resources.ModelResource):
+    class Meta:
+        model = BusinessCreditCard
+        exclude = ('created_at', 'updated_at')
+
+
+class BusinessCreditCardAdmin(ImportExportModelAdmin):
+    resource_class = BusinessCreditCardResource
+
+
+admin.site.register(BusinessCreditCard, BusinessCreditCardAdmin)
+
+
+class PersonalLoanResource(resources.ModelResource):
+    class Meta:
+        model = PersonalLoan
+        exclude = ('created_at', 'updated_at')
+
+
+class PersonalLoanAdmin(ImportExportModelAdmin):
+    resource_class = PersonalLoanResource
+
+
+admin.site.register(PersonalLoan, PersonalLoanAdmin)
+
