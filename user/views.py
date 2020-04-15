@@ -1,6 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth import views as auth_views
 from django.utils.decorators import method_decorator
 from django.views import View
@@ -9,6 +8,7 @@ from django.urls import reverse
 from .models import Profile
 from django.shortcuts import render
 from .decorators import unauthenticated_user
+from django.contrib.auth.models import User
 
 
 @method_decorator(unauthenticated_user, name='dispatch')
@@ -78,6 +78,18 @@ class PasswordChangeDoneView(View):
 class MyProgressView(View):
     def get(self, request):
         return render(request, "home/my_progress.html")
+
+    def post(self, request):
+        data = request.POST
+        user = request.user
+        email_changed = data['email'] != user.email
+        user.email = data['email']
+        user.profile.phone_number = data['phone']
+        user.save()
+        user.profile.save()
+        if email_changed:
+            update_session_auth_hash(request, user)
+        return HttpResponseRedirect(reverse('user:myprogress'))
 
 
 class LogoutView(View):
