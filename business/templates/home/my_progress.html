@@ -5,7 +5,17 @@
 {% endblock title %}
 
 {% block extrastyle %}
-    
+    <style>
+      body{
+        background-image: -webkit-linear-gradient(-30deg, #052157 0%, #91039f 100%) !important;
+      }
+    </style>
+    <script>
+    var showForm = function () {
+      $("#user_info").hide()
+      $("#user_edit").show();
+    };
+    </script>
 {% endblock extrastyle %}
 
 {% block content %}
@@ -25,15 +35,35 @@
           <p class="text-sm margin-b-0">Check All Of Your Portal Information</p>
         </div>
       </div>
-      <div class='widget white-bg friends-group clearfix' id="user_edit">
+      <div class='widget white-bg friends-group clearfix' id="user_info" style="display:block;">
         <small class="text-muted">Email address </small>
         <p>{{ request.user.email }}</p>
         <small class="text-muted">Phone</small>
-        <p>{{ request.user.phone }}</p>
+        <p>{{ request.user.profile.phone_number }}</p>
         <p>
-          <a href="#">Edit</a>
+          <a href="#" onclick="showForm()">Edit</a>
         </p>
       </div>
+      <div class="widget white-bg friends-group clearfix" id="user_edit" style="display:none;">
+          <form action="{% url 'user:myprogress' %}" accept-charset="UTF-8" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                  <label for="user_email">Email</label>
+                  <div class="group-icon">
+                      <input autocomplete="email" placeholder="Email" class="form-control" required="required" type="email" value="{{ request.user.email }}" name="email" id="user_email">
+                      <span class="icon-user text-muted icon-input"></span>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="user_phone">Phone</label>
+                  <div class="group-icon">
+                      <input placeholder="Phone" class="form-control" required="required" type="text" value="{{ request.user.profile.phone_number }}" name="phone" id="user_phone">
+                      <span class="icon-user text-muted icon-input"></span>
+                  </div>
+              </div>
+              <input type="submit" name="commit" value="Save" class="btn btn-block btn-primary" data-disable-with="Save">
+          </form>
+      </div>      
     </div>
     <div class="col-md-8 col-xs-12">
       <div class="card">
