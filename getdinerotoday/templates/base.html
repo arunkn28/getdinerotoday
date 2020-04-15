@@ -23,10 +23,6 @@
   </head>
 
   <body class=''>
-      {% comment %}
-        <% if params["controller"] != "devise/sessions" && (params["controller"] != "devise/registrations" || params["action"] == "edit") %>
-      {% endcomment %}
-
       <!-- ============================================================== -->
       <!--            Topbar Start              -->
       <!-- ============================================================== -->
@@ -55,7 +51,7 @@
                   <ul class="list-inline top-right-nav">
                      <li class="dropdown avtar-dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                          <img src='{% static "images/avtar-2.png" %}' class="rounded-circle" width="30">
+                          <img src='{% static "images/avtar-2.png" %}' class="rounded-circle" width="30"> -->
                         </a>
                         <ul class="dropdown-menu top-dropdown">
                           {% if request.user.is_authenticated %}
@@ -181,7 +177,7 @@
          <div class="nano">
             <div class="nano-content sidebar-nav">
                <div class="card-body border-bottom text-center nav-profile">
-                <img src='{% static "images/avtar-2.png" %}' width="90" class="rounded-circle mar-btm margin-b-10 box-shadow">
+                <!--<img src='{% static "images/avtar-2.png" %}' width="90" class="rounded-circle mar-btm margin-b-10 box-shadow"> -->
                  <br>
                   <p class="lead margin-b-0 toggle-none">
                     {{ request.user.get_full_name }}
