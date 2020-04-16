@@ -42,58 +42,14 @@
 
 
                                       <tbody>
-                                        <tr>
-                                            <td>Klarna</td>
-                                            <td>6 Weeks (But Revolving Credit)</td>
-                                            <td>
-                                            <a href="https://www.klarna.com/us/" target="_blank"> <button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></td>
-                                              </a>
-                                        </tr>
-                                      </tbody>
-                                      <tbody>
-                                        <tr>
-                                            <td>Afterpay</td>
-                                            <td>6 Weeks (But Revolving Credit)</td>
-                                            <td>
-                                            <a href="https://www.klarna.com/us/" target="_blank"> <button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></td>
-                                              </a>
-                                        </tr>
-                                      </tbody>
-                                      <tbody>
-                                        <tr>
-                                            <td>Sezzle</td>
-                                            <td>6 Weeks (But Revolving Credit)</td>
-                                            <td>
-                                            <a href="https://sezzle.com/" target="_blank"> <button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></td>
-                                              </a>
-                                        </tr>
-                                      </tbody>
-                                      <tbody>
-                                        <tr>
-                                            <td>Quadpay</td>
-                                            <td>6 Weeks (But Revolving Credit)</td>
-                                            <td>
-                                            <a href="https://www.quadpay.com/" target="_blank"> <button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></td>
-                                              </a>
-                                        </tr>
-                                      </tbody>
-                                      <tbody>
-                                        <tr>
-                                            <td>Viabill</td>
-                                            <td>6 Weeks (But Revolving Credit)</td>
-                                            <td>
-                                            <a href="https://viabill.com/" target="_blank"> <button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></td>
-                                              </a>
-                                        </tr>
-                                      </tbody>
-                                      <tbody>
-                                        <tr>
-                                            <td>Affirm</td>
-                                            <td>12 Months (No Hard Credit Check But It Does Show On Your Report As A Tradeline)</td>
-                                            <td>
-                                            <a href="https://www.affirm.com/" target="_blank"> <button type="submit" class="btn btn-primary" name="signup" value="Apply Now">Apply Now</button></td>
-                                              </a>
-                                        </tr>
+                                        {% for data in nopg_list %}
+                                            <tr>
+                                                <td>{{data.name}}</td>
+                                                <td>{{data.category}}</td>
+                                                <td>{{data.report_to}}</td>
+                                                <td><a class="btn btn-primary" href="/nopg-detail/{{data.url}}">Click Here For More Details</a></td>
+                                            </tr>
+                                            {% endfor %}
                                       </tbody>
                                    </table>
 

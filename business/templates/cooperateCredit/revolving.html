@@ -48,12 +48,12 @@
                                         </thead>
 
                                         <tbody>
-                                            {% for data in list_data %}
+                                            {% for vendor in vendor_list %}
                                   <tr>
-                                      <td>{{data.Name}}</td>
-                                      <td>{{data.category}}</td>
-                                      <td>{{data.reportTo}}</td>
-                                      <td><a class="btn btn-primary" href="/revolving-credit-details/{{data.link}}">Click Here For More Details</a></td>
+                                      <td>{{vendor.name}}</td>
+                                      <td>{{vendor.category}}</td>
+                                      <td>{{vendor.report_to}}</td>
+                                      <td><a class="btn btn-primary" href="/revolving-credit-details/{{vendor.url}}">Click Here For More Details</a></td>
                                   </tr>
                                   {% endfor %}
                                         </tbody>

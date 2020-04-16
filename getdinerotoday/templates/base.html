@@ -51,19 +51,16 @@
                   <ul class="list-inline top-right-nav">
                      <li class="dropdown avtar-dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                          <img src='{% static "images/avtar-2.png" %}' class="rounded-circle" width="30"> -->
+                          <img src='{% static "images/avtar-2.png" %}' class="rounded-circle" width="30">
                         </a>
                         <ul class="dropdown-menu top-dropdown">
                           {% if request.user.is_authenticated %}
                             <li>
                               <a href="{% url 'user:myprogress' %}"><i class="icon-bell"></i>My Progress</a>
                             </li>
-                            <li>
-                              <a href="#"><i class="icon-user"></i> Profile</a>
-                            </li>
-                            <li>
-                              <a href="#"><i class="icon-settings"></i> Settings</a></a>
-                            </li>
+<!--                            <li>-->
+<!--                              <a href="#"><i class="icon-user"></i> Profile</a>-->
+<!--                            </li>-->
                             <li class="dropdown-divider"></li>
                             <li>
                                 <a href="{% url 'user:logout'%}" class="dropdown-item">
@@ -202,7 +199,7 @@
                      <a href="{% url 'business:business-credit-plan' %}" class="nav-link"> Create My Business Credit Building Plan </a>
                    </li>
                    <li class="nav-item">
-                     <a href="{ }" class="nav-link"> Create My Credit Repair Plan </a>
+                     <a href="{% url 'business:credit-situation' %}" class="nav-link"> Create My Credit Repair Plan </a>
                    </li>
                   <li class="nav-item">
                      <a class="nav-link"  href="javascript: void(0);" aria-expanded="false"><span class="toggle-none">Business Credit Building <span class="fa arrow"></span></span></a>
@@ -274,9 +271,9 @@
                    <li class="nav-item">
                      <a href="{% url 'business:apply-loans' %}" class="nav-link"> Apply For Business Loans </a>
                    </li>
-                   <li class="nav-item">
-                     <a href="{% url 'business:credit-repair-options' %}" class="nav-link"> Sign Up For Credit Repair </a>
-                   </li>
+<!--                   <li class="nav-item">-->
+<!--                     <a href="{% url 'business:credit-repair-options' %}" class="nav-link"> Sign Up For Credit Repair </a>-->
+<!--                   </li>-->
                    <li class="nav-item">
                      <a href="{% url 'business:credit-trade-lines' %}" class="nav-link"> Personal Credit Primary Tradelines </a>
                    </li>

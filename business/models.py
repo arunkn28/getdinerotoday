@@ -125,6 +125,7 @@ class Nopg(ModelMixin, models.Model):
     monthly_payment = models.CharField(max_length=15)
     estimated_term = models.DateField()
     payment_terms = models.CharField(max_length=50)
+    url = models.CharField(max_length=100)
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
 
@@ -260,6 +261,7 @@ class StoreCreditVendorList(ModelMixin, models.Model):
     terms = models.CharField(max_length=50)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     report_to = models.CharField(max_length=50)
+    url = models.CharField(max_length=100)
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
 
@@ -272,6 +274,7 @@ class StarterVendorList(ModelMixin, models.Model):
     terms = models.CharField(max_length=50)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     report_to = models.CharField(max_length=50)
+    url = models.CharField(max_length=100)
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(null=True, blank=True)
 
@@ -357,3 +360,31 @@ class PersonalLoan(ModelMixin, models.Model):
 
     def __str__(self):
         return self.lender_name
+
+
+class RevolvingBusinessCreditVendor(ModelMixin, models.Model):
+    class Meta:
+        db_table = 'revolving_business_credit'
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+    terms = models.CharField(max_length=50)
+    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
+    report_to = models.CharField(max_length=50)
+    url = models.CharField(max_length=100)
+    created_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class PersonalCreditTradeLine(ModelMixin, models.Model):
+    class Meta:
+        db_table = 'personal_credit_tradeline'
+    lender_name = models.CharField(max_length=50)
+    hard_check = models.CharField(max_length=50)
+    description = models.CharField(max_length=500)
+    strategy = models.CharField(max_length=50)
+    url = models.CharField(max_length=200)
+    created_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(null=True, blank=True)

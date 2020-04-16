@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import (
     Profile, Lender, StoreCreditVendorList, RevolvingCredit, Nopg, ShortTermLoan, BusinessTermLoan, SbaLoan,
-    LinesOfCredit, StarterVendorList, PersonalCreditCard, PersonalLoan
+    LinesOfCredit, StarterVendorList, PersonalCreditCard, PersonalLoan, RevolvingBusinessCreditVendor,
+    BusinessCreditCard, EquipmentFinancing, PersonalCreditTradeLine
 )
 from django.urls import reverse
 from django.views import View
@@ -451,13 +452,8 @@ class LeaderDetailsView(View):
 
 class RevolvingBusinessCreditVendorList(View):
     def get(self, request):
-        data = [
-            {"Name": "Enco Manufacturing Company", "category": '', "reportTo": 'Dun &amp; Bradstreet', "link": "1"},
-            {"Name": "REW Materials", "category": '', "reportTo": 'Equifax Small Business', "link": "2"},
-            {"Name": "United Rentals", "category": '', "reportTo": 'Dun &amp; Bradstreet', "link": "3"},
-            {"Name": "Copperfield", "category": '', "reportTo": 'Equifax Small Business', "link": "4"},
-        ]
-        return render(request, 'cooperateCredit/revolving.html', {"list_data": data})
+        vendor_list = RevolvingBusinessCreditVendor.objects.all()
+        return render(request, 'cooperateCredit/revolving.html', {"vendor_list": vendor_list})
 
 
 class RevolvingDetailsView(View):
@@ -482,13 +478,8 @@ class RevolvingDetailsView(View):
 
 class CCNoGuaranteeVendorList(View):
     def get(self, request):
-        data = [
-            {"Name": "Enco Manufacturing Company", "category": '', "reportTo": 'Dun &amp; Bradstreet', "link": "1"},
-            {"Name": "REW Materials", "category": '', "reportTo": 'Equifax Small Business', "link": "2"},
-            {"Name": "United Rentals", "category": '', "reportTo": 'Dun &amp; Bradstreet', "link": "3"},
-            {"Name": "Copperfield", "category": '', "reportTo": 'Equifax Small Business', "link": "4"},
-        ]
-        return render(request, 'cooperateCredit/nopg.html', {"list_data": data})
+        nopg_list = Nopg.objects.all()
+        return render(request, 'cooperateCredit/nopg.html', {"nopg_list": nopg_list})
 
 
 class NoPgDetailsView(View):
@@ -512,7 +503,8 @@ class PersonalCreditCardsView(View):
 
 class BusinessCreditCardsView(View):
     def get(self, request):
-        return render(request, "home/businesscards.html")
+        cc_list = BusinessCreditCard.objects.all()
+        return render(request, "home/businesscards.html", {"cc_list":cc_list})
 
 
 class ShortTermLoans(View):
@@ -562,9 +554,10 @@ class InvoiceFinancing(View):
         return render(request, "financingProducts/invoiceFinancing.html")
 
 
-class EquipmentFinancing(View):
+class EquipmentFinancingView(View):
     def get(self, request):
-        return render(request, "financingProducts/equipmentFinancing.html")
+        data_list = EquipmentFinancing.objects.all()
+        return render(request, "financingProducts/equipmentFinancing.html", {"data_list": data_list})
 
 
 class MarketingYourBusiness(View):
@@ -599,7 +592,8 @@ class CreditRepairView(View):
 
 class CreditPrimaryTradeLines(View):
     def get(self, request):
-        return render(request, 'creditPrimaryTradeline.html')
+        data_list = PersonalCreditTradeLine.objects.all()
+        return render(request, 'creditPrimaryTradeline.html', {'data_list': data_list})
 
 
 class BusinessCreditRepair(View):
@@ -614,7 +608,8 @@ class BusinessCreditMonitoringSingUp(View):
 
 class BusinessCreditCardStrategy(View):
     def get(self, request):
-        return render(request, 'businessCreditCardStrategy.html')
+        cc_list = BusinessCreditCard.objects.all()
+        return render(request, 'businessCreditCardStrategy.html', {'cc_list': cc_list})
 
 
 class MoneyReferringFriends(View):

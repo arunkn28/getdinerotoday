@@ -192,3 +192,42 @@ class PersonalLoanAdmin(ImportExportModelAdmin):
 
 admin.site.register(PersonalLoan, PersonalLoanAdmin)
 
+
+class RevolvingBusinessCreditVendorResource(resources.ModelResource):
+    class Meta:
+        model = RevolvingBusinessCreditVendor
+        exclude = ('created_at', 'updated_at')
+
+
+class RevolvingBusinessCreditVendorAdmin(ImportExportModelAdmin):
+    resource_class = RevolvingBusinessCreditVendorResource
+
+
+admin.site.register(RevolvingBusinessCreditVendor, RevolvingBusinessCreditVendorAdmin)
+
+
+class NopgResource(resources.ModelResource):
+    class Meta:
+        model = Nopg
+        exclude = ('created_at', 'updated_at')
+
+
+class NopgAdmin(ImportExportModelAdmin):
+    resource_class = NopgResource
+
+
+admin.site.register(Nopg, NopgAdmin)
+
+
+class PersonalCreditTradeLineResource(resources.ModelResource):
+    class Meta:
+        model = PersonalCreditTradeLine
+        exclude = ('created_at', 'updated_at')
+
+
+class PersonalCreditTradeLineAdmin(ImportExportModelAdmin):
+    resource_class = PersonalCreditTradeLineResource
+
+
+admin.site.register(PersonalCreditTradeLine, PersonalCreditTradeLineAdmin)
+
