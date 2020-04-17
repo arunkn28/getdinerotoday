@@ -497,8 +497,7 @@ class NoPgDetailsView(View):
 class PersonalCreditCardsView(View):
     def get(self, request):
         personal_credit_cards = PersonalCreditCard.objects.all()
-        return render(request, "financingProducts/personalCreditCard.html", {'personal_credit_cards'
-                                                                             : personal_credit_cards})
+        return render(request, "financingProducts/personalCreditCard.html", {'personal_credit_cards': personal_credit_cards})
 
 
 class BusinessCreditCardsView(View):
