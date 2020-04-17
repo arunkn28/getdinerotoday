@@ -1,6 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+  
+{% endblock title %}
+
+{% block extrastyle %}
+    
+{% endblock extrastyle %}
+
+{% block content %}
 
             <div class="row page-header"><div class="col-lg-6 align-self-center ">
-			  <h2>My Credit Repair Plan</h2></div></div>
+        <h2>My Credit Repair Plan</h2></div></div>
 
         <section class="main-content">
           <div class="row">
@@ -134,19 +145,25 @@
                                                      <tbody>
                                                        <tr>
                                                            <td>Collections On Your Credit Report</td>
-                                                          <td><%= link_to "Click Here To Have Us Fix Your Credit",creditrepair_path,:class=>"btn btn-primary" %></td>
+                                                          <td><a href="{% url 'business:credit-repair' %}" class="btn btn-primary">Click Here To Have Us Fix Your Credit</a></td>
                                                        </tr>
                                                      </tbody>
                                                      <tbody>
                                                        <tr>
                                                            <td>Too Many Inquiries On Your Credit Report</td>
-                                                           <td><%= link_to "Click Here To Have Us Fix Your Credit",creditrepair_path,:class=>"btn btn-primary" %></td>
+                                                           <td><a href="{% url 'business:credit-repair' %}" class="btn btn-primary">Click Here To Have Us Fix Your Credit</a></td>
+                                                       </tr>
+                                                     </tbody>
+                                                     <tbody>
+                                                       <tr>
+                                                           <td>Missed Payments On Your Credit Report</td>
+                                                           <td><a href="{% url 'business:credit-repair' %}" class="btn btn-primary">Click Here To Have Us Fix Your Credit</a></td>
                                                        </tr>
                                                      </tbody>
                                                      <tbody>
                                                        <tr>
                                                            <td>High Credit Card Utilization</td>
-                                                           <td><%= link_to "Click Here To Have Us Fix Your Credit",creditrepair_path,:class=>"btn btn-primary" %></td>
+                                                           <td><a href="{% url 'business:credit-repair' %}" class="btn btn-primary">Click Here To Have Us Fix Your Credit</a></td>
                                                        </tr>
                                                      </tbody>
                                                   </table>
@@ -170,5 +187,11 @@
               </div>
             </div>
 
-
         </section>
+
+{% endblock content %}
+
+
+{% block javascriptblock %}
+  
+{% endblock javascriptblock %}

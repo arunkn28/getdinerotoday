@@ -128,7 +128,7 @@ class FinancingView(View):
 
 class FinancingPlan1View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan1.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan1.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -143,7 +143,7 @@ class FinancingPlan1View(ContextMixin, View):
 
 class FinancingPlan2View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan2.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan2.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -159,7 +159,7 @@ class FinancingPlan2View(ContextMixin, View):
 
 class FinancingPlan3View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan3.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan3.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -174,7 +174,7 @@ class FinancingPlan3View(ContextMixin, View):
 
 class FinancingPlan6View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan6.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan6.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -185,7 +185,7 @@ class FinancingPlan6View(ContextMixin, View):
 
 class FinancingPlan7View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan7.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan7.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -197,7 +197,7 @@ class FinancingPlan7View(ContextMixin, View):
 
 class FinancingPlan8View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan8.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan8.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -208,7 +208,7 @@ class FinancingPlan8View(ContextMixin, View):
 
 class FinancingPlan10View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan10.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan10.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -225,7 +225,7 @@ class FinancingPlan10View(ContextMixin, View):
 
 class FinancingPlan12View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan12.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan12.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -241,7 +241,7 @@ class FinancingPlan12View(ContextMixin, View):
 
 class FinancingPlan15View(ContextMixin, View):
     def get(self, request):
-        return render(request, "home/financingplan15.html", context=self.get_context_data())
+        return render(request, "financingplans/financingplan15.html", context=self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -260,6 +260,63 @@ class CreditSituationView(View):
     def get(self, request):
         return render(request, "home/creditsituation.html")
 
+    def post(self, request):
+        data = request.POST
+        experian_score = int(data['experian_score'])
+        equifax_score = int(data['equifax_score'])
+        transunion_score = int(data['transunion_score'])
+        experian_utilization = int(data['experian_utilization'])
+        equifax_utilization = int(data['equifax_utilization'])
+        transunion_utilization = int(data['transunion_utilization'])
+        current_collections = int(data['current_collections'])
+        bankruptcies = int(data['bankruptcies'])
+        bankruptcies_10 = int(data['bankruptcies_10'])
+        inquiries = int(data['inquiries'])
+        missed_payments = int(data['missed_payments'])
+        current_acc_experian = int(data['current_acc_experian'])
+        current_acc_equifax = int(data['current_acc_equifax'])
+        current_acc_transunion = int(data['current_acc_transunion'])
+        credit_history_experian = int(data['credit_history_experian'])
+        credit_history_equifax = int(data['credit_history_equifax'])
+        credit_history_transunion = int(data['credit_history_transunion'])
+
+        if experian_score == 1:
+            if bankruptcies_10 == 1:
+                if credit_history_experian == 1:
+                    return HttpResponseRedirect(reverse("business:credit_repair_1"))
+                else:
+                    # a tie btn 4 and 7
+                    return HttpResponseRedirect(reverse("business:credit_repair_7"))
+            if inquiries == 2:
+                return HttpResponseRedirect(reverse("business:credit_repair_14"))
+            else:
+                if missed_payments == 1:
+                    return HttpResponseRedirect(reverse("business:credit_repair_8"))
+                else:
+                    return HttpResponseRedirect(reverse("business:credit_repair_11"))
+        elif experian_score == 2:
+            if bankruptcies_10 == 1:
+                return HttpResponseRedirect(reverse("business:credit_repair_5"))
+            if inquiries == 2:
+                return HttpResponseRedirect(reverse("business:credit_repair_15"))
+            if missed_payments == 1:
+                return HttpResponseRedirect(reverse("business:credit_repair_9"))
+            if missed_payments == 2:
+                return HttpResponseRedirect(reverse("business:credit_repair_12"))
+            else:
+                return HttpResponseRedirect(reverse("business:credit_repair_17"))
+
+        else:
+            if bankruptcies_10 == 1:
+                return HttpResponseRedirect(reverse("business:credit_repair_6"))
+            if inquiries == 2:
+                return HttpResponseRedirect(reverse("business:credit_repair_16"))
+            if missed_payments == 1:
+                return HttpResponseRedirect(reverse("business:credit_repair_10"))
+            if missed_payments == 2:
+                return HttpResponseRedirect(reverse("business:credit_repair_13"))
+            else:
+                return HttpResponseRedirect(reverse("business:credit_repair_17"))
 
 class BusinessEntity(View):
     def get(self, request):
@@ -503,7 +560,7 @@ class PersonalCreditCardsView(View):
 class BusinessCreditCardsView(View):
     def get(self, request):
         cc_list = BusinessCreditCard.objects.all()
-        return render(request, "home/businesscards.html", {"cc_list":cc_list})
+        return render(request, "home/businesscards.html", {"cc_list": cc_list})
 
 
 class ShortTermLoans(View):
@@ -619,3 +676,173 @@ class MoneyReferringFriends(View):
 class InsuranceProduct(View):
     def get(self, request):
         return render(request, 'insuranceProduct.html')
+
+
+class CreditRepairPlan1View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan1.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan2View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan2.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan3View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan3.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan4View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan4.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan5View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan5.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan6View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan6.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan7View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan7.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan8View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan8.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan9View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan9.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan10View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan10.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan11View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan11.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan12View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan12.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan13View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan13.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan14View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan14.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan15View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan15.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan16View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan16.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context
+
+
+class CreditRepairPlan17View(ContextMixin, View):
+    def get(self, request):
+        return render(request, "creditrepair/creditrepairplan17.html", context=self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['shortterm'] = []
+        return context

@@ -58,9 +58,9 @@
                             <li>
                               <a href="{% url 'user:myprogress' %}"><i class="icon-bell"></i>My Progress</a>
                             </li>
-<!--                            <li>-->
-<!--                              <a href="#"><i class="icon-user"></i> Profile</a>-->
-<!--                            </li>-->
+                            <!--<li>-->
+                            <!-- <a href="#"><i class="icon-user"></i> Profile</a>-->
+                            <!--</li>-->
                             <li class="dropdown-divider"></li>
                             <li>
                                 <a href="{% url 'user:logout'%}" class="dropdown-item">
@@ -271,9 +271,9 @@
                    <li class="nav-item">
                      <a href="{% url 'business:apply-loans' %}" class="nav-link"> Apply For Business Loans </a>
                    </li>
-<!--                   <li class="nav-item">-->
-<!--                     <a href="{% url 'business:credit-repair-options' %}" class="nav-link"> Sign Up For Credit Repair </a>-->
-<!--                   </li>-->
+                    <!-- <li class="nav-item">
+                      <a href="{% url 'business:credit-repair-options' %}" class="nav-link"> Sign Up For Credit Repair </a>
+                    </li>-->
                    <li class="nav-item">
                      <a href="{% url 'business:credit-trade-lines' %}" class="nav-link"> Personal Credit Primary Tradelines </a>
                    </li>
@@ -352,16 +352,22 @@
     $(".nano").nanoScroller();
 
     // Left menu collapse
-    $('.left-nav-toggle a').on('click', function (event) {
-        event.preventDefault();
-        $("body").toggleClass("nav-toggle");
-    });
+    // $('.left-nav-toggle a').on('click', function (event) {
+    //     event.preventDefault();
+    //     $("body").toggleClass("nav-toggle");
+    // });
+    $(document).ready(function(){
+        $(".left-nav-toggle a").off("click").on("click", function() {
+          event.preventDefault();
+          $("body").toggleClass("nav-toggle");
+        });
+    })
 
     // Left menu collapse
-      $('.left-nav-collapsed a').on('click', function (event) {
-          event.preventDefault();
-          $("body").toggleClass("nav-collapsed");
-      });
+      // $('.left-nav-collapsed a').on('click', function (event) {
+      //     event.preventDefault();
+      //     $("body").toggleClass("nav-collapsed");
+      // });
 
     // Left menu collapse
       $('.right-sidebar-toggle').on('click', function (event) {
